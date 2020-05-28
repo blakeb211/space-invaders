@@ -1,0 +1,530 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.7	//
+BALLS_SPEED	.\pang.c	30;"	d	file:
+BLOCK	.\tetris.c	/^typedef enum GridSquare { EMPTY, MOVING, FULL, BLOCK, FADING } GridSquare;$/;"	e	enum:GridSquare	file:
+BRICKS_PER_LINE	.\arkanoid.c	30;"	d	file:
+BUILDINGS_AMOUNT	.\missile_commander.c	32;"	d	file:
+BUILDING_MAX_GRAYSCALE_COLOR	.\gorilas.c	36;"	d	file:
+BUILDING_MAX_RELATIVE_HEIGHT	.\gorilas.c	34;"	d	file:
+BUILDING_MIN_GRAYSCALE_COLOR	.\gorilas.c	35;"	d	file:
+BUILDING_MIN_RELATIVE_HEIGHT	.\gorilas.c	33;"	d	file:
+BUILDING_RELATIVE_ERROR	.\gorilas.c	32;"	d	file:
+BUILDING_SIZE	.\missile_commander.c	35;"	d	file:
+Ball	.\arkanoid.c	/^typedef struct Ball {$/;"	s	file:
+Ball	.\arkanoid.c	/^} Ball;$/;"	t	typeref:struct:Ball	file:
+Ball	.\gorilas.c	/^typedef struct Ball {$/;"	s	file:
+Ball	.\gorilas.c	/^} Ball;$/;"	t	typeref:struct:Ball	file:
+Ball	.\pang.c	/^typedef struct Ball {$/;"	s	file:
+Ball	.\pang.c	/^} Ball;$/;"	t	typeref:struct:Ball	file:
+Brick	.\arkanoid.c	/^typedef struct Brick {$/;"	s	file:
+Brick	.\arkanoid.c	/^} Brick;$/;"	t	typeref:struct:Brick	file:
+Building	.\gorilas.c	/^typedef struct Building {$/;"	s	file:
+Building	.\gorilas.c	/^} Building;$/;"	t	typeref:struct:Building	file:
+Building	.\missile_commander.c	/^typedef struct Building {$/;"	s	file:
+Building	.\missile_commander.c	/^} Building;$/;"	t	typeref:struct:Building	file:
+Bullet	.\proto1.cpp	/^struct Bullet : Entity {$/;"	s	file:
+CheckCompletion	.\tetris.c	/^static void CheckCompletion(bool *lineToDelete)$/;"	f	file:
+CheckDetection	.\tetris.c	/^static void CheckDetection(bool *detection)$/;"	f	file:
+Createpiece	.\tetris.c	/^static bool Createpiece()$/;"	f	file:
+DELTA_FPS	.\gorilas.c	42;"	d	file:
+DeleteCompleteLines	.\tetris.c	/^static void DeleteCompleteLines()$/;"	f	file:
+Draw	.\proto1.cpp	/^    virtual void Draw() { }$/;"	f	struct:Entity
+DrawGame	.\arkanoid.c	/^void DrawGame(void)$/;"	f
+DrawGame	.\asteroids.c	/^void DrawGame(void)$/;"	f
+DrawGame	.\asteroids_survival.c	/^void DrawGame(void)$/;"	f
+DrawGame	.\floppy.c	/^void DrawGame(void)$/;"	f
+DrawGame	.\gold_fever.c	/^void DrawGame(void)$/;"	f
+DrawGame	.\gorilas.c	/^void DrawGame(void)$/;"	f
+DrawGame	.\missile_commander.c	/^void DrawGame(void)$/;"	f
+DrawGame	.\pang.c	/^void DrawGame(void)$/;"	f
+DrawGame	.\snake.c	/^void DrawGame(void)$/;"	f
+DrawGame	.\space_invaders.c	/^void DrawGame(void)$/;"	f
+DrawGame	.\tetris.c	/^void DrawGame(void)$/;"	f
+EMPTY	.\tetris.c	/^typedef enum GridSquare { EMPTY, MOVING, FULL, BLOCK, FADING } GridSquare;$/;"	e	enum:GridSquare	file:
+ENDING	.\arkanoid.c	/^typedef enum GameScreen { LOGO, TITLE, GAMEPLAY, ENDING } GameScreen;$/;"	e	enum:GameScreen	file:
+EXPLOSION_COLOR	.\missile_commander.c	44;"	d	file:
+EXPLOSION_INCREASE_TIME	.\missile_commander.c	41;"	d	file:
+EXPLOSION_RADIUS	.\missile_commander.c	36;"	d	file:
+EXPLOSION_TOTAL_TIME	.\missile_commander.c	42;"	d	file:
+Enemy	.\gold_fever.c	/^typedef struct Enemy {$/;"	s	file:
+Enemy	.\gold_fever.c	/^} Enemy;$/;"	t	typeref:struct:Enemy	file:
+Enemy	.\proto1.cpp	/^struct Enemy : Entity {$/;"	s	file:
+Enemy	.\space_invaders.c	/^typedef struct Enemy{$/;"	s	file:
+Enemy	.\space_invaders.c	/^} Enemy;$/;"	t	typeref:struct:Enemy	file:
+EnemyWave	.\space_invaders.c	/^typedef enum { FIRST = 0, SECOND, THIRD } EnemyWave;$/;"	t	typeref:enum:__anon1	file:
+Entity	.\proto1.cpp	/^struct Entity {$/;"	s	file:
+Explosion	.\gorilas.c	/^typedef struct Explosion {$/;"	s	file:
+Explosion	.\gorilas.c	/^} Explosion;$/;"	t	typeref:struct:Explosion	file:
+Explosion	.\missile_commander.c	/^typedef struct Explosion {$/;"	s	file:
+Explosion	.\missile_commander.c	/^} Explosion;$/;"	t	typeref:struct:Explosion	file:
+FADING	.\tetris.c	/^typedef enum GridSquare { EMPTY, MOVING, FULL, BLOCK, FADING } GridSquare;$/;"	e	enum:GridSquare	file:
+FADING_TIME	.\tetris.c	37;"	d	file:
+FAST_FALL_AWAIT_COUNTER	.\tetris.c	35;"	d	file:
+FIRST	.\space_invaders.c	/^typedef enum { FIRST = 0, SECOND, THIRD } EnemyWave;$/;"	e	enum:__anon1	file:
+FIRST_WAVE	.\space_invaders.c	25;"	d	file:
+FLOPPY_RADIUS	.\floppy.c	24;"	d	file:
+FULL	.\tetris.c	/^typedef enum GridSquare { EMPTY, MOVING, FULL, BLOCK, FADING } GridSquare;$/;"	e	enum:GridSquare	file:
+Floppy	.\floppy.c	/^typedef struct Floppy {$/;"	s	file:
+Floppy	.\floppy.c	/^} Floppy;$/;"	t	typeref:struct:Floppy	file:
+Food	.\snake.c	/^typedef struct Food {$/;"	s	file:
+Food	.\snake.c	/^} Food;$/;"	t	typeref:struct:Food	file:
+GAMEPLAY	.\arkanoid.c	/^typedef enum GameScreen { LOGO, TITLE, GAMEPLAY, ENDING } GameScreen;$/;"	e	enum:GameScreen	file:
+GRAVITY	.\gorilas.c	41;"	d	file:
+GRID_HORIZONTAL_SIZE	.\tetris.c	30;"	d	file:
+GRID_VERTICAL_SIZE	.\tetris.c	31;"	d	file:
+Game	.\proto1.cpp	/^struct Game {$/;"	s	file:
+GameScreen	.\arkanoid.c	/^typedef enum GameScreen { LOGO, TITLE, GAMEPLAY, ENDING } GameScreen;$/;"	g	file:
+GameScreen	.\arkanoid.c	/^typedef enum GameScreen { LOGO, TITLE, GAMEPLAY, ENDING } GameScreen;$/;"	t	typeref:enum:GameScreen	file:
+GetRandompiece	.\tetris.c	/^static void GetRandompiece()$/;"	f	file:
+GridSquare	.\tetris.c	/^typedef enum GridSquare { EMPTY, MOVING, FULL, BLOCK, FADING } GridSquare;$/;"	g	file:
+GridSquare	.\tetris.c	/^typedef enum GridSquare { EMPTY, MOVING, FULL, BLOCK, FADING } GridSquare;$/;"	t	typeref:enum:GridSquare	file:
+Home	.\gold_fever.c	/^typedef struct Home {$/;"	s	file:
+Home	.\gold_fever.c	/^} Home;$/;"	t	typeref:struct:Home	file:
+INTERCEPTOR_SPEED	.\missile_commander.c	40;"	d	file:
+InitBuildings	.\gorilas.c	/^static void InitBuildings(void)$/;"	f	file:
+InitGame	.\arkanoid.c	/^void InitGame(void)$/;"	f
+InitGame	.\asteroids.c	/^void InitGame(void)$/;"	f
+InitGame	.\asteroids_survival.c	/^void InitGame(void)$/;"	f
+InitGame	.\floppy.c	/^void InitGame(void)$/;"	f
+InitGame	.\gold_fever.c	/^void InitGame(void)$/;"	f
+InitGame	.\gorilas.c	/^void InitGame(void)$/;"	f
+InitGame	.\missile_commander.c	/^void InitGame(void)$/;"	f
+InitGame	.\pang.c	/^static void InitGame(void)$/;"	f	file:
+InitGame	.\snake.c	/^void InitGame(void)$/;"	f
+InitGame	.\space_invaders.c	/^void InitGame(void)$/;"	f
+InitGame	.\tetris.c	/^void InitGame(void)$/;"	f
+InitPlayers	.\gorilas.c	/^static void InitPlayers(void)$/;"	f	file:
+Interceptor	.\missile_commander.c	/^typedef struct Interceptor {$/;"	s	file:
+Interceptor	.\missile_commander.c	/^} Interceptor;$/;"	t	typeref:struct:Interceptor	file:
+LATERAL_SPEED	.\tetris.c	33;"	d	file:
+LAUNCHERS_AMOUNT	.\missile_commander.c	31;"	d	file:
+LAUNCHER_SIZE	.\missile_commander.c	34;"	d	file:
+LINES_OF_BRICKS	.\arkanoid.c	29;"	d	file:
+LOGO	.\arkanoid.c	/^typedef enum GameScreen { LOGO, TITLE, GAMEPLAY, ENDING } GameScreen;$/;"	e	enum:GameScreen	file:
+Launcher	.\missile_commander.c	/^typedef struct Launcher {$/;"	s	file:
+Launcher	.\missile_commander.c	/^} Launcher;$/;"	t	typeref:struct:Launcher	file:
+MAX_BIG_BALLS	.\pang.c	29;"	d	file:
+MAX_BIG_METEORS	.\asteroids.c	30;"	d	file:
+MAX_BUILDINGS	.\gorilas.c	28;"	d	file:
+MAX_EXPLOSIONS	.\gorilas.c	29;"	d	file:
+MAX_EXPLOSIONS	.\missile_commander.c	30;"	d	file:
+MAX_INTERCEPTORS	.\missile_commander.c	29;"	d	file:
+MAX_MEDIUM_METEORS	.\asteroids.c	31;"	d	file:
+MAX_MEDIUM_METEORS	.\asteroids_survival.c	30;"	d	file:
+MAX_MISSILES	.\missile_commander.c	28;"	d	file:
+MAX_PLAYERS	.\gorilas.c	30;"	d	file:
+MAX_PLAYER_POSITION	.\gorilas.c	39;"	d	file:
+MAX_SMALL_METEORS	.\asteroids.c	32;"	d	file:
+MAX_SMALL_METEORS	.\asteroids_survival.c	31;"	d	file:
+MAX_TUBES	.\floppy.c	23;"	d	file:
+METEORS_SPEED	.\asteroids.c	29;"	d	file:
+METEORS_SPEED	.\asteroids_survival.c	29;"	d	file:
+MIN_PLAYER_POSITION	.\gorilas.c	38;"	d	file:
+MISSILE_LAUNCH_FRAMES	.\missile_commander.c	39;"	d	file:
+MISSILE_SPEED	.\missile_commander.c	38;"	d	file:
+MOVING	.\tetris.c	/^typedef enum GridSquare { EMPTY, MOVING, FULL, BLOCK, FADING } GridSquare;$/;"	e	enum:GridSquare	file:
+Meteor	.\asteroids.c	/^typedef struct Meteor {$/;"	s	file:
+Meteor	.\asteroids.c	/^} Meteor;$/;"	t	typeref:struct:Meteor	file:
+Meteor	.\asteroids_survival.c	/^typedef struct Meteor {$/;"	s	file:
+Meteor	.\asteroids_survival.c	/^} Meteor;$/;"	t	typeref:struct:Meteor	file:
+Missile	.\missile_commander.c	/^typedef struct Missile {$/;"	s	file:
+Missile	.\missile_commander.c	/^} Missile;$/;"	t	typeref:struct:Missile	file:
+NUM_MAX_ENEMIES	.\space_invaders.c	24;"	d	file:
+NUM_SHOOTS	.\space_invaders.c	23;"	d	file:
+PLAYER_BASE_SIZE	.\asteroids.c	25;"	d	file:
+PLAYER_BASE_SIZE	.\asteroids_survival.c	25;"	d	file:
+PLAYER_BASE_SIZE	.\pang.c	25;"	d	file:
+PLAYER_MAX_LIFE	.\arkanoid.c	28;"	d	file:
+PLAYER_MAX_SHOOTS	.\asteroids.c	27;"	d	file:
+PLAYER_MAX_SHOOTS	.\asteroids_survival.c	27;"	d	file:
+PLAYER_MAX_SHOOTS	.\pang.c	27;"	d	file:
+PLAYER_SPEED	.\asteroids.c	26;"	d	file:
+PLAYER_SPEED	.\asteroids_survival.c	26;"	d	file:
+PLAYER_SPEED	.\pang.c	26;"	d	file:
+Player	.\arkanoid.c	/^typedef struct Player {$/;"	s	file:
+Player	.\arkanoid.c	/^} Player;$/;"	t	typeref:struct:Player	file:
+Player	.\asteroids.c	/^typedef struct Player {$/;"	s	file:
+Player	.\asteroids.c	/^} Player;$/;"	t	typeref:struct:Player	file:
+Player	.\asteroids_survival.c	/^typedef struct Player {$/;"	s	file:
+Player	.\asteroids_survival.c	/^} Player;$/;"	t	typeref:struct:Player	file:
+Player	.\gold_fever.c	/^typedef struct Player {$/;"	s	file:
+Player	.\gold_fever.c	/^} Player;$/;"	t	typeref:struct:Player	file:
+Player	.\gorilas.c	/^typedef struct Player {$/;"	s	file:
+Player	.\gorilas.c	/^} Player;$/;"	t	typeref:struct:Player	file:
+Player	.\pang.c	/^typedef struct Player {$/;"	s	file:
+Player	.\pang.c	/^} Player;$/;"	t	typeref:struct:Player	file:
+Player	.\proto1.cpp	/^struct Player : Entity {$/;"	s	file:
+Player	.\space_invaders.c	/^typedef struct Player{$/;"	s	file:
+Player	.\space_invaders.c	/^} Player;$/;"	t	typeref:struct:Player	file:
+Points	.\gold_fever.c	/^typedef struct Points {$/;"	s	file:
+Points	.\gold_fever.c	/^} Points;$/;"	t	typeref:struct:Points	file:
+Points	.\pang.c	/^typedef struct Points {$/;"	s	file:
+Points	.\pang.c	/^} Points;$/;"	t	typeref:struct:Points	file:
+ResolveFallingMovement	.\tetris.c	/^static void ResolveFallingMovement(bool *detection, bool *pieceActive)$/;"	f	file:
+ResolveLateralMovement	.\tetris.c	/^static bool ResolveLateralMovement()$/;"	f	file:
+ResolveTurnMovement	.\tetris.c	/^static bool ResolveTurnMovement()$/;"	f	file:
+SECOND	.\space_invaders.c	/^typedef enum { FIRST = 0, SECOND, THIRD } EnemyWave;$/;"	e	enum:__anon1	file:
+SECOND_WAVE	.\space_invaders.c	26;"	d	file:
+SNAKE_LENGTH	.\snake.c	23;"	d	file:
+SQUARE_SIZE	.\snake.c	24;"	d	file:
+SQUARE_SIZE	.\tetris.c	28;"	d	file:
+Shoot	.\asteroids.c	/^typedef struct Shoot {$/;"	s	file:
+Shoot	.\asteroids.c	/^} Shoot;$/;"	t	typeref:struct:Shoot	file:
+Shoot	.\pang.c	/^typedef struct Shoot {$/;"	s	file:
+Shoot	.\pang.c	/^} Shoot;$/;"	t	typeref:struct:Shoot	file:
+Shoot	.\space_invaders.c	/^typedef struct Shoot{$/;"	s	file:
+Shoot	.\space_invaders.c	/^} Shoot;$/;"	t	typeref:struct:Shoot	file:
+Snake	.\snake.c	/^typedef struct Snake {$/;"	s	file:
+Snake	.\snake.c	/^} Snake;$/;"	t	typeref:struct:Snake	file:
+THIRD	.\space_invaders.c	/^typedef enum { FIRST = 0, SECOND, THIRD } EnemyWave;$/;"	e	enum:__anon1	file:
+THIRD_WAVE	.\space_invaders.c	27;"	d	file:
+TITLE	.\arkanoid.c	/^typedef enum GameScreen { LOGO, TITLE, GAMEPLAY, ENDING } GameScreen;$/;"	e	enum:GameScreen	file:
+TUBES_WIDTH	.\floppy.c	25;"	d	file:
+TURNING_SPEED	.\tetris.c	34;"	d	file:
+Tubes	.\floppy.c	/^typedef struct Tubes {$/;"	s	file:
+Tubes	.\floppy.c	/^} Tubes;$/;"	t	typeref:struct:Tubes	file:
+UnloadGame	.\arkanoid.c	/^void UnloadGame(void)$/;"	f
+UnloadGame	.\asteroids.c	/^void UnloadGame(void)$/;"	f
+UnloadGame	.\asteroids_survival.c	/^void UnloadGame(void)$/;"	f
+UnloadGame	.\floppy.c	/^void UnloadGame(void)$/;"	f
+UnloadGame	.\gold_fever.c	/^void UnloadGame(void)$/;"	f
+UnloadGame	.\gorilas.c	/^void UnloadGame(void)$/;"	f
+UnloadGame	.\missile_commander.c	/^void UnloadGame(void)$/;"	f
+UnloadGame	.\pang.c	/^void UnloadGame(void)$/;"	f
+UnloadGame	.\snake.c	/^void UnloadGame(void)$/;"	f
+UnloadGame	.\space_invaders.c	/^void UnloadGame(void)$/;"	f
+UnloadGame	.\tetris.c	/^void UnloadGame(void)$/;"	f
+Update	.\proto1.cpp	/^    virtual void Update(float fElapsed) { }$/;"	f	struct:Entity
+UpdateAll	.\proto1.cpp	/^    void UpdateAll() {$/;"	f	struct:Game
+UpdateBall	.\gorilas.c	/^static bool UpdateBall(int playerTurn)$/;"	f	file:
+UpdateDrawFrame	.\arkanoid.c	/^void UpdateDrawFrame(void)$/;"	f
+UpdateDrawFrame	.\asteroids.c	/^void UpdateDrawFrame(void)$/;"	f
+UpdateDrawFrame	.\asteroids_survival.c	/^void UpdateDrawFrame(void)$/;"	f
+UpdateDrawFrame	.\floppy.c	/^void UpdateDrawFrame(void)$/;"	f
+UpdateDrawFrame	.\gold_fever.c	/^void UpdateDrawFrame(void)$/;"	f
+UpdateDrawFrame	.\gorilas.c	/^void UpdateDrawFrame(void)$/;"	f
+UpdateDrawFrame	.\missile_commander.c	/^void UpdateDrawFrame(void)$/;"	f
+UpdateDrawFrame	.\pang.c	/^void UpdateDrawFrame(void)$/;"	f
+UpdateDrawFrame	.\snake.c	/^void UpdateDrawFrame(void)$/;"	f
+UpdateDrawFrame	.\space_invaders.c	/^void UpdateDrawFrame(void)$/;"	f
+UpdateDrawFrame	.\tetris.c	/^void UpdateDrawFrame(void)$/;"	f
+UpdateGame	.\arkanoid.c	/^void UpdateGame(void)$/;"	f
+UpdateGame	.\asteroids.c	/^void UpdateGame(void)$/;"	f
+UpdateGame	.\asteroids_survival.c	/^void UpdateGame(void)$/;"	f
+UpdateGame	.\floppy.c	/^void UpdateGame(void)$/;"	f
+UpdateGame	.\gold_fever.c	/^void UpdateGame(void)$/;"	f
+UpdateGame	.\gorilas.c	/^void UpdateGame(void)$/;"	f
+UpdateGame	.\missile_commander.c	/^void UpdateGame(void)$/;"	f
+UpdateGame	.\pang.c	/^void UpdateGame(void)$/;"	f
+UpdateGame	.\snake.c	/^void UpdateGame(void)$/;"	f
+UpdateGame	.\space_invaders.c	/^void UpdateGame(void)$/;"	f
+UpdateGame	.\tetris.c	/^void UpdateGame(void)$/;"	f
+UpdateIncomingFire	.\missile_commander.c	/^static void UpdateIncomingFire()$/;"	f	file:
+UpdateOutgoingFire	.\missile_commander.c	/^static void UpdateOutgoingFire()$/;"	f	file:
+UpdatePlayer	.\gorilas.c	/^static bool UpdatePlayer(int playerTurn)$/;"	f	file:
+Voxel	.\proto1.cpp	/^struct Voxel { $/;"	s	file:
+_USE_MATH_DEFINES	.\stdlibs.h	5;"	d
+acceleration	.\asteroids.c	/^    float acceleration;$/;"	m	struct:Player	file:
+acceleration	.\asteroids_survival.c	/^    float acceleration;$/;"	m	struct:Player	file:
+active	.\arkanoid.c	/^    bool active;$/;"	m	struct:Ball	file:
+active	.\arkanoid.c	/^    bool active;$/;"	m	struct:Brick	file:
+active	.\asteroids.c	/^    bool active;$/;"	m	struct:Meteor	file:
+active	.\asteroids.c	/^    bool active;$/;"	m	struct:Shoot	file:
+active	.\asteroids_survival.c	/^    bool active;$/;"	m	struct:Meteor	file:
+active	.\floppy.c	/^    bool active;$/;"	m	struct:Tubes	file:
+active	.\gold_fever.c	/^    bool active;$/;"	m	struct:Home	file:
+active	.\gold_fever.c	/^    bool active;$/;"	m	struct:Points	file:
+active	.\gorilas.c	/^    bool active;$/;"	m	struct:Ball	file:
+active	.\gorilas.c	/^    bool active;$/;"	m	struct:Explosion	file:
+active	.\missile_commander.c	/^    bool active;$/;"	m	struct:Building	file:
+active	.\missile_commander.c	/^    bool active;$/;"	m	struct:Explosion	file:
+active	.\missile_commander.c	/^    bool active;$/;"	m	struct:Interceptor	file:
+active	.\missile_commander.c	/^    bool active;$/;"	m	struct:Launcher	file:
+active	.\missile_commander.c	/^    bool active;$/;"	m	struct:Missile	file:
+active	.\pang.c	/^    bool active;$/;"	m	struct:Ball	file:
+active	.\pang.c	/^    bool active;$/;"	m	struct:Shoot	file:
+active	.\snake.c	/^    bool active;$/;"	m	struct:Food	file:
+active	.\space_invaders.c	/^    bool active;$/;"	m	struct:Enemy	file:
+active	.\space_invaders.c	/^    bool active;$/;"	m	struct:Shoot	file:
+activeEnemies	.\space_invaders.c	/^static int activeEnemies = 0;$/;"	v	file:
+aimingAngle	.\gorilas.c	/^    int aimingAngle;$/;"	m	struct:Player	file:
+aimingPoint	.\gorilas.c	/^    Vector2 aimingPoint;$/;"	m	struct:Player	file:
+aimingPower	.\gorilas.c	/^    int aimingPower;$/;"	m	struct:Player	file:
+allowMove	.\snake.c	/^static bool allowMove = false;$/;"	v	file:
+alpha	.\pang.c	/^    float alpha;$/;"	m	struct:Points	file:
+alpha	.\space_invaders.c	/^static float alpha = 0.0f;$/;"	v	file:
+awake	.\pang.c	/^static bool awake = false;$/;"	v	file:
+ball	.\arkanoid.c	/^static Ball ball = { 0 };$/;"	v	file:
+ball	.\gorilas.c	/^static Ball ball = { 0 };$/;"	v	file:
+ballOnAir	.\gorilas.c	/^static bool ballOnAir = false;$/;"	v	file:
+beginPlay	.\tetris.c	/^static bool beginPlay = true;      \/\/ This var is only true at the begining of the game, used for the first matrix creations$/;"	v	file:
+bigBalls	.\pang.c	/^static Ball bigBalls[MAX_BIG_BALLS] = { 0 };$/;"	v	file:
+bigMeteor	.\asteroids.c	/^static Meteor bigMeteor[MAX_BIG_METEORS] = { 0 };$/;"	v	file:
+brick	.\arkanoid.c	/^static Brick brick[LINES_OF_BRICKS][BRICKS_PER_LINE] = { 0 };$/;"	v	file:
+brickSize	.\arkanoid.c	/^static Vector2 brickSize = { 0 };$/;"	v	file:
+building	.\gorilas.c	/^static Building building[MAX_BUILDINGS] = { 0 };$/;"	v	file:
+building	.\missile_commander.c	/^static Building building[BUILDINGS_AMOUNT] = { 0 };$/;"	v	file:
+collider	.\asteroids.c	/^    Vector3 collider;$/;"	m	struct:Player	file:
+collider	.\asteroids_survival.c	/^    Vector3 collider;$/;"	m	struct:Player	file:
+collider	.\pang.c	/^    Vector3 collider;$/;"	m	struct:Player	file:
+color	.\asteroids.c	/^    Color color;$/;"	m	struct:Meteor	file:
+color	.\asteroids.c	/^    Color color;$/;"	m	struct:Player	file:
+color	.\asteroids.c	/^    Color color;$/;"	m	struct:Shoot	file:
+color	.\asteroids_survival.c	/^    Color color;$/;"	m	struct:Meteor	file:
+color	.\asteroids_survival.c	/^    Color color;$/;"	m	struct:Player	file:
+color	.\floppy.c	/^    Color color;$/;"	m	struct:Floppy	file:
+color	.\floppy.c	/^    Color color;$/;"	m	struct:Tubes	file:
+color	.\gold_fever.c	/^    Color color;$/;"	m	struct:Home	file:
+color	.\gorilas.c	/^    Color color;$/;"	m	struct:Building	file:
+color	.\proto1.cpp	/^    Color color;$/;"	m	struct:Voxel	file:
+color	.\snake.c	/^    Color color;$/;"	m	struct:Food	file:
+color	.\snake.c	/^    Color color;$/;"	m	struct:Snake	file:
+color	.\space_invaders.c	/^    Color color;$/;"	m	struct:Enemy	file:
+color	.\space_invaders.c	/^    Color color;$/;"	m	struct:Player	file:
+color	.\space_invaders.c	/^    Color color;$/;"	m	struct:Shoot	file:
+counterTail	.\snake.c	/^static int counterTail = 0;$/;"	v	file:
+countmediumBallss	.\pang.c	/^static int countmediumBallss = 0;$/;"	v	file:
+countsmallBallss	.\pang.c	/^static int countsmallBallss = 0;$/;"	v	file:
+destroyedMeteorsCount	.\asteroids.c	/^static int destroyedMeteorsCount = 0;$/;"	v	file:
+detection	.\tetris.c	/^static bool detection = false;$/;"	v	file:
+enemiesKill	.\space_invaders.c	/^static int enemiesKill = 0;$/;"	v	file:
+enemy	.\gold_fever.c	/^static Enemy enemy = { 0 };$/;"	v	file:
+enemy	.\space_invaders.c	/^static Enemy enemy[NUM_MAX_ENEMIES] = { 0 };$/;"	v	file:
+entities	.\proto1.cpp	/^    vector<unique_ptr<Entity>> entities;$/;"	m	struct:Game	file:
+explosion	.\gorilas.c	/^static Explosion explosion[MAX_EXPLOSIONS] = { 0 };$/;"	v	file:
+explosion	.\missile_commander.c	/^static Explosion explosion[MAX_EXPLOSIONS] = { 0 };$/;"	v	file:
+explosionIndex	.\missile_commander.c	/^static int explosionIndex = 0;$/;"	v	file:
+fElapsed	.\proto1.cpp	/^    float fElapsed;$/;"	m	struct:Game	file:
+fadeLineCounter	.\tetris.c	/^static int fadeLineCounter = 0;$/;"	v	file:
+fadingColor	.\tetris.c	/^static Color fadingColor;$/;"	v	file:
+fastFallMovementCounter	.\tetris.c	/^static int fastFallMovementCounter = 0;$/;"	v	file:
+floppy	.\floppy.c	/^static Floppy floppy = { 0 };$/;"	v	file:
+follow	.\gold_fever.c	/^static bool follow = false;$/;"	v	file:
+frame	.\missile_commander.c	/^    int frame;$/;"	m	struct:Explosion	file:
+framesCounter	.\asteroids_survival.c	/^static int framesCounter = 0;$/;"	v	file:
+framesCounter	.\missile_commander.c	/^static int framesCounter = 0;$/;"	v	file:
+framesCounter	.\pang.c	/^static int framesCounter = 0;$/;"	v	file:
+framesCounter	.\snake.c	/^static int framesCounter = 0;$/;"	v	file:
+fruit	.\snake.c	/^static Food fruit = { 0 };$/;"	v	file:
+gameOver	.\arkanoid.c	/^static bool gameOver = false;$/;"	v	file:
+gameOver	.\asteroids.c	/^static bool gameOver = false;$/;"	v	file:
+gameOver	.\asteroids_survival.c	/^static bool gameOver = false;$/;"	v	file:
+gameOver	.\floppy.c	/^static bool gameOver = false;$/;"	v	file:
+gameOver	.\gold_fever.c	/^static bool gameOver = false;$/;"	v	file:
+gameOver	.\gorilas.c	/^static bool gameOver = false;$/;"	v	file:
+gameOver	.\missile_commander.c	/^static bool gameOver = false;$/;"	v	file:
+gameOver	.\pang.c	/^static bool gameOver = false;$/;"	v	file:
+gameOver	.\snake.c	/^static bool gameOver = false;$/;"	v	file:
+gameOver	.\space_invaders.c	/^static bool gameOver = false;$/;"	v	file:
+gameOver	.\tetris.c	/^static bool gameOver = false;$/;"	v	file:
+gravity	.\pang.c	/^static float gravity = 0.0f;$/;"	v	file:
+gravityMovementCounter	.\tetris.c	/^static int gravityMovementCounter = 0;$/;"	v	file:
+gravitySpeed	.\tetris.c	/^static int gravitySpeed = 30;$/;"	v	file:
+grid	.\tetris.c	/^static GridSquare grid [GRID_HORIZONTAL_SIZE][GRID_VERTICAL_SIZE];$/;"	v	file:
+hiScore	.\floppy.c	/^static int hiScore = 0;$/;"	v	file:
+hiScore	.\gold_fever.c	/^static int hiScore = 0;$/;"	v	file:
+home	.\gold_fever.c	/^static Home home = { 0 };$/;"	v	file:
+impactPoint	.\gorilas.c	/^    Vector2 impactPoint;$/;"	m	struct:Player	file:
+incomingPiece	.\tetris.c	/^static GridSquare incomingPiece [4][4];$/;"	v	file:
+interceptor	.\missile_commander.c	/^static Interceptor interceptor[MAX_INTERCEPTORS] = { 0 };$/;"	v	file:
+isAlive	.\gorilas.c	/^    bool isAlive;$/;"	m	struct:Player	file:
+isIntersecting	.\proto1.cpp	/^template<class T1, class T2> bool isIntersecting(T1& a, T2& b) {$/;"	f
+isLeftTeam	.\gorilas.c	/^    bool isLeftTeam;                \/\/ This player belongs to the left or to the right team$/;"	m	struct:Player	file:
+isPlayer	.\gorilas.c	/^    bool isPlayer;                  \/\/ If is a player or an AI$/;"	m	struct:Player	file:
+lateralMovementCounter	.\tetris.c	/^static int lateralMovementCounter = 0;$/;"	v	file:
+launcher	.\missile_commander.c	/^static Launcher launcher[LAUNCHERS_AMOUNT] = { 0 };$/;"	v	file:
+level	.\tetris.c	/^static int level = 1;$/;"	v	file:
+life	.\arkanoid.c	/^    int life;$/;"	m	struct:Player	file:
+lifeSpawn	.\asteroids.c	/^    int lifeSpawn;$/;"	m	struct:Shoot	file:
+lifeSpawn	.\pang.c	/^    int lifeSpawn;$/;"	m	struct:Shoot	file:
+linePosition	.\pang.c	/^static Vector2 linePosition = { 0 };$/;"	v	file:
+lineToDelete	.\tetris.c	/^static bool lineToDelete = false;$/;"	v	file:
+lines	.\tetris.c	/^static int lines = 0;$/;"	v	file:
+lose	.\pang.c	/^static bool lose = false;$/;"	v	file:
+main	.\arkanoid.c	/^int main(void)$/;"	f
+main	.\asteroids.c	/^int main(void)$/;"	f
+main	.\asteroids_survival.c	/^int main(void)$/;"	f
+main	.\floppy.c	/^int main(void)$/;"	f
+main	.\gold_fever.c	/^int main(void)$/;"	f
+main	.\gorilas.c	/^int main(void)$/;"	f
+main	.\missile_commander.c	/^int main(void)$/;"	f
+main	.\pang.c	/^int main(void)$/;"	f
+main	.\proto1.cpp	/^int main() {$/;"	f
+main	.\snake.c	/^int main(void)$/;"	f
+main	.\space_invaders.c	/^int main(void)$/;"	f
+main	.\tetris.c	/^int main(void)$/;"	f
+mediumBalls	.\pang.c	/^static Ball mediumBalls[MAX_BIG_BALLS*2] = { 0 };$/;"	v	file:
+mediumMeteor	.\asteroids.c	/^static Meteor mediumMeteor[MAX_MEDIUM_METEORS] = { 0 };$/;"	v	file:
+mediumMeteor	.\asteroids_survival.c	/^static Meteor mediumMeteor[MAX_MEDIUM_METEORS] = { 0 };$/;"	v	file:
+meteorsDestroyed	.\pang.c	/^static int meteorsDestroyed = 0;$/;"	v	file:
+midMeteorsCount	.\asteroids.c	/^static int midMeteorsCount = 0;$/;"	v	file:
+missile	.\missile_commander.c	/^static Missile missile[MAX_MISSILES] = { 0 };$/;"	v	file:
+moveRight	.\gold_fever.c	/^    bool moveRight;$/;"	m	struct:Enemy	file:
+objective	.\missile_commander.c	/^    Vector2 objective;$/;"	m	struct:Interceptor	file:
+objective	.\missile_commander.c	/^    Vector2 objective;$/;"	m	struct:Missile	file:
+offset	.\snake.c	/^static Vector2 offset = { 0 };$/;"	v	file:
+origin	.\missile_commander.c	/^    Vector2 origin;$/;"	m	struct:Interceptor	file:
+origin	.\missile_commander.c	/^    Vector2 origin;$/;"	m	struct:Missile	file:
+pause	.\arkanoid.c	/^static bool pause = false;$/;"	v	file:
+pause	.\asteroids.c	/^static bool pause = false;$/;"	v	file:
+pause	.\asteroids_survival.c	/^static bool pause = false;$/;"	v	file:
+pause	.\floppy.c	/^static bool pause = false;$/;"	v	file:
+pause	.\gold_fever.c	/^static bool pause = false;$/;"	v	file:
+pause	.\gorilas.c	/^static bool pause = false;$/;"	v	file:
+pause	.\missile_commander.c	/^static bool pause = false;$/;"	v	file:
+pause	.\pang.c	/^static bool pause = false;$/;"	v	file:
+pause	.\snake.c	/^static bool pause = false;$/;"	v	file:
+pause	.\space_invaders.c	/^static bool pause =  false;$/;"	v	file:
+pause	.\tetris.c	/^static bool pause = false;$/;"	v	file:
+piece	.\tetris.c	/^static GridSquare piece [4][4];$/;"	v	file:
+pieceActive	.\tetris.c	/^static bool pieceActive = false;$/;"	v	file:
+piecePositionX	.\tetris.c	/^static int piecePositionX = 0;$/;"	v	file:
+piecePositionY	.\tetris.c	/^static int piecePositionY = 0;$/;"	v	file:
+player	.\arkanoid.c	/^static Player player = { 0 };$/;"	v	file:
+player	.\asteroids.c	/^static Player player = { 0 };$/;"	v	file:
+player	.\asteroids_survival.c	/^static Player player = { 0 };$/;"	v	file:
+player	.\gold_fever.c	/^static Player player = { 0 };$/;"	v	file:
+player	.\gorilas.c	/^static Player player[MAX_PLAYERS] = { 0 };$/;"	v	file:
+player	.\pang.c	/^static Player player = { 0 };$/;"	v	file:
+player	.\space_invaders.c	/^static Player player = { 0 };$/;"	v	file:
+playerTurn	.\gorilas.c	/^static int playerTurn = 0;$/;"	v	file:
+points	.\gold_fever.c	/^static Points points = { 0 };$/;"	v	file:
+points	.\pang.c	/^    int points;$/;"	m	struct:Ball	file:
+points	.\pang.c	/^static Points points[5] = { 0 };$/;"	v	file:
+pos	.\proto1.cpp	/^    Vec3 pos;  \/\/ex, y , theta$/;"	m	struct:Voxel	file:
+position	.\arkanoid.c	/^    Vector2 position;$/;"	m	struct:Ball	file:
+position	.\arkanoid.c	/^    Vector2 position;$/;"	m	struct:Brick	file:
+position	.\arkanoid.c	/^    Vector2 position;$/;"	m	struct:Player	file:
+position	.\asteroids.c	/^    Vector2 position;$/;"	m	struct:Meteor	file:
+position	.\asteroids.c	/^    Vector2 position;$/;"	m	struct:Player	file:
+position	.\asteroids.c	/^    Vector2 position;$/;"	m	struct:Shoot	file:
+position	.\asteroids_survival.c	/^    Vector2 position;$/;"	m	struct:Meteor	file:
+position	.\asteroids_survival.c	/^    Vector2 position;$/;"	m	struct:Player	file:
+position	.\floppy.c	/^    Vector2 position;$/;"	m	struct:Floppy	file:
+position	.\gold_fever.c	/^    Vector2 position;$/;"	m	struct:Enemy	file:
+position	.\gold_fever.c	/^    Vector2 position;$/;"	m	struct:Player	file:
+position	.\gold_fever.c	/^    Vector2 position;$/;"	m	struct:Points	file:
+position	.\gorilas.c	/^    Vector2 position;$/;"	m	struct:Ball	file:
+position	.\gorilas.c	/^    Vector2 position;$/;"	m	struct:Explosion	file:
+position	.\gorilas.c	/^    Vector2 position;$/;"	m	struct:Player	file:
+position	.\missile_commander.c	/^    Vector2 position;$/;"	m	struct:Building	file:
+position	.\missile_commander.c	/^    Vector2 position;$/;"	m	struct:Explosion	file:
+position	.\missile_commander.c	/^    Vector2 position;$/;"	m	struct:Interceptor	file:
+position	.\missile_commander.c	/^    Vector2 position;$/;"	m	struct:Launcher	file:
+position	.\missile_commander.c	/^    Vector2 position;$/;"	m	struct:Missile	file:
+position	.\pang.c	/^    Vector2 position;$/;"	m	struct:Ball	file:
+position	.\pang.c	/^    Vector2 position;$/;"	m	struct:Player	file:
+position	.\pang.c	/^    Vector2 position;$/;"	m	struct:Points	file:
+position	.\pang.c	/^    Vector2 position;$/;"	m	struct:Shoot	file:
+position	.\snake.c	/^    Vector2 position;$/;"	m	struct:Food	file:
+position	.\snake.c	/^    Vector2 position;$/;"	m	struct:Snake	file:
+previousAngle	.\gorilas.c	/^    int previousAngle;$/;"	m	struct:Player	file:
+previousPoint	.\gorilas.c	/^    Vector2 previousPoint;$/;"	m	struct:Player	file:
+previousPower	.\gorilas.c	/^    int previousPower;$/;"	m	struct:Player	file:
+radius	.\arkanoid.c	/^    int radius;$/;"	m	struct:Ball	file:
+radius	.\asteroids.c	/^    float radius;$/;"	m	struct:Meteor	file:
+radius	.\asteroids.c	/^    float radius;$/;"	m	struct:Shoot	file:
+radius	.\asteroids_survival.c	/^    float radius;$/;"	m	struct:Meteor	file:
+radius	.\floppy.c	/^    int radius;$/;"	m	struct:Floppy	file:
+radius	.\gold_fever.c	/^    int radius;$/;"	m	struct:Enemy	file:
+radius	.\gold_fever.c	/^    int radius;$/;"	m	struct:Player	file:
+radius	.\gold_fever.c	/^    int radius;$/;"	m	struct:Points	file:
+radius	.\gorilas.c	/^    int radius;$/;"	m	struct:Ball	file:
+radius	.\gorilas.c	/^    int radius;$/;"	m	struct:Explosion	file:
+radius	.\pang.c	/^    float radius;$/;"	m	struct:Ball	file:
+radius	.\pang.c	/^    float radius;$/;"	m	struct:Shoot	file:
+radiusBounds	.\gold_fever.c	/^    int radiusBounds;$/;"	m	struct:Enemy	file:
+radiusMultiplier	.\missile_commander.c	/^    float radiusMultiplier;$/;"	m	struct:Explosion	file:
+rec	.\floppy.c	/^    Rectangle rec;$/;"	m	struct:Tubes	file:
+rec	.\gold_fever.c	/^    Rectangle rec;$/;"	m	struct:Home	file:
+rec	.\space_invaders.c	/^    Rectangle rec;$/;"	m	struct:Enemy	file:
+rec	.\space_invaders.c	/^    Rectangle rec;$/;"	m	struct:Player	file:
+rec	.\space_invaders.c	/^    Rectangle rec;$/;"	m	struct:Shoot	file:
+rectangle	.\gorilas.c	/^    Rectangle rectangle;$/;"	m	struct:Building	file:
+rotation	.\asteroids.c	/^    float rotation;$/;"	m	struct:Player	file:
+rotation	.\asteroids.c	/^    float rotation;$/;"	m	struct:Shoot	file:
+rotation	.\asteroids_survival.c	/^    float rotation;$/;"	m	struct:Player	file:
+rotation	.\pang.c	/^    float rotation;$/;"	m	struct:Player	file:
+rotation	.\pang.c	/^    float rotation;$/;"	m	struct:Shoot	file:
+save	.\gold_fever.c	/^    bool save;$/;"	m	struct:Home	file:
+score	.\floppy.c	/^static int score = 0;$/;"	v	file:
+score	.\gold_fever.c	/^static int score = 0;$/;"	v	file:
+score	.\missile_commander.c	/^static int score = 0;$/;"	v	file:
+score	.\pang.c	/^static int score = 0;$/;"	v	file:
+score	.\space_invaders.c	/^static int score = 0;$/;"	v	file:
+screenHeight	.\arkanoid.c	/^static const int screenHeight = 450;$/;"	v	file:
+screenHeight	.\asteroids.c	/^static const int screenHeight = 450;$/;"	v	file:
+screenHeight	.\asteroids_survival.c	/^static const int screenHeight = 450;$/;"	v	file:
+screenHeight	.\floppy.c	/^static const int screenHeight = 450;$/;"	v	file:
+screenHeight	.\gold_fever.c	/^static const int screenHeight = 450;$/;"	v	file:
+screenHeight	.\gorilas.c	/^static const int screenHeight = 450;$/;"	v	file:
+screenHeight	.\missile_commander.c	/^static int screenHeight = 450;$/;"	v	file:
+screenHeight	.\pang.c	/^static const int screenHeight = 450;$/;"	v	file:
+screenHeight	.\snake.c	/^static const int screenHeight = 450;$/;"	v	file:
+screenHeight	.\space_invaders.c	/^static const int screenHeight = 450;$/;"	v	file:
+screenHeight	.\tetris.c	/^static const int screenHeight = 450;$/;"	v	file:
+screenWidth	.\arkanoid.c	/^static const int screenWidth = 800;$/;"	v	file:
+screenWidth	.\asteroids.c	/^static const int screenWidth = 800;$/;"	v	file:
+screenWidth	.\asteroids_survival.c	/^static const int screenWidth = 800;$/;"	v	file:
+screenWidth	.\floppy.c	/^static const int screenWidth = 800;$/;"	v	file:
+screenWidth	.\gold_fever.c	/^static const int screenWidth = 800;$/;"	v	file:
+screenWidth	.\gorilas.c	/^static const int screenWidth = 800;$/;"	v	file:
+screenWidth	.\missile_commander.c	/^static int screenWidth = 800;$/;"	v	file:
+screenWidth	.\pang.c	/^static const int screenWidth = 800;$/;"	v	file:
+screenWidth	.\snake.c	/^static const int screenWidth = 800;$/;"	v	file:
+screenWidth	.\space_invaders.c	/^static const int screenWidth = 800;$/;"	v	file:
+screenWidth	.\tetris.c	/^static const int screenWidth = 800;$/;"	v	file:
+shipHeight	.\asteroids.c	/^static float shipHeight = 0.0f;$/;"	v	file:
+shipHeight	.\asteroids_survival.c	/^static float shipHeight = 0.0f;$/;"	v	file:
+shipHeight	.\pang.c	/^static float shipHeight = 0.0f;$/;"	v	file:
+shoot	.\asteroids.c	/^static Shoot shoot[PLAYER_MAX_SHOOTS] = { 0 };$/;"	v	file:
+shoot	.\pang.c	/^static Shoot shoot[PLAYER_MAX_SHOOTS] = { 0 };$/;"	v	file:
+shoot	.\space_invaders.c	/^static Shoot shoot[NUM_SHOOTS] = { 0 };$/;"	v	file:
+shootRate	.\space_invaders.c	/^static int shootRate = 0;$/;"	v	file:
+size	.\arkanoid.c	/^    Vector2 size;$/;"	m	struct:Player	file:
+size	.\gorilas.c	/^    Vector2 size;$/;"	m	struct:Player	file:
+size	.\snake.c	/^    Vector2 size;$/;"	m	struct:Food	file:
+size	.\snake.c	/^    Vector2 size;$/;"	m	struct:Snake	file:
+smallBalls	.\pang.c	/^static Ball smallBalls[MAX_BIG_BALLS*4] = { 0 };$/;"	v	file:
+smallMeteor	.\asteroids.c	/^static Meteor smallMeteor[MAX_SMALL_METEORS] = { 0 };$/;"	v	file:
+smallMeteor	.\asteroids_survival.c	/^static Meteor smallMeteor[MAX_SMALL_METEORS] = { 0 };$/;"	v	file:
+smallMeteorsCount	.\asteroids.c	/^static int smallMeteorsCount = 0;$/;"	v	file:
+smooth	.\space_invaders.c	/^static bool smooth = false;$/;"	v	file:
+snake	.\snake.c	/^static Snake snake[SNAKE_LENGTH] = { 0 };$/;"	v	file:
+snakePosition	.\snake.c	/^static Vector2 snakePosition[SNAKE_LENGTH] = { 0 };$/;"	v	file:
+speed	.\arkanoid.c	/^    Vector2 speed;$/;"	m	struct:Ball	file:
+speed	.\asteroids.c	/^    Vector2 speed;$/;"	m	struct:Meteor	file:
+speed	.\asteroids.c	/^    Vector2 speed;$/;"	m	struct:Player	file:
+speed	.\asteroids.c	/^    Vector2 speed;$/;"	m	struct:Shoot	file:
+speed	.\asteroids_survival.c	/^    Vector2 speed;$/;"	m	struct:Meteor	file:
+speed	.\asteroids_survival.c	/^    Vector2 speed;$/;"	m	struct:Player	file:
+speed	.\gold_fever.c	/^    Vector2 speed;$/;"	m	struct:Enemy	file:
+speed	.\gold_fever.c	/^    Vector2 speed;$/;"	m	struct:Player	file:
+speed	.\gorilas.c	/^    Vector2 speed;$/;"	m	struct:Ball	file:
+speed	.\missile_commander.c	/^    Vector2 speed;$/;"	m	struct:Interceptor	file:
+speed	.\missile_commander.c	/^    Vector2 speed;$/;"	m	struct:Missile	file:
+speed	.\pang.c	/^    Vector2 speed;$/;"	m	struct:Ball	file:
+speed	.\pang.c	/^    Vector2 speed;$/;"	m	struct:Player	file:
+speed	.\pang.c	/^    Vector2 speed;$/;"	m	struct:Shoot	file:
+speed	.\snake.c	/^    Vector2 speed;$/;"	m	struct:Snake	file:
+speed	.\space_invaders.c	/^    Vector2 speed;$/;"	m	struct:Enemy	file:
+speed	.\space_invaders.c	/^    Vector2 speed;$/;"	m	struct:Player	file:
+speed	.\space_invaders.c	/^    Vector2 speed;$/;"	m	struct:Shoot	file:
+superfx	.\floppy.c	/^static bool superfx = false;$/;"	v	file:
+testCollision	.\proto1.cpp	/^void testCollision(Entity &e1, Entity &e2) {$/;"	f
+tubes	.\floppy.c	/^static Tubes tubes[MAX_TUBES*2] = { 0 };$/;"	v	file:
+tubesPos	.\floppy.c	/^static Vector2 tubesPos[MAX_TUBES] = { 0 };$/;"	v	file:
+tubesSpeedX	.\floppy.c	/^static int tubesSpeedX = 0;$/;"	v	file:
+turnMovementCounter	.\tetris.c	/^static int turnMovementCounter = 0;$/;"	v	file:
+value	.\gold_fever.c	/^    int value;$/;"	m	struct:Points	file:
+value	.\pang.c	/^    int value;$/;"	m	struct:Points	file:
+victory	.\asteroids.c	/^static bool victory = false;$/;"	v	file:
+victory	.\pang.c	/^static bool victory = false;$/;"	v	file:
+victory	.\space_invaders.c	/^static bool victory = false;$/;"	v	file:
+vox	.\proto1.cpp	/^    list<Voxel> vox;$/;"	m	struct:Entity	file:
+wave	.\space_invaders.c	/^static EnemyWave wave = { 0 };$/;"	v	file:
+~Entity	.\proto1.cpp	/^    virtual ~Entity() { }  $/;"	f	struct:Entity
