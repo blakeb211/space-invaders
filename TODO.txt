@@ -1,14 +1,26 @@
 Coding Guidelines
-  { } initialization to prevent narrowing conversions
+  { } initialization and literal type specifiers to prevent narrowing conversions
   in class initialization with braces
   generic functions
   using aliases, e.g. using vec2 = Vector2f
-  functions pascalCase()
+  const noexcept
+
+Framework
+  will raylib work? - look at notepad++ script
+
+Game Entity Management
+    Components
+        virtual funcs - iteration #1
+        pure virtuals (interfaces) - iteration #3
+
+ Naming Conventions 
+  functions
+  private vars
+  local vars
+
   Frametime control - update many times per frame, but draw once per frame
-const noexcept
 
 ???
-Components
 Actions
 Command Pattern
 
@@ -18,6 +30,7 @@ FEATURES
   Load levels from files
   Multiple weapons
   Enemies Avoid one Another
+  collision code that works with rotations
 
 Entity
   pos x, y, theta
@@ -41,9 +54,9 @@ Actions
 ------wall1 stuff bounces off - does not take damage
 ------wall2 takes damage
 --------bullet
------bullet1
------bullet2
------bullet3
+-----bullet1 straight shot
+-----bullet2 moves in sign wave
+-----bullet3 homing bullet
 --------player
 --------enemy1
 --------enemy2
@@ -54,3 +67,8 @@ Actions
         currTimer
         maxTimer
 
+sounds
+  when bullet fires
+  bullet hits enemy
+  bullet bounces off wall
+  bullet destructs on wall
