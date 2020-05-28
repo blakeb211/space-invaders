@@ -6,7 +6,7 @@ Coding Guidelines
   const noexcept
 
 Framework
-  will raylib work? - look at notepad++ script
+  +use olcPixelGameEngine compiled to a .lib
 
 Game Entity Management
     Components
