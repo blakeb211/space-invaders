@@ -6,7 +6,8 @@ Coding Guidelines
   const noexcept
 
 Framework
-  +use olcPixelGameEngine compiled to a .lib
+  +use olcPixelGameEngine 
+  +get SFML pong to compile 
 
 Game Entity Management
     Components
