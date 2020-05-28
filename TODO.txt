@@ -1,14 +1,56 @@
+Coding Guidelines
+  { } initialization to prevent narrowing conversions
+  in class initialization with braces
+  generic functions
+  using aliases, e.g. using vec2 = Vector2f
+  functions pascalCase()
+  Frametime control - update many times per frame, but draw once per frame
+const noexcept
 
+???
 Components
-
 Actions
-
 Command Pattern
 
+FEATURES
+  Paths
+  Voxels - enemies can be destroyed
+  Load levels from files
+  Multiple weapons
+  Enemies Avoid one Another
 
-Path
+Entity
+  pos x, y, theta
+  list<Voxel>
+  entity_id
 
-Load levels from files
+Voxel
+  relative x, y, theta 
+  color
+ 
+Actions
+  Create
+  Move
+  Collide
+  Die
 
+--------wall
+     data:
+     fxns:
 
-voxels
+------wall1 stuff bounces off - does not take damage
+------wall2 takes damage
+--------bullet
+-----bullet1
+-----bullet2
+-----bullet3
+--------player
+--------enemy1
+--------enemy2
+--------enemy3
+--------enemy4
+
+--------explosion
+        currTimer
+        maxTimer
+
