@@ -6,12 +6,15 @@ Coding Guidelines
   const noexcept
 
 Framework
-  +use olcPixelGameEngine 
-  +get SFML pong to compile 
+  +use SFML 
+
+Collision Detection
+  consider a quadtree
 
 Game Entity Management
     Components
-        virtual funcs - iteration #1
+        no inheritance - iteration #1
+        virtual funcs - iteration #2
         pure virtuals (interfaces) - iteration #3
 
  Naming Conventions 
@@ -34,7 +37,7 @@ FEATURES
   collision code that works with rotations
 
 Entity
-  pos x, y, theta
+  pos x, y
   list<Voxel>
   entity_id
 
@@ -56,7 +59,7 @@ Actions
 ------wall2 takes damage
 --------bullet
 -----bullet1 straight shot
------bullet2 moves in sign wave
+-----bullet2 moves in sine wave
 -----bullet3 homing bullet
 --------player
 --------enemy1
