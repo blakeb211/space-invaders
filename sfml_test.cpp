@@ -6,7 +6,7 @@ int main() {
   const int gameWidth = 800;
   const int gameHeight = 600;
   // Create the window of the application
-  sf::RenderWindow window(sf::VideoMode(gameWidth, gameHeight, 32), "SFML Pong",
+  sf::RenderWindow window(sf::VideoMode(gameWidth, gameHeight, 32), "SFML Space Invaders - Prototype #2",
       sf::Style::Titlebar | sf::Style::Close);
   
   while (window.isOpen())
