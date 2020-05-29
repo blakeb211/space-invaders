@@ -60,8 +60,9 @@ struct Entity {
     // ----------------------------------------
     virtual size_t getHealth() const { return vox.size(); }
     protected:
+    size_t id;
     vector<Voxel> vox;
-    Vec2 pos;
+    Vec2 pos; // overall position of entity
     Vec2 vel;
 };
 
@@ -138,7 +139,6 @@ void removeDestroyedEntities(vector<Entity> & vec) {
 int main()
 {
     vector<Entity> entity;
-    entity.reserve(300);
     unsigned int levelId = 1;
     RenderWindow window{{screenWidth, screenHeight}, "Shooter - Prototype #2"};
     window.setFramerateLimit(100);

@@ -22,16 +22,15 @@ Game Entity Management
   private vars
   local vars
 
-  Frametime control - update many times per frame, but draw once per frame
+ *** Frametime control - update many times per frame, but draw once per frame
 
-???
 Actions
 Command Pattern
 
 FEATURES
   Paths
   Voxels - enemies can be destroyed
-  Load levels from files
+  *** Load levels from files
   Multiple weapons
   Enemies Avoid one Another
   collision code that works with rotations
@@ -39,7 +38,7 @@ FEATURES
 Entity
   pos x, y
   list<Voxel>
-  entity_id
+  ***entity_id
 
 Voxel
   relative x, y, theta 
