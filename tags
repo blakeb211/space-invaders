@@ -1,197 +1,93 @@
-!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
-!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
-!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
-!_TAG_PROGRAM_NAME	Exuberant Ctags	//
-!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
-!_TAG_PROGRAM_VERSION	5.7	//
-B1	proto1.cpp	/^struct B1 : Bullet {$/;"	s	file:
-B2	proto1.cpp	/^struct B2 : Bullet {$/;"	s	file:
-Ball	p2.cpp	/^    Ball(float mX, float mY)$/;"	f	struct:Ball
-Ball	p2.cpp	/^struct Ball$/;"	s	file:
-Ball	p3.cpp	/^    Ball(float mX, float mY)$/;"	f	struct:Ball
-Ball	p3.cpp	/^struct Ball$/;"	s	file:
-Ball	p4.cpp	/^    Ball(float mX, float mY)$/;"	f	struct:Ball
-Ball	p4.cpp	/^struct Ball$/;"	s	file:
-Ball	p5.cpp	/^    Ball(float mX, float mY)$/;"	f	struct:Ball
-Ball	p5.cpp	/^struct Ball$/;"	s	file:
-Ball	p6.cpp	/^    Ball(float mX, float mY)$/;"	f	struct:Ball
-Ball	p6.cpp	/^struct Ball$/;"	s	file:
-Ball	p7.cpp	/^    Ball(float mX, float mY)$/;"	f	struct:Ball
-Ball	p7.cpp	/^struct Ball$/;"	s	file:
-Ball	p8.cpp	/^    Ball(float mX, float mY)$/;"	f	struct:Ball
-Ball	p8.cpp	/^struct Ball$/;"	s	file:
-Ball	p9.cpp	/^    Ball(float mX, float mY)$/;"	f	struct:Ball
-Ball	p9.cpp	/^struct Ball$/;"	s	file:
-Brick	p7.cpp	/^    Brick(float mX, float mY)$/;"	f	struct:Brick
-Brick	p7.cpp	/^struct Brick$/;"	s	file:
-Brick	p8.cpp	/^    Brick(float mX, float mY)$/;"	f	struct:Brick
-Brick	p8.cpp	/^struct Brick$/;"	s	file:
-Brick	p9.cpp	/^    Brick(float mX, float mY)$/;"	f	struct:Brick
-Brick	p9.cpp	/^struct Brick : public Rectangle$/;"	s	file:
-Bullet	proto1.cpp	/^struct Bullet : Entity { \/\/ base$/;"	s	file:
-Draw	proto1.cpp	/^    virtual void Draw() { }$/;"	f	struct:Entity
-E1	proto1.cpp	/^struct E1: Enemy {$/;"	s	file:
-E2	proto1.cpp	/^struct E2: Enemy {$/;"	s	file:
-E3	proto1.cpp	/^struct E3: Enemy {$/;"	s	file:
-E4	proto1.cpp	/^struct E4: Enemy {$/;"	s	file:
-Enemy	proto1.cpp	/^struct Enemy: Entity { \/\/ base$/;"	s	file:
-Entity	proto1.cpp	/^struct Entity {$/;"	s	file:
-Paddle	p5.cpp	/^    Paddle(float mX, float mY)$/;"	f	struct:Paddle
-Paddle	p5.cpp	/^struct Paddle$/;"	s	file:
-Paddle	p6.cpp	/^    Paddle(float mX, float mY)$/;"	f	struct:Paddle
-Paddle	p6.cpp	/^struct Paddle$/;"	s	file:
-Paddle	p7.cpp	/^    Paddle(float mX, float mY)$/;"	f	struct:Paddle
-Paddle	p7.cpp	/^struct Paddle$/;"	s	file:
-Paddle	p8.cpp	/^    Paddle(float mX, float mY)$/;"	f	struct:Paddle
-Paddle	p8.cpp	/^struct Paddle$/;"	s	file:
-Paddle	p9.cpp	/^    Paddle(float mX, float mY)$/;"	f	struct:Paddle
-Paddle	p9.cpp	/^struct Paddle : public Rectangle$/;"	s	file:
-Player	proto1.cpp	/^struct Player : Entity {$/;"	s	file:
-Rectangle	p9.cpp	/^struct Rectangle$/;"	s	file:
-Update	proto1.cpp	/^    virtual void Update(float fElapsed) { \/* check for collision *\/ \/* update pos *\/  }$/;"	f	struct:Entity
-Vector3	proto1.cpp	/^struct Vector3 {$/;"	s	file:
-Voxel	proto1.cpp	/^struct Voxel { $/;"	s	file:
-Wall	proto1.cpp	/^struct Wall : Entity { \/\/ base$/;"	s	file:
-Wall1	proto1.cpp	/^struct Wall1 : Wall {$/;"	s	file:
-Wall2	proto1.cpp	/^struct Wall2 : Wall {$/;"	s	file:
-bottom	p4.cpp	/^    float bottom() { return y() + shape.getRadius(); }$/;"	f	struct:Ball
-bottom	p5.cpp	/^    float bottom() { return y() + shape.getRadius(); }$/;"	f	struct:Ball
-bottom	p5.cpp	/^    float bottom() { return y() + shape.getSize().y \/ 2.f; }$/;"	f	struct:Paddle
-bottom	p6.cpp	/^    float bottom() { return y() + shape.getRadius(); }$/;"	f	struct:Ball
-bottom	p6.cpp	/^    float bottom() { return y() + shape.getSize().y \/ 2.f; }$/;"	f	struct:Paddle
-bottom	p7.cpp	/^    float bottom() { return y() + shape.getRadius(); }$/;"	f	struct:Ball
-bottom	p7.cpp	/^    float bottom() { return y() + shape.getSize().y \/ 2.f; }$/;"	f	struct:Brick
-bottom	p7.cpp	/^    float bottom() { return y() + shape.getSize().y \/ 2.f; }$/;"	f	struct:Paddle
-bottom	p8.cpp	/^    float bottom() { return y() + shape.getRadius(); }$/;"	f	struct:Ball
-bottom	p8.cpp	/^    float bottom() { return y() + shape.getSize().y \/ 2.f; }$/;"	f	struct:Brick
-bottom	p8.cpp	/^    float bottom() { return y() + shape.getSize().y \/ 2.f; }$/;"	f	struct:Paddle
-bottom	p9.cpp	/^    float bottom() { return y() + shape.getRadius(); }$/;"	f	struct:Ball
-bottom	p9.cpp	/^    float bottom() { return y() + shape.getSize().y \/ 2.f; }$/;"	f	struct:Rectangle
-color	proto1.cpp	/^    int color;$/;"	m	struct:Voxel	file:
-health	proto1.cpp	/^    int health; \/\/ voxel health$/;"	m	struct:Voxel	file:
-isIntersecting	p6.cpp	/^bool isIntersecting(T1& mA, T2& mB)$/;"	f
-isIntersecting	p7.cpp	/^bool isIntersecting(T1& mA, T2& mB)$/;"	f
-isIntersecting	p8.cpp	/^bool isIntersecting(T1& mA, T2& mB)$/;"	f
-isIntersecting	p9.cpp	/^bool isIntersecting(T1& mA, T2& mB)$/;"	f
-isIntersecting	proto1.cpp	/^template<class T1, class T2> bool isIntersecting(T1& a, T2& b) {$/;"	f
-left	p4.cpp	/^    float left() { return x() - shape.getRadius(); }$/;"	f	struct:Ball
-left	p5.cpp	/^    float left() { return x() - shape.getRadius(); }$/;"	f	struct:Ball
-left	p5.cpp	/^    float left() { return x() - shape.getSize().x \/ 2.f; }$/;"	f	struct:Paddle
-left	p6.cpp	/^    float left() { return x() - shape.getRadius(); }$/;"	f	struct:Ball
-left	p6.cpp	/^    float left() { return x() - shape.getSize().x \/ 2.f; }$/;"	f	struct:Paddle
-left	p7.cpp	/^    float left() { return x() - shape.getRadius(); }$/;"	f	struct:Ball
-left	p7.cpp	/^    float left() { return x() - shape.getSize().x \/ 2.f; }$/;"	f	struct:Brick
-left	p7.cpp	/^    float left() { return x() - shape.getSize().x \/ 2.f; }$/;"	f	struct:Paddle
-left	p8.cpp	/^    float left() { return x() - shape.getRadius(); }$/;"	f	struct:Ball
-left	p8.cpp	/^    float left() { return x() - shape.getSize().x \/ 2.f; }$/;"	f	struct:Brick
-left	p8.cpp	/^    float left() { return x() - shape.getSize().x \/ 2.f; }$/;"	f	struct:Paddle
-left	p9.cpp	/^    float left() { return x() - shape.getRadius(); }$/;"	f	struct:Ball
-left	p9.cpp	/^    float left() { return x() - shape.getSize().x \/ 2.f; }$/;"	f	struct:Rectangle
-main	p2.cpp	/^int main()$/;"	f
-main	p3.cpp	/^int main()$/;"	f
-main	p4.cpp	/^int main()$/;"	f
-main	p5.cpp	/^int main()$/;"	f
-main	p6.cpp	/^int main()$/;"	f
-main	p7.cpp	/^int main()$/;"	f
-main	p8.cpp	/^int main()$/;"	f
-main	p9.cpp	/^int main()$/;"	f
-main	proto1.cpp	/^int main()$/;"	f
-main	sdl_test.cpp	/^int main()$/;"	f
-main	sfml_test.cpp	/^int main() {$/;"	f
-pos	proto1.cpp	/^    Vec3 pos;  \/\/x, y , theta$/;"	m	struct:Voxel	file:
-right	p4.cpp	/^    float right() { return x() + shape.getRadius(); }$/;"	f	struct:Ball
-right	p5.cpp	/^    float right() { return x() + shape.getRadius(); }$/;"	f	struct:Ball
-right	p5.cpp	/^    float right() { return x() + shape.getSize().x \/ 2.f; }$/;"	f	struct:Paddle
-right	p6.cpp	/^    float right() { return x() + shape.getRadius(); }$/;"	f	struct:Ball
-right	p6.cpp	/^    float right() { return x() + shape.getSize().x \/ 2.f; }$/;"	f	struct:Paddle
-right	p7.cpp	/^    float right() { return x() + shape.getRadius(); }$/;"	f	struct:Ball
-right	p7.cpp	/^    float right() { return x() + shape.getSize().x \/ 2.f; }$/;"	f	struct:Brick
-right	p7.cpp	/^    float right() { return x() + shape.getSize().x \/ 2.f; }$/;"	f	struct:Paddle
-right	p8.cpp	/^    float right() { return x() + shape.getRadius(); }$/;"	f	struct:Ball
-right	p8.cpp	/^    float right() { return x() + shape.getSize().x \/ 2.f; }$/;"	f	struct:Brick
-right	p8.cpp	/^    float right() { return x() + shape.getSize().x \/ 2.f; }$/;"	f	struct:Paddle
-right	p9.cpp	/^    float right() { return x() + shape.getRadius(); }$/;"	f	struct:Ball
-right	p9.cpp	/^    float right() { return x() + shape.getSize().x \/ 2.f; }$/;"	f	struct:Rectangle
-shape	p2.cpp	/^    CircleShape shape;$/;"	m	struct:Ball	file:
-shape	p3.cpp	/^    CircleShape shape;$/;"	m	struct:Ball	file:
-shape	p4.cpp	/^    CircleShape shape;$/;"	m	struct:Ball	file:
-shape	p5.cpp	/^    CircleShape shape;$/;"	m	struct:Ball	file:
-shape	p5.cpp	/^    RectangleShape shape;$/;"	m	struct:Paddle	file:
-shape	p6.cpp	/^    CircleShape shape;$/;"	m	struct:Ball	file:
-shape	p6.cpp	/^    RectangleShape shape;$/;"	m	struct:Paddle	file:
-shape	p7.cpp	/^    CircleShape shape;$/;"	m	struct:Ball	file:
-shape	p7.cpp	/^    RectangleShape shape;$/;"	m	struct:Brick	file:
-shape	p7.cpp	/^    RectangleShape shape;$/;"	m	struct:Paddle	file:
-shape	p8.cpp	/^    CircleShape shape;$/;"	m	struct:Ball	file:
-shape	p8.cpp	/^    RectangleShape shape;$/;"	m	struct:Brick	file:
-shape	p8.cpp	/^    RectangleShape shape;$/;"	m	struct:Paddle	file:
-shape	p9.cpp	/^    CircleShape shape;$/;"	m	struct:Ball	file:
-shape	p9.cpp	/^    RectangleShape shape;$/;"	m	struct:Rectangle	file:
-testCollision	p6.cpp	/^void testCollision(Paddle& mPaddle, Ball& mBall)$/;"	f
-testCollision	p7.cpp	/^void testCollision(Paddle& mPaddle, Ball& mBall)$/;"	f
-testCollision	p8.cpp	/^void testCollision(Brick& mBrick, Ball& mBall)$/;"	f
-testCollision	p8.cpp	/^void testCollision(Paddle& mPaddle, Ball& mBall)$/;"	f
-testCollision	p9.cpp	/^void testCollision(Brick& mBrick, Ball& mBall)$/;"	f
-testCollision	p9.cpp	/^void testCollision(Paddle& mPaddle, Ball& mBall)$/;"	f
-testCollision	proto1.cpp	/^void testCollision(Entity &e1, Entity &e2) {$/;"	f
-theta	proto1.cpp	/^    float x, y, theta;$/;"	m	struct:Vector3	file:
-top	p4.cpp	/^    float top() { return y() - shape.getRadius(); }$/;"	f	struct:Ball
-top	p5.cpp	/^    float top() { return y() - shape.getRadius(); }$/;"	f	struct:Ball
-top	p5.cpp	/^    float top() { return y() - shape.getSize().y \/ 2.f; }$/;"	f	struct:Paddle
-top	p6.cpp	/^    float top() { return y() - shape.getRadius(); }$/;"	f	struct:Ball
-top	p6.cpp	/^    float top() { return y() - shape.getSize().y \/ 2.f; }$/;"	f	struct:Paddle
-top	p7.cpp	/^    float top() { return y() - shape.getRadius(); }$/;"	f	struct:Ball
-top	p7.cpp	/^    float top() { return y() - shape.getSize().y \/ 2.f; }$/;"	f	struct:Brick
-top	p7.cpp	/^    float top() { return y() - shape.getSize().y \/ 2.f; }$/;"	f	struct:Paddle
-top	p8.cpp	/^    float top() { return y() - shape.getRadius(); }$/;"	f	struct:Ball
-top	p8.cpp	/^    float top() { return y() - shape.getSize().y \/ 2.f; }$/;"	f	struct:Brick
-top	p8.cpp	/^    float top() { return y() - shape.getSize().y \/ 2.f; }$/;"	f	struct:Paddle
-top	p9.cpp	/^    float top() { return y() - shape.getRadius(); }$/;"	f	struct:Ball
-top	p9.cpp	/^    float top() { return y() - shape.getSize().y \/ 2.f; }$/;"	f	struct:Rectangle
-update	p3.cpp	/^    void update() { shape.move(velocity); }$/;"	f	struct:Ball
-update	p4.cpp	/^    void update()$/;"	f	struct:Ball
-update	p5.cpp	/^    void update()$/;"	f	struct:Ball
-update	p5.cpp	/^    void update()$/;"	f	struct:Paddle
-update	p6.cpp	/^    void update()$/;"	f	struct:Ball
-update	p6.cpp	/^    void update()$/;"	f	struct:Paddle
-update	p7.cpp	/^    void update()$/;"	f	struct:Ball
-update	p7.cpp	/^    void update()$/;"	f	struct:Paddle
-update	p8.cpp	/^    void update()$/;"	f	struct:Ball
-update	p8.cpp	/^    void update()$/;"	f	struct:Paddle
-update	p9.cpp	/^    void update()$/;"	f	struct:Ball
-update	p9.cpp	/^    void update()$/;"	f	struct:Paddle
-velocity	p5.cpp	/^    Vector2f velocity;$/;"	m	struct:Paddle	file:
-velocity	p6.cpp	/^    Vector2f velocity;$/;"	m	struct:Paddle	file:
-velocity	p7.cpp	/^    Vector2f velocity;$/;"	m	struct:Paddle	file:
-velocity	p8.cpp	/^    Vector2f velocity;$/;"	m	struct:Paddle	file:
-velocity	p9.cpp	/^    Vector2f velocity;$/;"	m	struct:Paddle	file:
-vox	proto1.cpp	/^    list<Voxel> vox;$/;"	m	struct:Entity	file:
-x	p4.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Ball
-x	p5.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Ball
-x	p5.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Paddle
-x	p6.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Ball
-x	p6.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Paddle
-x	p7.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Ball
-x	p7.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Brick
-x	p7.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Paddle
-x	p8.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Ball
-x	p8.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Brick
-x	p8.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Paddle
-x	p9.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Ball
-x	p9.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Rectangle
-x	proto1.cpp	/^    float x, y, theta;$/;"	m	struct:Vector3	file:
-y	p4.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Ball
-y	p5.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Ball
-y	p5.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Paddle
-y	p6.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Ball
-y	p6.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Paddle
-y	p7.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Ball
-y	p7.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Brick
-y	p7.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Paddle
-y	p8.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Ball
-y	p8.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Brick
-y	p8.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Paddle
-y	p9.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Ball
-y	p9.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Rectangle
-y	proto1.cpp	/^    float x, y, theta;$/;"	m	struct:Vector3	file:
-~Entity	proto1.cpp	/^    virtual ~Entity() { }  $/;"	f	struct:Entity
+B1	proto1.cpp	38
+B1	proto1.cpp~	31
+B2	proto1.cpp	42
+B2	proto1.cpp~	35
+Bullet	proto1.cpp	35
+Bullet	proto1.cpp~	28
+Draw	proto1.cpp	/^    virtual void Draw() { }$/
+Draw	proto1.cpp~	/^    virtual void Draw() { }$/
+E1	proto1.cpp	54
+E1	proto1.cpp~	47
+E2	proto1.cpp	57
+E2	proto1.cpp~	50
+E3	proto1.cpp	60
+E3	proto1.cpp~	53
+E4	proto1.cpp	63
+E4	proto1.cpp~	56
+Enemy	proto1.cpp	51
+Enemy	proto1.cpp~	44
+Entity	main.cpp~	5
+Entity	proto1.cpp	24
+Entity	proto1.cpp~	19
+Example	olcExampleProgram.cpp	4
+Example	olcExampleProgram.cpp	/^	Example()$/
+Example	olcExampleProgram.cpp~	4
+Example	olcExampleProgram.cpp~	/^	Example()$/
+Example	proto1.cpp~	78
+Example	proto1.cpp~	/^	Example()$/
+Game	main.cpp~	9
+Mmain.cpp~	main.cpp~	/^int main() {$/
+MolcExampleProgram.cpp	olcExampleProgram.cpp	/^int main()$/
+MolcExampleProgram.cpp~	olcExampleProgram.cpp~	/^int main()$/
+Mproto1.cpp	proto1.cpp	/^int main()$/
+Mproto1.cpp~	proto1.cpp~	/^int main()$/
+Msfml_test.cpp	sfml_test.cpp	/^int main() {$/
+Msfml_test.cpp~	sfml_test.cpp~	/^int main() {$/
+OLC_PGE_APPLICATION	olcExampleProgram.cpp	1
+OLC_PGE_APPLICATION	olcExampleProgram.cpp~	1
+OLC_PGE_APPLICATION	proto1.cpp~	1
+OnUserCreate	olcExampleProgram.cpp	/^	bool OnUserCreate() override$/
+OnUserCreate	olcExampleProgram.cpp~	/^	bool OnUserCreate() override$/
+OnUserCreate	proto1.cpp~	/^	bool OnUserCreate() override$/
+OnUserUpdate	olcExampleProgram.cpp	/^	bool OnUserUpdate(float fElapsedTime) override$/
+OnUserUpdate	olcExampleProgram.cpp~	/^	bool OnUserUpdate(float fElapsedTime) override$/
+OnUserUpdate	proto1.cpp~	/^	bool OnUserUpdate(float fElapsedTime) override$/
+Player	proto1.cpp	46
+Player	proto1.cpp~	39
+Update	main.cpp~	/^  void Update() { }$/
+Update	proto1.cpp	/^    virtual void Update(float fElapsed) { \/* check/
+Update	proto1.cpp~	/^    virtual void Update(float fElapsed) { \/* check/
+UpdateAll	main.cpp~	/^  void UpdateAll() {$/
+Vec3	proto1.cpp	7
+Vec3	proto1.cpp~	11
+Vector3	proto1.cpp~	7
+Vox	proto1.cpp	/^    const list<Voxel>& Vox() const { return vox; }/
+Voxel	proto1.cpp	17
+Voxel	proto1.cpp~	13
+Wall	proto1.cpp	68
+Wall1	proto1.cpp	70
+Wall2	proto1.cpp	72
+blockHeight	proto1.cpp	11
+blockWidth	proto1.cpp	11
+color	proto1.cpp	19
+color	proto1.cpp~	15
+entities	main.cpp~	10
+gameOver	proto1.cpp	13
+gameOver	proto1.cpp~	75
+health	proto1.cpp	20
+health	proto1.cpp~	16
+isIntersecting	main.cpp~	/^template<class T1, class T2> bool isIntersecting(T/
+isIntersecting	proto1.cpp	/^template<class T1, class T2> bool isIntersecting(T/
+isIntersecting	proto1.cpp~	/^template<class T1, class T2> bool isIntersecting(T/
+pause	proto1.cpp	14
+pause	proto1.cpp~	76
+pixelSize	proto1.cpp~	74
+pos	proto1.cpp	18
+pos	proto1.cpp~	14
+screenHeight	proto1.cpp	10
+screenHeight	proto1.cpp~	73
+screenWidth	proto1.cpp	10
+screenWidth	proto1.cpp~	72
+shape	proto1.cpp	21
+std	main.cpp~	3
+std	proto1.cpp~	5
+testCollision	main.cpp~	/^void testCollision(Entity &e1, Entity &e2) {$/
+testCollision	proto1.cpp	/^void testCollision(Entity &e1, Entity &e2) {$/
+testCollision	proto1.cpp~	/^void testCollision(Entity &e1, Entity &e2) {$/
+theta	proto1.cpp~	8
+vox	proto1.cpp	31
+vox	proto1.cpp~	25
+x	proto1.cpp~	8
+y	proto1.cpp~	8
+~Entity	proto1.cpp	/^    virtual ~Entity() { }  $/
+~Entity	proto1.cpp~	/^    virtual ~Entity() { }  $/

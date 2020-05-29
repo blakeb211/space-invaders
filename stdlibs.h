@@ -20,3 +20,4 @@
 #include <unordered_map>
 #include <random>
 #include <utility>
+#include <optional>
