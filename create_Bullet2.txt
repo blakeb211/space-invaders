@@ -1,0 +1,10 @@
+vox.emplace_back(2.f * blockWidth, 0.f * blockHeight, Color(112,1,209,255));
+vox.emplace_back(3.f * blockWidth, 0.f * blockHeight, Color(112,1,209,255));
+vox.emplace_back(1.f * blockWidth, 1.f * blockHeight, Color(112,1,209,255));
+vox.emplace_back(2.f * blockWidth, 1.f * blockHeight, Color(112,1,209,255));
+vox.emplace_back(3.f * blockWidth, 1.f * blockHeight, Color(112,1,209,255));
+vox.emplace_back(4.f * blockWidth, 1.f * blockHeight, Color(112,1,209,255));
+vox.emplace_back(1.f * blockWidth, 2.f * blockHeight, Color(112,1,209,255));
+vox.emplace_back(4.f * blockWidth, 2.f * blockHeight, Color(112,1,209,255));
+vox.emplace_back(0.f * blockWidth, 3.f * blockHeight, Color(112,1,209,255));
+vox.emplace_back(5.f * blockWidth, 3.f * blockHeight, Color(112,1,209,255));

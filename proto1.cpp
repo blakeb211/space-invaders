@@ -94,10 +94,11 @@ struct Bullet : Entity {
 
 struct B1 : Bullet {
     B1(Vec2 pos) : Bullet({0.f,-3.f}) {
-        vox.emplace_back(0.f,0.f, Color::Yellow);
-        vox.emplace_back(0.f,1.f);
-        vox.emplace_back(1.f,0.f, Color::Yellow);
-        vox.emplace_back(1.f,1.f);
+        vox.emplace_back(1.f * blockWidth, 0.f * blockHeight, Color(209,181,190,255));
+        vox.emplace_back(0.f * blockWidth, 1.f * blockHeight, Color(209,181,190,255));
+        vox.emplace_back(1.f * blockWidth, 1.f * blockHeight, Color(209,181,190,255));
+        vox.emplace_back(2.f * blockWidth, 1.f * blockHeight, Color(209,181,190,255));
+        vox.emplace_back(1.f * blockWidth, 2.f * blockHeight, Color(209,181,190,255));
         setPos(pos);
     }
     virtual void update() override {
@@ -106,7 +107,22 @@ struct B1 : Bullet {
 };
 
 struct B2 : Bullet {
-
+    B2(Vec2 pos) : Bullet({0.f,-3.f}) {
+        vox.emplace_back(2.f * blockWidth, 0.f * blockHeight, Color(112,1,209,255));
+        vox.emplace_back(3.f * blockWidth, 0.f * blockHeight, Color(112,1,209,255));
+        vox.emplace_back(1.f * blockWidth, 1.f * blockHeight, Color(112,1,209,255));
+        vox.emplace_back(2.f * blockWidth, 1.f * blockHeight, Color(112,1,209,255));
+        vox.emplace_back(3.f * blockWidth, 1.f * blockHeight, Color(112,1,209,255));
+        vox.emplace_back(4.f * blockWidth, 1.f * blockHeight, Color(112,1,209,255));
+        vox.emplace_back(1.f * blockWidth, 2.f * blockHeight, Color(112,1,209,255));
+        vox.emplace_back(4.f * blockWidth, 2.f * blockHeight, Color(112,1,209,255));
+        vox.emplace_back(0.f * blockWidth, 3.f * blockHeight, Color(112,1,209,255));
+        vox.emplace_back(5.f * blockWidth, 3.f * blockHeight, Color(112,1,209,255));
+        setPos(pos);
+    }
+    virtual void update() override {
+        move(vel);  
+    }
 };
 
 struct Player : public Entity {

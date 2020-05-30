@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-    string name = "Enemy4";
+    string name = "Bullet2";
     string in_file_name = name + ".txt";
     string out_file_name = "create_" + name + ".txt";
     ifstream in_file(in_file_name, ios::in);
@@ -14,7 +14,7 @@ int main() {
         getline(in_file, line);
         for(int x = 0; x < line.size(); x++) {
             if(line[x] == 'X') {
-            out_file << "vox.emplace_back(" << x << ".f * blockWidth, " << y << ".f * blockHeight, Color(255,140,0,245));" << endl;
+            out_file << "vox.emplace_back(" << x << ".f * blockWidth, " << y << ".f * blockHeight, Color(112,1,209,255));" << endl;
             }
         }
 
