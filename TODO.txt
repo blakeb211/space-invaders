@@ -38,7 +38,7 @@ FEATURES
 Entity
   pos x, y
   list<Voxel>
-  ***entity_id
+  entity_id
 
 Voxel
   relative x, y, theta 
