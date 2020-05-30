@@ -69,8 +69,8 @@ struct Entity {
     //-----------------------------------------
     // Return the entity with the given id 
     // ----------------------------------------
-    static Entity& withId(size_t id) {
-        return *find_if(begin(entity),end(entity),[&id](const Entity & e) { return e.id == id; });
+    static shared_ptr<Entity> withId(size_t id) {
+        return *find_if(begin(entity),end(entity),[&id](const shared_ptr<Entity> & e) { return e->id == id; });
     }
     protected:
     vector<Voxel> vox;
@@ -88,7 +88,7 @@ size_t Entity::entityCount = 0;
 struct Bullet : Entity { 
     Bullet(Vec2 vv) : vel{vv} {}
     Vec2 vel;    
-    virtual void update() override { cout << "Bullets update being called" << endl; }
+    virtual void update() override { }
 };
 
 struct B1 : Bullet {
@@ -100,8 +100,7 @@ struct B1 : Bullet {
         setPos(pos);
     }
     virtual void update() override {
-        cout << "B1 update being called" << endl;
-        pos += vel;  
+        move(vel);  
     }
 };
 
@@ -174,7 +173,7 @@ int main()
     //-----------------------------------------
     // Create the player 
     // ----------------------------------------
-    entity.emplace_back(Player{Vec2(3.f*screenWidth / 4.f, screenHeight - 20.f)}); 
+    entity.emplace_back(make_shared<Player>(Vec2(3.f*screenWidth / 4.f, screenHeight - 20.f))); 
 
     while(true)
     {
@@ -182,14 +181,13 @@ int main()
 
         if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) break;
         if(Keyboard::isKeyPressed(Keyboard::Key::Left)) { 
-            Entity::withId(0).move({-10.f,0.f}); 
+            Entity::withId(0)->move({-10.f,0.f}); 
         }
         if(Keyboard::isKeyPressed(Keyboard::Key::Right)) { 
-            Entity::withId(0).move({+10.f,0.f}); 
+            Entity::withId(0)->move({+10.f,0.f}); 
         }
         if(Keyboard::isKeyPressed(Keyboard::Key::Space)) { 
-            // create a version of bullet1
-            entity.push_back(make_shared<B1>(Entity::withId(0).getPos()));
+            entity.push_back(make_shared<B1>(Entity::withId(0)->getPos()));
         }
 
         for(auto & e  : entity) {
