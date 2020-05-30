@@ -42,7 +42,7 @@ struct Voxel {
 struct Entity {
     Entity() : id{entityCount++} {}
     virtual void update() { /* check for collision */ pos += vel;/* update pos */  }
-         
+
     virtual void draw() { }
     virtual ~Entity() { }  
     //-----------------------------------------
@@ -125,10 +125,142 @@ struct Enemy: Entity { // base
 };
 
 struct E1: Enemy {
-
+    E1(Vec2 pos) {
+        vox.emplace_back(9.f * blockWidth, 0.f * blockHeight, Color::Cyan);
+        vox.emplace_back(10.f * blockWidth, 0.f * blockHeight, Color::Cyan);
+        vox.emplace_back(11.f * blockWidth, 0.f * blockHeight, Color::Cyan);
+        vox.emplace_back(12.f * blockWidth, 0.f * blockHeight, Color::Cyan);
+        vox.emplace_back(7.f * blockWidth, 1.f * blockHeight, Color::Cyan);
+        vox.emplace_back(8.f * blockWidth, 1.f * blockHeight, Color::Cyan);
+        vox.emplace_back(9.f * blockWidth, 1.f * blockHeight, Color::Cyan);
+        vox.emplace_back(10.f * blockWidth, 1.f * blockHeight, Color::Cyan);
+        vox.emplace_back(11.f * blockWidth, 1.f * blockHeight, Color::Cyan);
+        vox.emplace_back(12.f * blockWidth, 1.f * blockHeight, Color::Cyan);
+        vox.emplace_back(13.f * blockWidth, 1.f * blockHeight, Color::Cyan);
+        vox.emplace_back(14.f * blockWidth, 1.f * blockHeight, Color::Cyan);
+        vox.emplace_back(6.f * blockWidth, 2.f * blockHeight, Color::Cyan);
+        vox.emplace_back(7.f * blockWidth, 2.f * blockHeight, Color::Cyan);
+        vox.emplace_back(8.f * blockWidth, 2.f * blockHeight, Color::Cyan);
+        vox.emplace_back(9.f * blockWidth, 2.f * blockHeight, Color::Cyan);
+        vox.emplace_back(10.f * blockWidth, 2.f * blockHeight, Color::Cyan);
+        vox.emplace_back(11.f * blockWidth, 2.f * blockHeight, Color::Cyan);
+        vox.emplace_back(12.f * blockWidth, 2.f * blockHeight, Color::Cyan);
+        vox.emplace_back(13.f * blockWidth, 2.f * blockHeight, Color::Cyan);
+        vox.emplace_back(14.f * blockWidth, 2.f * blockHeight, Color::Cyan);
+        vox.emplace_back(15.f * blockWidth, 2.f * blockHeight, Color::Cyan);
+        vox.emplace_back(5.f * blockWidth, 3.f * blockHeight, Color::Cyan);
+        vox.emplace_back(6.f * blockWidth, 3.f * blockHeight, Color::Cyan);
+        vox.emplace_back(9.f * blockWidth, 3.f * blockHeight, Color::Cyan);
+        vox.emplace_back(10.f * blockWidth, 3.f * blockHeight, Color::Cyan);
+        vox.emplace_back(11.f * blockWidth, 3.f * blockHeight, Color::Cyan);
+        vox.emplace_back(12.f * blockWidth, 3.f * blockHeight, Color::Cyan);
+        vox.emplace_back(15.f * blockWidth, 3.f * blockHeight, Color::Cyan);
+        vox.emplace_back(16.f * blockWidth, 3.f * blockHeight, Color::Cyan);
+        vox.emplace_back(5.f * blockWidth, 4.f * blockHeight, Color::Cyan);
+        vox.emplace_back(6.f * blockWidth, 4.f * blockHeight, Color::Cyan);
+        vox.emplace_back(7.f * blockWidth, 4.f * blockHeight, Color::Cyan);
+        vox.emplace_back(8.f * blockWidth, 4.f * blockHeight, Color::Cyan);
+        vox.emplace_back(9.f * blockWidth, 4.f * blockHeight, Color::Cyan);
+        vox.emplace_back(10.f * blockWidth, 4.f * blockHeight, Color::Cyan);
+        vox.emplace_back(11.f * blockWidth, 4.f * blockHeight, Color::Cyan);
+        vox.emplace_back(12.f * blockWidth, 4.f * blockHeight, Color::Cyan);
+        vox.emplace_back(13.f * blockWidth, 4.f * blockHeight, Color::Cyan);
+        vox.emplace_back(14.f * blockWidth, 4.f * blockHeight, Color::Cyan);
+        vox.emplace_back(15.f * blockWidth, 4.f * blockHeight, Color::Cyan);
+        vox.emplace_back(16.f * blockWidth, 4.f * blockHeight, Color::Cyan);
+        vox.emplace_back(8.f * blockWidth, 5.f * blockHeight, Color::Cyan);
+        vox.emplace_back(13.f * blockWidth, 5.f * blockHeight, Color::Cyan);
+        vox.emplace_back(7.f * blockWidth, 6.f * blockHeight, Color::Cyan);
+        vox.emplace_back(9.f * blockWidth, 6.f * blockHeight, Color::Cyan);
+        vox.emplace_back(10.f * blockWidth, 6.f * blockHeight, Color::Cyan);
+        vox.emplace_back(11.f * blockWidth, 6.f * blockHeight, Color::Cyan);
+        vox.emplace_back(12.f * blockWidth, 6.f * blockHeight, Color::Cyan);
+        vox.emplace_back(14.f * blockWidth, 6.f * blockHeight, Color::Cyan);
+        vox.emplace_back(6.f * blockWidth, 7.f * blockHeight, Color::Cyan);
+        vox.emplace_back(9.f * blockWidth, 7.f * blockHeight, Color::Cyan);
+        vox.emplace_back(12.f * blockWidth, 7.f * blockHeight, Color::Cyan);
+        vox.emplace_back(15.f * blockWidth, 7.f * blockHeight, Color::Cyan);
+        setPos(pos);
+    }
 };
 struct E2: Enemy {
-
+    E2(Vec2 pos) {
+        vox.emplace_back(3.f * blockWidth, 0.f * blockHeight, Color::Magenta);
+        vox.emplace_back(4.f * blockWidth, 0.f * blockHeight, Color::Magenta);
+        vox.emplace_back(17.f * blockWidth, 0.f * blockHeight, Color::Magenta);
+        vox.emplace_back(18.f * blockWidth, 0.f * blockHeight, Color::Magenta);
+        vox.emplace_back(6.f * blockWidth, 1.f * blockHeight, Color::Magenta);
+        vox.emplace_back(16.f * blockWidth, 1.f * blockHeight, Color::Magenta);
+        vox.emplace_back(5.f * blockWidth, 2.f * blockHeight, Color::Magenta);
+        vox.emplace_back(6.f * blockWidth, 2.f * blockHeight, Color::Magenta);
+        vox.emplace_back(7.f * blockWidth, 2.f * blockHeight, Color::Magenta);
+        vox.emplace_back(8.f * blockWidth, 2.f * blockHeight, Color::Magenta);
+        vox.emplace_back(9.f * blockWidth, 2.f * blockHeight, Color::Magenta);
+        vox.emplace_back(10.f * blockWidth, 2.f * blockHeight, Color::Magenta);
+        vox.emplace_back(11.f * blockWidth, 2.f * blockHeight, Color::Magenta);
+        vox.emplace_back(12.f * blockWidth, 2.f * blockHeight, Color::Magenta);
+        vox.emplace_back(13.f * blockWidth, 2.f * blockHeight, Color::Magenta);
+        vox.emplace_back(14.f * blockWidth, 2.f * blockHeight, Color::Magenta);
+        vox.emplace_back(15.f * blockWidth, 2.f * blockHeight, Color::Magenta);
+        vox.emplace_back(16.f * blockWidth, 2.f * blockHeight, Color::Magenta);
+        vox.emplace_back(17.f * blockWidth, 2.f * blockHeight, Color::Magenta);
+        vox.emplace_back(4.f * blockWidth, 3.f * blockHeight, Color::Magenta);
+        vox.emplace_back(5.f * blockWidth, 3.f * blockHeight, Color::Magenta);
+        vox.emplace_back(6.f * blockWidth, 3.f * blockHeight, Color::Magenta);
+        vox.emplace_back(8.f * blockWidth, 3.f * blockHeight, Color::Magenta);
+        vox.emplace_back(9.f * blockWidth, 3.f * blockHeight, Color::Magenta);
+        vox.emplace_back(10.f * blockWidth, 3.f * blockHeight, Color::Magenta);
+        vox.emplace_back(11.f * blockWidth, 3.f * blockHeight, Color::Magenta);
+        vox.emplace_back(12.f * blockWidth, 3.f * blockHeight, Color::Magenta);
+        vox.emplace_back(13.f * blockWidth, 3.f * blockHeight, Color::Magenta);
+        vox.emplace_back(14.f * blockWidth, 3.f * blockHeight, Color::Magenta);
+        vox.emplace_back(16.f * blockWidth, 3.f * blockHeight, Color::Magenta);
+        vox.emplace_back(17.f * blockWidth, 3.f * blockHeight, Color::Magenta);
+        vox.emplace_back(18.f * blockWidth, 3.f * blockHeight, Color::Magenta);
+        vox.emplace_back(2.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(3.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(4.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(5.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(6.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(7.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(8.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(9.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(10.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(11.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(12.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(13.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(14.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(15.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(16.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(17.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(18.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(19.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(20.f * blockWidth, 4.f * blockHeight, Color::Magenta);
+        vox.emplace_back(5.f * blockWidth, 5.f * blockHeight, Color::Magenta);
+        vox.emplace_back(6.f * blockWidth, 5.f * blockHeight, Color::Magenta);
+        vox.emplace_back(7.f * blockWidth, 5.f * blockHeight, Color::Magenta);
+        vox.emplace_back(8.f * blockWidth, 5.f * blockHeight, Color::Magenta);
+        vox.emplace_back(9.f * blockWidth, 5.f * blockHeight, Color::Magenta);
+        vox.emplace_back(10.f * blockWidth, 5.f * blockHeight, Color::Magenta);
+        vox.emplace_back(11.f * blockWidth, 5.f * blockHeight, Color::Magenta);
+        vox.emplace_back(12.f * blockWidth, 5.f * blockHeight, Color::Magenta);
+        vox.emplace_back(13.f * blockWidth, 5.f * blockHeight, Color::Magenta);
+        vox.emplace_back(14.f * blockWidth, 5.f * blockHeight, Color::Magenta);
+        vox.emplace_back(15.f * blockWidth, 5.f * blockHeight, Color::Magenta);
+        vox.emplace_back(16.f * blockWidth, 5.f * blockHeight, Color::Magenta);
+        vox.emplace_back(17.f * blockWidth, 5.f * blockHeight, Color::Magenta);
+        vox.emplace_back(5.f * blockWidth, 6.f * blockHeight, Color::Magenta);
+        vox.emplace_back(17.f * blockWidth, 6.f * blockHeight, Color::Magenta);
+        vox.emplace_back(6.f * blockWidth, 7.f * blockHeight, Color::Magenta);
+        vox.emplace_back(7.f * blockWidth, 7.f * blockHeight, Color::Magenta);
+        vox.emplace_back(8.f * blockWidth, 7.f * blockHeight, Color::Magenta);
+        vox.emplace_back(9.f * blockWidth, 7.f * blockHeight, Color::Magenta);
+        vox.emplace_back(14.f * blockWidth, 7.f * blockHeight, Color::Magenta);
+        vox.emplace_back(15.f * blockWidth, 7.f * blockHeight, Color::Magenta);
+        vox.emplace_back(16.f * blockWidth, 7.f * blockHeight, Color::Magenta);
+        vox.emplace_back(17.f * blockWidth, 7.f * blockHeight, Color::Magenta);
+        setPos(pos);
+    }
 };
 struct E3: Enemy {
 
@@ -176,7 +308,8 @@ int main()
     // Create the player 
     // ----------------------------------------
     entity.push_back(make_shared<Player>(Vec2(3.f*screenWidth / 4.f, screenHeight - 20.f))); 
-
+    entity.push_back(make_shared<E1>(Vec2(1.f*screenWidth / 6.f, 1.f * screenHeight / 8.f)));
+    entity.push_back(make_shared<E2>(Vec2(3.f*screenWidth / 6.f, 1.f * screenHeight / 8.f)));
     while(true)
     {
         window.clear(Color::Black);
