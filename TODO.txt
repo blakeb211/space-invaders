@@ -30,7 +30,10 @@ Command Pattern
 FEATURES
   Paths
   Voxels - enemies can be destroyed
-  *** Load levels from files
+  Load levels from files
+        ***Convenient enemy placement on screen 
+        ***Need Level code
+        ***Need Wall Building and convenient placement
   Multiple weapons
   Enemies Avoid one Another
   collision code that works with rotations

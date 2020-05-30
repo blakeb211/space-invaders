@@ -10,7 +10,7 @@ struct Entity;
 // Globals 
 //------------------------------------------------------------------------------------
 constexpr int screenWidth{1024}, screenHeight{768};
-constexpr float blockWidth{4.f}, blockHeight{4.f};
+constexpr float blockWidth{3.f}, blockHeight{3.f};
 constexpr float countBlocksX{screenWidth / blockWidth},countBlocksY{screenHeight/blockHeight}; 
 static bool gameOver{false};
 static bool pause{false};
@@ -536,6 +536,9 @@ int main()
         }
         if(Keyboard::isKeyPressed(Keyboard::Key::Space)) { 
             entity.push_back(make_shared<B1>(Entity::withId(0)->getPos()));
+        }
+        if(Keyboard::isKeyPressed(Keyboard::Key::LShift)) { 
+            entity.push_back(make_shared<B2>(Entity::withId(0)->getPos()));
         }
 
         for(auto & e  : entity) {
