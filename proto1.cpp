@@ -21,6 +21,7 @@ unsigned int levelId = 1;
 //------------------------------------------------------------------------------------
 // Global Structs
 //------------------------------------------------------------------------------------
+// TODO: Inherit from SFML RectangleShape
 struct Voxel { 
     Voxel(float mX, float mY, Color c = Color::White) : color{c}, vel(0,0) {
         shape.setPosition(mX, mY);
@@ -162,6 +163,7 @@ void removeDestroyedEntities(vector<Entity> & vec) {
     vec.erase(remove_if(begin(vec), end(vec), [] (const Entity & e) { return e.getHealth() <= 0u; }), end(vec));
 }
 
+void LoadArt();
 
 //------------------------------------------------------------------------------------
 // Program main entry point
@@ -173,7 +175,7 @@ int main()
     //-----------------------------------------
     // Create the player 
     // ----------------------------------------
-    entity.emplace_back(make_shared<Player>(Vec2(3.f*screenWidth / 4.f, screenHeight - 20.f))); 
+    entity.push_back(make_shared<Player>(Vec2(3.f*screenWidth / 4.f, screenHeight - 20.f))); 
 
     while(true)
     {
