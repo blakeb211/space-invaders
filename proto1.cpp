@@ -14,6 +14,7 @@ constexpr float blockWidth{5.f}, blockHeight{5.f};
 constexpr float countBlocksX{screenWidth / blockWidth},countBlocksY{screenHeight/blockHeight}; 
 static bool gameOver{false};
 static bool pause{false};
+// Mega Entity Array
 vector<shared_ptr<Entity>> entity;
 unsigned int levelId = 1;
 
