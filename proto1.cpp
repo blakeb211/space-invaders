@@ -49,7 +49,6 @@ struct Entity {
     // ----------------------------------------
     void setPos(Vec2 pos) {
         this->move(pos - this->pos);
-        this->pos = pos;
     }
     Vec2& getPos() { return pos; }
 
@@ -76,8 +75,8 @@ struct Entity {
     protected:
     vector<Voxel> vox;
     Vec2 vel;
-    Vec2 pos; // overall position of entity
     private:
+    Vec2 pos; // overall position of entity
     static size_t entityCount;
     // is there a way to make this const and make a copy constructor?
     size_t id; 
@@ -94,9 +93,9 @@ struct Bullet : Entity {
 
 struct B1 : Bullet {
     B1(Vec2 pos) : Bullet({0.f,-3.f}) {
-        vox.emplace_back(0.f,0.f);
+        vox.emplace_back(0.f,0.f, Color::Yellow);
         vox.emplace_back(0.f,1.f);
-        vox.emplace_back(1.f,0.f);
+        vox.emplace_back(1.f,0.f, Color::Yellow);
         vox.emplace_back(1.f,1.f);
         setPos(pos);
     }
