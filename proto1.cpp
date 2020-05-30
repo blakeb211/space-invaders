@@ -84,9 +84,10 @@ struct Entity {
 size_t Entity::entityCount = 0;
 
 // Bullet types
-struct Bullet : Entity { // base
+struct Bullet : Entity { 
     Bullet(Vec2 vv) : vel{vv} {}
     Vec2 vel;    
+    virtual void update() override { cout << "Bullets update being called" << endl; }
 };
 struct B1 : Bullet {
     B1(Vec2 pos) : Bullet({0.f,-3.f}) {
@@ -97,6 +98,7 @@ struct B1 : Bullet {
         setPos(pos);
     }
     void update() override {
+        cout << "B1 update being called" << endl;
         pos += vel;  
     }
 };
@@ -184,7 +186,9 @@ int main()
             Entity::withId(0).move({+10.f,0.f}); 
         }
         if(Keyboard::isKeyPressed(Keyboard::Key::Space)) { 
+            // create a version of bullet1
             entity.emplace_back(B1(Entity::withId(0).getPos())); 
+            Entity::withId(1).update();
         }
 
         for(auto & e  : entity) {
