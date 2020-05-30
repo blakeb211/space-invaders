@@ -14,7 +14,7 @@ constexpr float blockWidth{5.f}, blockHeight{5.f};
 constexpr float countBlocksX{screenWidth / blockWidth},countBlocksY{screenHeight/blockHeight}; 
 static bool gameOver{false};
 static bool pause{false};
-vector<Entity> entity;
+vector<shared_ptr<Entity>> entity;
 unsigned int levelId = 1;
 
 //------------------------------------------------------------------------------------
@@ -39,7 +39,8 @@ struct Voxel {
 
 struct Entity {
     Entity() : id{entityCount++} {}
-    virtual void update() { /* check for collision */ /* update pos */  }
+    virtual void update() { /* check for collision */ pos += vel;/* update pos */  }
+         
     virtual void draw() { }
     virtual ~Entity() { }  
     //-----------------------------------------
@@ -89,6 +90,7 @@ struct Bullet : Entity {
     Vec2 vel;    
     virtual void update() override { cout << "Bullets update being called" << endl; }
 };
+
 struct B1 : Bullet {
     B1(Vec2 pos) : Bullet({0.f,-3.f}) {
         vox.emplace_back(0.f,0.f);
@@ -97,7 +99,7 @@ struct B1 : Bullet {
         vox.emplace_back(1.f,1.f);
         setPos(pos);
     }
-    void update() override {
+    virtual void update() override {
         cout << "B1 update being called" << endl;
         pos += vel;  
     }
@@ -187,14 +189,12 @@ int main()
         }
         if(Keyboard::isKeyPressed(Keyboard::Key::Space)) { 
             // create a version of bullet1
-            entity.emplace_back(B1(Entity::withId(0).getPos())); 
-            Entity::withId(1).update();
+            entity.push_back(make_shared<B1>(Entity::withId(0).getPos()));
         }
 
         for(auto & e  : entity) {
-            e.update();
-            for (auto & v : e.getVox()) {
-
+            e->update();
+            for (auto & v : e->getVox()) {
                 window.draw(v.shape);
             }
         }
