@@ -1,12 +1,14 @@
-#include "builder.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include "stdlibs.h"
 #include "globals.h"
+#include "builder.h" // contains Voxel def
+
 using namespace std;
 using namespace sf;
 using Vec2 = Vector2<float>; 
 using FrameTime = float;
+
 struct Entity;
 //------------------------------------------------------------------------------------
 // Globals 
@@ -75,34 +77,21 @@ struct Bullet : Entity {
 
 struct B1 : Bullet {
     B1(Vec2 pos) : Bullet({0.f,-1.f}) {
-        Builder::build_B1(vox, G::bW);
+        Builder::build_B1(vox);
         setPos(pos);
     }
 };
 
 struct B2 : Bullet {
     B2(Vec2 pos) : Bullet({0.f,-1.f}) {
-        vox.emplace_back(2.f * G::bW, 0.f * G::bW, Color(112,1,209,255));
-        vox.emplace_back(3.f * G::bW, 0.f * G::bW, Color(112,1,209,255));
-        vox.emplace_back(1.f * G::bW, 1.f * G::bW, Color(112,1,209,255));
-        vox.emplace_back(2.f * G::bW, 1.f * G::bW, Color(112,1,209,255));
-        vox.emplace_back(3.f * G::bW, 1.f * G::bW, Color(112,1,209,255));
-        vox.emplace_back(4.f * G::bW, 1.f * G::bW, Color(112,1,209,255));
-        vox.emplace_back(1.f * G::bW, 2.f * G::bW, Color(112,1,209,255));
-        vox.emplace_back(4.f * G::bW, 2.f * G::bW, Color(112,1,209,255));
-        vox.emplace_back(0.f * G::bW, 3.f * G::bW, Color(112,1,209,255));
-        vox.emplace_back(5.f * G::bW, 3.f * G::bW, Color(112,1,209,255));
+        Builder::build_B2(vox);
         setPos(pos);
     }
 };
 
 struct Player : public Entity {
-    // define the relative positions of the player voxels
     Player(Vec2 pos) {
-        vox.emplace_back(0.f,0.f);
-        vox.emplace_back(0.f+1.f * G::bW, 0.f);
-        vox.emplace_back(0.f+2.f * G::bW, 0.f);
-        vox.emplace_back(0.f+1.f * G::bW, 0.f - 1.f* G::bW, Color::Cyan);
+        Builder::build_player(vox);
         setPos(pos);
     }
 };
@@ -113,342 +102,25 @@ struct Enemy: Entity { // base
 
 struct E1: Enemy {
     E1(Vec2 pos) {
-        vox.emplace_back(9.f * G::bW, 0.f * G::bW, Color::Cyan);
-        vox.emplace_back(10.f * G::bW, 0.f * G::bW, Color::Cyan);
-        vox.emplace_back(11.f * G::bW, 0.f * G::bW, Color::Cyan);
-        vox.emplace_back(12.f * G::bW, 0.f * G::bW, Color::Cyan);
-        vox.emplace_back(7.f * G::bW, 1.f * G::bW, Color::Cyan);
-        vox.emplace_back(8.f * G::bW, 1.f * G::bW, Color::Cyan);
-        vox.emplace_back(9.f * G::bW, 1.f * G::bW, Color::Cyan);
-        vox.emplace_back(10.f * G::bW, 1.f * G::bW, Color::Cyan);
-        vox.emplace_back(11.f * G::bW, 1.f * G::bW, Color::Cyan);
-        vox.emplace_back(12.f * G::bW, 1.f * G::bW, Color::Cyan);
-        vox.emplace_back(13.f * G::bW, 1.f * G::bW, Color::Cyan);
-        vox.emplace_back(14.f * G::bW, 1.f * G::bW, Color::Cyan);
-        vox.emplace_back(6.f * G::bW, 2.f * G::bW, Color::Cyan);
-        vox.emplace_back(7.f * G::bW, 2.f * G::bW, Color::Cyan);
-        vox.emplace_back(8.f * G::bW, 2.f * G::bW, Color::Cyan);
-        vox.emplace_back(9.f * G::bW, 2.f * G::bW, Color::Cyan);
-        vox.emplace_back(10.f * G::bW, 2.f * G::bW, Color::Cyan);
-        vox.emplace_back(11.f * G::bW, 2.f * G::bW, Color::Cyan);
-        vox.emplace_back(12.f * G::bW, 2.f * G::bW, Color::Cyan);
-        vox.emplace_back(13.f * G::bW, 2.f * G::bW, Color::Cyan);
-        vox.emplace_back(14.f * G::bW, 2.f * G::bW, Color::Cyan);
-        vox.emplace_back(15.f * G::bW, 2.f * G::bW, Color::Cyan);
-        vox.emplace_back(5.f * G::bW, 3.f * G::bW, Color::Cyan);
-        vox.emplace_back(6.f * G::bW, 3.f * G::bW, Color::Cyan);
-        vox.emplace_back(9.f * G::bW, 3.f * G::bW, Color::Cyan);
-        vox.emplace_back(10.f * G::bW, 3.f * G::bW, Color::Cyan);
-        vox.emplace_back(11.f * G::bW, 3.f * G::bW, Color::Cyan);
-        vox.emplace_back(12.f * G::bW, 3.f * G::bW, Color::Cyan);
-        vox.emplace_back(15.f * G::bW, 3.f * G::bW, Color::Cyan);
-        vox.emplace_back(16.f * G::bW, 3.f * G::bW, Color::Cyan);
-        vox.emplace_back(5.f * G::bW, 4.f * G::bW, Color::Cyan);
-        vox.emplace_back(6.f * G::bW, 4.f * G::bW, Color::Cyan);
-        vox.emplace_back(7.f * G::bW, 4.f * G::bW, Color::Cyan);
-        vox.emplace_back(8.f * G::bW, 4.f * G::bW, Color::Cyan);
-        vox.emplace_back(9.f * G::bW, 4.f * G::bW, Color::Cyan);
-        vox.emplace_back(10.f * G::bW, 4.f * G::bW, Color::Cyan);
-        vox.emplace_back(11.f * G::bW, 4.f * G::bW, Color::Cyan);
-        vox.emplace_back(12.f * G::bW, 4.f * G::bW, Color::Cyan);
-        vox.emplace_back(13.f * G::bW, 4.f * G::bW, Color::Cyan);
-        vox.emplace_back(14.f * G::bW, 4.f * G::bW, Color::Cyan);
-        vox.emplace_back(15.f * G::bW, 4.f * G::bW, Color::Cyan);
-        vox.emplace_back(16.f * G::bW, 4.f * G::bW, Color::Cyan);
-        vox.emplace_back(8.f * G::bW, 5.f * G::bW, Color::Cyan);
-        vox.emplace_back(13.f * G::bW, 5.f * G::bW, Color::Cyan);
-        vox.emplace_back(7.f * G::bW, 6.f * G::bW, Color::Cyan);
-        vox.emplace_back(9.f * G::bW, 6.f * G::bW, Color::Cyan);
-        vox.emplace_back(10.f * G::bW, 6.f * G::bW, Color::Cyan);
-        vox.emplace_back(11.f * G::bW, 6.f * G::bW, Color::Cyan);
-        vox.emplace_back(12.f * G::bW, 6.f * G::bW, Color::Cyan);
-        vox.emplace_back(14.f * G::bW, 6.f * G::bW, Color::Cyan);
-        vox.emplace_back(6.f * G::bW, 7.f * G::bW, Color::Cyan);
-        vox.emplace_back(9.f * G::bW, 7.f * G::bW, Color::Cyan);
-        vox.emplace_back(12.f * G::bW, 7.f * G::bW, Color::Cyan);
-        vox.emplace_back(15.f * G::bW, 7.f * G::bW, Color::Cyan);
-        setPos(pos);
+        Builder::build_E1(vox);
+         setPos(pos);
     }
 };
 struct E2: Enemy {
     E2(Vec2 pos) {
-        vox.emplace_back(3.f * G::bW, 0.f * G::bW, Color::Magenta);
-        vox.emplace_back(4.f * G::bW, 0.f * G::bW, Color::Magenta);
-        vox.emplace_back(17.f * G::bW, 0.f * G::bW, Color::Magenta);
-        vox.emplace_back(18.f * G::bW, 0.f * G::bW, Color::Magenta);
-        vox.emplace_back(6.f * G::bW, 1.f * G::bW, Color::Magenta);
-        vox.emplace_back(16.f * G::bW, 1.f * G::bW, Color::Magenta);
-        vox.emplace_back(5.f * G::bW, 2.f * G::bW, Color::Magenta);
-        vox.emplace_back(6.f * G::bW, 2.f * G::bW, Color::Magenta);
-        vox.emplace_back(7.f * G::bW, 2.f * G::bW, Color::Magenta);
-        vox.emplace_back(8.f * G::bW, 2.f * G::bW, Color::Magenta);
-        vox.emplace_back(9.f * G::bW, 2.f * G::bW, Color::Magenta);
-        vox.emplace_back(10.f * G::bW, 2.f * G::bW, Color::Magenta);
-        vox.emplace_back(11.f * G::bW, 2.f * G::bW, Color::Magenta);
-        vox.emplace_back(12.f * G::bW, 2.f * G::bW, Color::Magenta);
-        vox.emplace_back(13.f * G::bW, 2.f * G::bW, Color::Magenta);
-        vox.emplace_back(14.f * G::bW, 2.f * G::bW, Color::Magenta);
-        vox.emplace_back(15.f * G::bW, 2.f * G::bW, Color::Magenta);
-        vox.emplace_back(16.f * G::bW, 2.f * G::bW, Color::Magenta);
-        vox.emplace_back(17.f * G::bW, 2.f * G::bW, Color::Magenta);
-        vox.emplace_back(4.f * G::bW, 3.f * G::bW, Color::Magenta);
-        vox.emplace_back(5.f * G::bW, 3.f * G::bW, Color::Magenta);
-        vox.emplace_back(6.f * G::bW, 3.f * G::bW, Color::Magenta);
-        vox.emplace_back(8.f * G::bW, 3.f * G::bW, Color::Magenta);
-        vox.emplace_back(9.f * G::bW, 3.f * G::bW, Color::Magenta);
-        vox.emplace_back(10.f * G::bW, 3.f * G::bW, Color::Magenta);
-        vox.emplace_back(11.f * G::bW, 3.f * G::bW, Color::Magenta);
-        vox.emplace_back(12.f * G::bW, 3.f * G::bW, Color::Magenta);
-        vox.emplace_back(13.f * G::bW, 3.f * G::bW, Color::Magenta);
-        vox.emplace_back(14.f * G::bW, 3.f * G::bW, Color::Magenta);
-        vox.emplace_back(16.f * G::bW, 3.f * G::bW, Color::Magenta);
-        vox.emplace_back(17.f * G::bW, 3.f * G::bW, Color::Magenta);
-        vox.emplace_back(18.f * G::bW, 3.f * G::bW, Color::Magenta);
-        vox.emplace_back(2.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(3.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(4.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(5.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(6.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(7.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(8.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(9.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(10.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(11.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(12.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(13.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(14.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(15.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(16.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(17.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(18.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(19.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(20.f * G::bW, 4.f * G::bW, Color::Magenta);
-        vox.emplace_back(5.f * G::bW, 5.f * G::bW, Color::Magenta);
-        vox.emplace_back(6.f * G::bW, 5.f * G::bW, Color::Magenta);
-        vox.emplace_back(7.f * G::bW, 5.f * G::bW, Color::Magenta);
-        vox.emplace_back(8.f * G::bW, 5.f * G::bW, Color::Magenta);
-        vox.emplace_back(9.f * G::bW, 5.f * G::bW, Color::Magenta);
-        vox.emplace_back(10.f * G::bW, 5.f * G::bW, Color::Magenta);
-        vox.emplace_back(11.f * G::bW, 5.f * G::bW, Color::Magenta);
-        vox.emplace_back(12.f * G::bW, 5.f * G::bW, Color::Magenta);
-        vox.emplace_back(13.f * G::bW, 5.f * G::bW, Color::Magenta);
-        vox.emplace_back(14.f * G::bW, 5.f * G::bW, Color::Magenta);
-        vox.emplace_back(15.f * G::bW, 5.f * G::bW, Color::Magenta);
-        vox.emplace_back(16.f * G::bW, 5.f * G::bW, Color::Magenta);
-        vox.emplace_back(17.f * G::bW, 5.f * G::bW, Color::Magenta);
-        vox.emplace_back(5.f * G::bW, 6.f * G::bW, Color::Magenta);
-        vox.emplace_back(17.f * G::bW, 6.f * G::bW, Color::Magenta);
-        vox.emplace_back(6.f * G::bW, 7.f * G::bW, Color::Magenta);
-        vox.emplace_back(7.f * G::bW, 7.f * G::bW, Color::Magenta);
-        vox.emplace_back(8.f * G::bW, 7.f * G::bW, Color::Magenta);
-        vox.emplace_back(9.f * G::bW, 7.f * G::bW, Color::Magenta);
-        vox.emplace_back(14.f * G::bW, 7.f * G::bW, Color::Magenta);
-        vox.emplace_back(15.f * G::bW, 7.f * G::bW, Color::Magenta);
-        vox.emplace_back(16.f * G::bW, 7.f * G::bW, Color::Magenta);
-        vox.emplace_back(17.f * G::bW, 7.f * G::bW, Color::Magenta);
+        Builder::build_E2(vox);
         setPos(pos);
     }
 };
 struct E3: Enemy {
     E3(Vec2 pos) {
-        vox.emplace_back(9.f * G::bW, 0.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(10.f * G::bW, 0.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(11.f * G::bW, 0.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(12.f * G::bW, 0.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(13.f * G::bW, 0.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(5.f * G::bW, 1.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(6.f * G::bW, 1.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(7.f * G::bW, 1.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(8.f * G::bW, 1.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(9.f * G::bW, 1.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(10.f * G::bW, 1.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(11.f * G::bW, 1.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(12.f * G::bW, 1.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(13.f * G::bW, 1.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(14.f * G::bW, 1.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(15.f * G::bW, 1.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(16.f * G::bW, 1.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(4.f * G::bW, 2.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(5.f * G::bW, 2.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(6.f * G::bW, 2.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(7.f * G::bW, 2.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(8.f * G::bW, 2.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(9.f * G::bW, 2.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(10.f * G::bW, 2.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(11.f * G::bW, 2.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(12.f * G::bW, 2.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(13.f * G::bW, 2.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(14.f * G::bW, 2.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(15.f * G::bW, 2.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(16.f * G::bW, 2.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(17.f * G::bW, 2.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(18.f * G::bW, 2.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(4.f * G::bW, 3.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(5.f * G::bW, 3.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(6.f * G::bW, 3.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(9.f * G::bW, 3.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(10.f * G::bW, 3.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(11.f * G::bW, 3.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(12.f * G::bW, 3.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(13.f * G::bW, 3.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(16.f * G::bW, 3.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(17.f * G::bW, 3.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(18.f * G::bW, 3.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(4.f * G::bW, 4.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(5.f * G::bW, 4.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(6.f * G::bW, 4.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(7.f * G::bW, 4.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(8.f * G::bW, 4.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(9.f * G::bW, 4.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(10.f * G::bW, 4.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(11.f * G::bW, 4.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(12.f * G::bW, 4.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(13.f * G::bW, 4.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(14.f * G::bW, 4.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(15.f * G::bW, 4.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(16.f * G::bW, 4.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(17.f * G::bW, 4.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(18.f * G::bW, 4.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(6.f * G::bW, 5.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(7.f * G::bW, 5.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(8.f * G::bW, 5.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(14.f * G::bW, 5.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(15.f * G::bW, 5.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(16.f * G::bW, 5.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(5.f * G::bW, 6.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(6.f * G::bW, 6.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(7.f * G::bW, 6.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(15.f * G::bW, 6.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(16.f * G::bW, 6.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(17.f * G::bW, 6.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(3.f * G::bW, 7.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(4.f * G::bW, 7.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(5.f * G::bW, 7.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(17.f * G::bW, 7.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(18.f * G::bW, 7.f * G::bW, Color::Red + Color::Yellow);
-        vox.emplace_back(19.f * G::bW, 7.f * G::bW, Color::Red + Color::Yellow);
+        Builder::build_E3(vox);
         setPos(pos);
     }
 };
 struct E4: Enemy {
     E4(Vec2 pos) {
-        vox.emplace_back(9.f * G::bW, 0.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(10.f * G::bW, 0.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(11.f * G::bW, 0.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(12.f * G::bW, 0.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(13.f * G::bW, 0.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(14.f * G::bW, 0.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(15.f * G::bW, 0.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(16.f * G::bW, 0.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(17.f * G::bW, 0.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(18.f * G::bW, 0.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(19.f * G::bW, 0.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(6.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(7.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(8.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(9.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(10.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(11.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(12.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(13.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(14.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(15.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(16.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(17.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(18.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(19.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(20.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(21.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(22.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(23.f * G::bW, 1.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(4.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(5.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(6.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(7.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(8.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(9.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(10.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(11.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(12.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(13.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(14.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(15.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(16.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(17.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(18.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(19.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(20.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(21.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(22.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(23.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(24.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(25.f * G::bW, 2.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(3.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(4.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(5.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(6.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(8.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(9.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(10.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(11.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(13.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(14.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(15.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(16.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(18.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(19.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(20.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(21.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(23.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(24.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(25.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(26.f * G::bW, 3.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(0.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(1.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(2.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(3.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(4.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(5.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(6.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(7.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(8.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(9.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(10.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(11.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(12.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(13.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(14.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(15.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(16.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(17.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(18.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(19.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(20.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(21.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(22.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(23.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(24.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(25.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(26.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(27.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(28.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(29.f * G::bW, 4.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(5.f * G::bW, 5.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(6.f * G::bW, 5.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(7.f * G::bW, 5.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(8.f * G::bW, 5.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(9.f * G::bW, 5.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(13.f * G::bW, 5.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(14.f * G::bW, 5.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(15.f * G::bW, 5.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(16.f * G::bW, 5.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(20.f * G::bW, 5.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(21.f * G::bW, 5.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(22.f * G::bW, 5.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(23.f * G::bW, 5.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(24.f * G::bW, 5.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(7.f * G::bW, 6.f * G::bW, Color(255,140,0,245));
-        vox.emplace_back(22.f * G::bW, 6.f * G::bW, Color(255,140,0,245));
+        Builder::build_E4(vox);
         setPos(pos);
     }
 };
@@ -478,8 +150,6 @@ void removeDestroyedEntities(vector<Entity> & vec) {
     // TODO: consider a threshold for different entity types
     vec.erase(remove_if(begin(vec), end(vec), [] (const Entity & e) { return e.getHealth() <= 0u; }), end(vec));
 }
-
-
 
 struct Game {
     // These members are related to the control of the game.

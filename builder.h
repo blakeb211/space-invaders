@@ -1,32 +1,25 @@
+//------------------------------------------------------------------------------
+// builder.h, Blake Baird 
+//------------------------------------------------------------------------------
+// Defines
+//  Voxel struct
+//  Builder namespace - Defines relative position and color of voxels 
+//                      for each Entity.
+//------------------------------------------------------------------------------
+
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include "stdlibs.h"
-#include "globals.h"
-using namespace sf;
-using namespace std;
-using Vec2 = Vector2<float>; 
-
-struct Voxel : RectangleShape { 
-    Voxel(float mX, float mY, Color c = Color::White) : color{c}, vel(0,0) {
-        setPosition(mX, mY);
-        setSize({G::bW, G::bW});
-        setFillColor(c);
-        setOrigin(G::bW / 2.f, G::bW / 2.f);
-    }
-    // member data 
-    Vec2 vel;
-    Color color;
-    optional<int> health; // voxel health
-};
+#include "voxel.h"
 
 namespace Builder {
-
-void build_B1(vector<Voxel> &vox, const float & bW) { 
-        vox.emplace_back(1.f * G::bW, 0.f * G::bW, Color(209,181,190,255));
-        vox.emplace_back(0.f * G::bW, 1.f * G::bW, Color(209,181,190,255));
-        vox.emplace_back(1.f * G::bW, 1.f * G::bW, Color(209,181,190,255));
-        vox.emplace_back(2.f * G::bW, 1.f * G::bW, Color(209,181,190,255));
-        vox.emplace_back(1.f * G::bW, 2.f * G::bW, Color(209,181,190,255));
-}
+    
+    void build_player(std::vector<Voxel> &vox);
+    void build_B1(std::vector<Voxel> &vox);
+    void build_B2(std::vector<Voxel> &vox);
+    void build_E1(std::vector<Voxel> &vox);
+    void build_E2(std::vector<Voxel> &vox);
+    void build_E3(std::vector<Voxel> &vox);
+    void build_E4(std::vector<Voxel> &vox);
 
 } // namespace Builder
