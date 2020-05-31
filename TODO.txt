@@ -33,6 +33,8 @@ FEATURES
   Paths
   Voxels - enemies can be destroyed
   Load levels from files
+        ***learn how to structure header files
+        ***pull out emplace_back code
         ***Convenient enemy placement on screen 
         ***Need Level Loading code
         ***Need Wall Building and convenient placement
