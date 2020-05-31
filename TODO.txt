@@ -39,7 +39,7 @@ FEATURES
         ***Need Wall Building and convenient placement
         ***Need Player art
         ***Refactor out Entity struct 
-        ***collision code 
+        ***collision code  AABB
         ***animations
 
   Multiple weapons
