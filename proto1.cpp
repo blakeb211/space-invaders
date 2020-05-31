@@ -19,7 +19,6 @@ vector<shared_ptr<Entity>> entity;
 //------------------------------------------------------------------------------------
 // Global Structs
 //------------------------------------------------------------------------------------
-// TODO: Inherit from SFML RectangleShape
 struct Voxel : RectangleShape { 
     Voxel(float mX, float mY, Color c = Color::White) : color{c}, vel(0,0) {
         setPosition(mX, mY);
