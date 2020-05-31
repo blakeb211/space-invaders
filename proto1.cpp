@@ -5,11 +5,13 @@
 using namespace std;
 using namespace sf;
 using Vec2 = Vector2<float>; 
+using FrameTime = float;
 struct Entity;
 //------------------------------------------------------------------------------------
 // Globals 
 //------------------------------------------------------------------------------------
 constexpr int screenWidth{1024}, screenHeight{768};
+const string screenTitle{"Shooter - Prototype #2"};
 constexpr float blockWidth{3.f}, blockHeight{3.f};
 constexpr float countBlocksX{screenWidth / blockWidth},countBlocksY{screenHeight/blockHeight}; 
 static bool gameOver{false};
@@ -513,8 +515,9 @@ void removeDestroyedEntities(vector<Entity> & vec) {
 //------------------------------------------------------------------------------------
 int main()
 {
-    RenderWindow window{{screenWidth, screenHeight}, "Shooter - Prototype #2"};
-    window.setFramerateLimit(100);
+    gameOver = false;
+    RenderWindow window{{screenWidth, screenHeight}, screenTitle};
+    window.setFramerateLimit(200);
     //-----------------------------------------
     // Create the player 
     // ----------------------------------------
@@ -523,10 +526,12 @@ int main()
     entity.push_back(make_shared<E2>(Vec2(2.f*screenWidth / 6.f, 1.f * screenHeight / 8.f)));
     entity.push_back(make_shared<E3>(Vec2(3.f*screenWidth / 6.f, 1.f * screenHeight / 8.f)));
     entity.push_back(make_shared<E4>(Vec2(4.f*screenWidth / 6.f, 1.f * screenHeight / 8.f)));
-    while(true)
+    while(!gameOver)
     {
-        window.clear(Color::Black);
-
+        auto timePoint1(chrono::high_resolution_clock::now());
+        //-----------------------------------------
+        // Input Phase 
+        // ----------------------------------------
         if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) break;
         if(Keyboard::isKeyPressed(Keyboard::Key::Left)) { 
             Entity::withId(0)->move({-10.f,0.f}); 
@@ -541,6 +546,10 @@ int main()
             entity.push_back(make_shared<B2>(Entity::withId(0)->getPos()));
         }
 
+        //-----------------------------------------
+        // Update and Draw Phase 
+        // ----------------------------------------
+        window.clear(Color::Black);
         for(auto & e  : entity) {
             e->update();
             for (auto & v : e->getVox()) {
@@ -548,6 +557,16 @@ int main()
             }
         }
         window.display();
+
+        auto timePoint2(chrono::high_resolution_clock::now());
+        auto elapsedTime(timePoint2 - timePoint1);
+        FrameTime ft{chrono::duration_cast<chrono::duration<float, milli>>(
+                elapsedTime)
+            .count()};
+        auto fSeconds = ft / 1000.f;
+        auto fps = 1.f / fSeconds;
+        auto fps2 = static_cast<int>(round(fps));
+        window.setTitle(screenTitle + " FPS: " + to_string(fps2));
     }
     return 0;
 }
