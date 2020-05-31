@@ -45,7 +45,7 @@ struct Entity {
   // Return the entity with the given id 
   // ----------------------------------------
   static std::shared_ptr<Entity> withId(size_t id); 
-  
+
   bool destroyed;
   protected:
   std::vector<Voxel> vox;
