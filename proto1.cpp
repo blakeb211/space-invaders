@@ -22,7 +22,7 @@ struct Entity {
     //-----------------------------------------
     // Constructor 
     // ----------------------------------------
-    Entity() : id{entityCount++} {}
+    Entity() : id{entityCount++}, destroyed{false} {}
     virtual void update(FrameTime ftStep) { /* check for collision */ /* update pos */  }
     //-----------------------------------------
     // Destructor 
@@ -66,14 +66,15 @@ struct Entity {
                 [&id](const shared_ptr<Entity> & e) 
                 { return e->id == id; });
     }
+    bool destroyed;
     protected:
     vector<Voxel> vox;
     Vec2 vel;
-    private:
     Vec2 pos; // overall position of entity
+    size_t id; 
+    private:
     static size_t entityCount;
     // is there a way to make this const and make a copy constructor?
-    size_t id; 
 };
 // out of line static initializers
 size_t Entity::entityCount = 0;
@@ -84,6 +85,10 @@ struct Bullet : Entity {
     Vec2 vel;    
     virtual void update(FrameTime ftStep) override { 
         move(ftStep*vel);  
+        // mark for destruction if go off screen
+        if (pos.x < 0 || pos.x > G::screenWidth || pos.y < 0 || pos.y > G::screenHeight) {
+          destroyed = true;
+        }
     }
 };
 
@@ -158,9 +163,9 @@ void testCollision(Entity &e1, Entity &e2) {
     // handle collision
 }
 
-void removeDestroyedEntities(vector<Entity> & vec) {
+void removeDestroyedEntities(vector<shared_ptr<Entity>> & vec) {
     // TODO: consider a threshold for different entity types
-    vec.erase(remove_if(begin(vec), end(vec), [] (const Entity & e) { return e.getHealth() <= 0u; }), end(vec));
+    vec.erase(remove_if(begin(vec), end(vec), [] (const shared_ptr<Entity> & e) { return e->destroyed; }), end(vec));
 }
 
 struct Game {
@@ -249,6 +254,7 @@ struct Game {
                 updatePhase();
                 // check for collisions
                 // remove dead entities
+                removeDestroyedEntities(entity);
             }
             drawPhase();
             // calculate FPS 
