@@ -39,7 +39,7 @@ struct Voxel {
 
 struct Entity {
     Entity() : id{entityCount++} {}
-    virtual void update() { /* check for collision */ pos += vel;/* update pos */  }
+    virtual void update(FrameTime ftStep) { /* check for collision */ /* update pos */  }
 
     virtual void draw() { }
     virtual ~Entity() { }  
@@ -87,11 +87,14 @@ size_t Entity::entityCount = 0;
 struct Bullet : Entity { 
     Bullet(Vec2 vv) : vel{vv} {}
     Vec2 vel;    
-    virtual void update() override { }
+    virtual void update(FrameTime ftStep) override { 
+        // call Entity::move scaled by ftStep
+        move(ftStep*vel);  
+    }
 };
 
 struct B1 : Bullet {
-    B1(Vec2 pos) : Bullet({0.f,-3.f}) {
+    B1(Vec2 pos) : Bullet({0.f,-1.f}) {
         vox.emplace_back(1.f * blockWidth, 0.f * blockHeight, Color(209,181,190,255));
         vox.emplace_back(0.f * blockWidth, 1.f * blockHeight, Color(209,181,190,255));
         vox.emplace_back(1.f * blockWidth, 1.f * blockHeight, Color(209,181,190,255));
@@ -99,13 +102,10 @@ struct B1 : Bullet {
         vox.emplace_back(1.f * blockWidth, 2.f * blockHeight, Color(209,181,190,255));
         setPos(pos);
     }
-    virtual void update() override {
-        move(vel);  
-    }
 };
 
 struct B2 : Bullet {
-    B2(Vec2 pos) : Bullet({0.f,-3.f}) {
+    B2(Vec2 pos) : Bullet({0.f,-1.f}) {
         vox.emplace_back(2.f * blockWidth, 0.f * blockHeight, Color(112,1,209,255));
         vox.emplace_back(3.f * blockWidth, 0.f * blockHeight, Color(112,1,209,255));
         vox.emplace_back(1.f * blockWidth, 1.f * blockHeight, Color(112,1,209,255));
@@ -117,9 +117,6 @@ struct B2 : Bullet {
         vox.emplace_back(0.f * blockWidth, 3.f * blockHeight, Color(112,1,209,255));
         vox.emplace_back(5.f * blockWidth, 3.f * blockHeight, Color(112,1,209,255));
         setPos(pos);
-    }
-    virtual void update() override {
-        move(vel);  
     }
 };
 
@@ -512,6 +509,7 @@ struct Game {
     // These members are related to the control of the game.
     RenderWindow window{{screenWidth, screenHeight}, screenTitle};
     FrameTime lastFt{0.f}, currentSlice{0.f};
+    FrameTime ftStep{1.f}, ftSlice{1.f};
     bool gameOver{false}, pause{false};
 
     // These members are game entities.
@@ -522,7 +520,7 @@ struct Game {
     // ----------------------------------------
     Game() {
         gameOver = false;
-        window.setFramerateLimit(100);
+        window.setFramerateLimit(150);
         // create the player
         entity.push_back(make_shared<Player>(Vec2(3.f*screenWidth / 4.f, screenHeight - 20.f))); 
         // Load level 1
@@ -532,7 +530,7 @@ struct Game {
         entity.push_back(make_shared<E4>(Vec2(4.f*screenWidth / 6.f, 1.f * screenHeight / 8.f)));
     }
     //-----------------------------------------
-    // Input phase 
+    // Input phase : called every frame
     // ----------------------------------------
     void inputPhase() {
         Event event;
@@ -544,10 +542,10 @@ struct Game {
         }
         if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) gameOver = true;
         if(Keyboard::isKeyPressed(Keyboard::Key::Left)) { 
-            Entity::withId(0)->move({-10.f,0.f}); 
+            Entity::withId(0)->move({ftStep * -8.f,0.f}); 
         }
         if(Keyboard::isKeyPressed(Keyboard::Key::Right)) { 
-            Entity::withId(0)->move({+10.f,0.f}); 
+            Entity::withId(0)->move({ftStep * +8.f,0.f}); 
         }
         if(Keyboard::isKeyPressed(Keyboard::Key::Space)) { 
             entity.push_back(make_shared<B1>(Entity::withId(0)->getPos()));
@@ -558,19 +556,26 @@ struct Game {
     }
 
     //-----------------------------------------
-    // Update and draw phase 
+    // Update phase 
     // ----------------------------------------
-    void updateDrawPhase() {
+    void updatePhase() {
         window.clear(Color::Black);
+        // Update using ftStep for framerate 
+        // independent gameplay
+        for(auto & e  : entity) { e->update(ftStep); }
+    }
+
+    //-----------------------------------------
+    // Draw phase 
+    // ----------------------------------------
+    void drawPhase() {
         for(auto & e  : entity) {
-            e->update();
             for (auto & v : e->getVox()) {
                 window.draw(v.shape);
             }
         }
         window.display();
     }
-
     //-----------------------------------------
     // Run phase 
     // ----------------------------------------
@@ -580,8 +585,14 @@ struct Game {
             auto timePoint1(chrono::high_resolution_clock::now());
 
             inputPhase();
-            updateDrawPhase();
 
+            currentSlice += lastFt;
+            for(; currentSlice >= ftSlice; currentSlice -= ftSlice) {
+                updatePhase();
+                // check for collisions
+                // remove dead entities
+            }
+            drawPhase();
             // calculate FPS 
             auto timePoint2(chrono::high_resolution_clock::now());
             auto elapsedTime(timePoint2 - timePoint1);
@@ -589,6 +600,7 @@ struct Game {
                     elapsedTime)
                 .count()};
             lastFt = ft;
+
             auto fSeconds = ft / 1000.f;
             auto fps = 1.f / fSeconds;
             auto fps2 = static_cast<int>(round(fps));

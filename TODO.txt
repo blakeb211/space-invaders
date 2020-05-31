@@ -24,6 +24,8 @@ Game Entity Management
   local vars
 
  *** Frametime control - update many times per frame, but draw once per frame
+ *** setOrigin of enemies and bullets
+ *** inherit Voxel from RectangleShape
 
 Actions
 Command Pattern
