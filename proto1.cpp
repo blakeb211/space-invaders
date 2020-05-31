@@ -522,7 +522,7 @@ struct Game {
     // ----------------------------------------
     Game() {
         gameOver = false;
-        window.setFramerateLimit(200);
+        window.setFramerateLimit(100);
         // create the player
         entity.push_back(make_shared<Player>(Vec2(3.f*screenWidth / 4.f, screenHeight - 20.f))); 
         // Load level 1
@@ -588,6 +588,7 @@ struct Game {
             FrameTime ft{chrono::duration_cast<chrono::duration<float, milli>>(
                     elapsedTime)
                 .count()};
+            lastFt = ft;
             auto fSeconds = ft / 1000.f;
             auto fps = 1.f / fSeconds;
             auto fps2 = static_cast<int>(round(fps));

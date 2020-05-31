@@ -1,5 +1,6 @@
 Coding Guidelines
-  { } initialization and literal type specifiers to prevent narrowing conversions
+  { } uniform initialization to prevent narrowing conversions 
+  dont use auto with {}
   in class initialization with braces
   generic functions
   using aliases, e.g. using vec2 = Vector2f
@@ -32,7 +33,7 @@ FEATURES
   Voxels - enemies can be destroyed
   Load levels from files
         ***Convenient enemy placement on screen 
-        ***Need Level code
+        ***Need Level Loading code
         ***Need Wall Building and convenient placement
   Multiple weapons
   Enemies Avoid one Another
