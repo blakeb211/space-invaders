@@ -33,6 +33,7 @@ FEATURES
   Paths
   Voxels - enemies can be destroyed
   Load levels from files
+        ***factor out Entity class
         ***Convenient enemy placement on screen 
         ***entities removed when go off screen
         ***Need Level Loading code - enemies, enemy paths, paths

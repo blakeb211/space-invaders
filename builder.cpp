@@ -1,8 +1,17 @@
 #include "builder.h"
+#include "entity.h"
 #include "globals.h"
+
 using namespace std;
 using namespace sf;
 
+
+void Builder::build_level(unsigned int & levelId) {
+  G::entity.push_back(make_shared<E1>(Vec2(1.f*G::screenWidth / 6.f, 1.f * G::screenHeight / 8.f)));
+  G::entity.push_back(make_shared<E2>(Vec2(2.f*G::screenWidth / 6.f, 1.f * G::screenHeight / 8.f)));
+  G::entity.push_back(make_shared<E3>(Vec2(3.f*G::screenWidth / 6.f, 1.f * G::screenHeight / 8.f)));
+  G::entity.push_back(make_shared<E4>(Vec2(4.f*G::screenWidth / 6.f, 1.f * G::screenHeight / 8.f)));
+}
 void Builder::build_player(vector<Voxel> &vox) {
         vox.emplace_back(0.f,0.f);
         vox.emplace_back(0.f+1.f * G::bW, 0.f);
