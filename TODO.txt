@@ -7,10 +7,11 @@ Coding Guidelines
   const noexcept
 
 Framework
-  +use SFML 
+  use SFML 
 
 Collision Detection
-  consider a quadtree
+  sfml AABB
+  quadtree
 
 Game Entity Management
     Components
@@ -23,9 +24,7 @@ Game Entity Management
   private vars
   local vars
 
- *** Frametime control - update many times per frame, but draw once per frame
- *** setOrigin of enemies and bullets
- *** inherit Voxel from RectangleShape
+Framerate independence w\ slices
 
 Actions
 Command Pattern
@@ -37,6 +36,7 @@ FEATURES
         ***Convenient enemy placement on screen 
         ***Need Level Loading code
         ***Need Wall Building and convenient placement
+        ***Need Player art
   Multiple weapons
   Enemies Avoid one Another
   collision code that works with rotations

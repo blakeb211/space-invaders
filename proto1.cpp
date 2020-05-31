@@ -20,21 +20,17 @@ vector<shared_ptr<Entity>> entity;
 // Global Structs
 //------------------------------------------------------------------------------------
 // TODO: Inherit from SFML RectangleShape
-struct Voxel { 
+struct Voxel : RectangleShape { 
     Voxel(float mX, float mY, Color c = Color::White) : color{c}, vel(0,0) {
-        shape.setPosition(mX, mY);
-        shape.setSize({blockWidth, blockHeight});
-        shape.setFillColor(c);
-        shape.setOrigin(blockWidth / 2.f, blockHeight / 2.f);
+        setPosition(mX, mY);
+        setSize({blockWidth, blockHeight});
+        setFillColor(c);
+        setOrigin(blockWidth / 2.f, blockHeight / 2.f);
     }
-    void setPos(Vec2 pos) { shape.setPosition(pos); }
-    void move(Vec2 offset) { shape.move(offset); }
-    Vec2 getPos() const { return shape.getPosition(); }
     // member data 
     Vec2 vel;
     Color color;
     optional<int> health; // voxel health
-    RectangleShape shape;
 };
 
 struct Entity {
@@ -69,7 +65,9 @@ struct Entity {
     // Return the entity with the given id 
     // ----------------------------------------
     static shared_ptr<Entity> withId(size_t id) {
-        return *find_if(begin(entity),end(entity),[&id](const shared_ptr<Entity> & e) { return e->id == id; });
+        return *find_if(begin(entity),end(entity),
+                [&id](const shared_ptr<Entity> & e) 
+                { return e->id == id; });
     }
     protected:
     vector<Voxel> vox;
@@ -88,7 +86,6 @@ struct Bullet : Entity {
     Bullet(Vec2 vv) : vel{vv} {}
     Vec2 vel;    
     virtual void update(FrameTime ftStep) override { 
-        // call Entity::move scaled by ftStep
         move(ftStep*vel);  
     }
 };
@@ -571,7 +568,7 @@ struct Game {
     void drawPhase() {
         for(auto & e  : entity) {
             for (auto & v : e->getVox()) {
-                window.draw(v.shape);
+                window.draw(v);
             }
         }
         window.display();

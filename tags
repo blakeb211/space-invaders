@@ -4,9 +4,9 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.7	//
-B1	proto1.cpp	/^    B1(Vec2 pos) : Bullet({0.f,-3.f}) {$/;"	f	struct:B1
+B1	proto1.cpp	/^    B1(Vec2 pos) : Bullet({0.f,-1.f}) {$/;"	f	struct:B1
 B1	proto1.cpp	/^struct B1 : Bullet {$/;"	s	file:
-B2	proto1.cpp	/^    B2(Vec2 pos) : Bullet({0.f,-3.f}) {$/;"	f	struct:B2
+B2	proto1.cpp	/^    B2(Vec2 pos) : Bullet({0.f,-1.f}) {$/;"	f	struct:B2
 B2	proto1.cpp	/^struct B2 : Bullet {$/;"	s	file:
 Bullet	proto1.cpp	/^    Bullet(Vec2 vv) : vel{vv} {}$/;"	f	struct:Bullet
 Bullet	proto1.cpp	/^struct Bullet : Entity { $/;"	s	file:
@@ -27,19 +27,19 @@ Player	proto1.cpp	/^    Player(Vec2 pos) {$/;"	f	struct:Player
 Player	proto1.cpp	/^struct Player : public Entity {$/;"	s	file:
 Run	proto1.cpp	/^    void Run() {$/;"	f	struct:Game
 Voxel	proto1.cpp	/^    Voxel(float mX, float mY, Color c = Color::White) : color{c}, vel(0,0) {$/;"	f	struct:Voxel
-Voxel	proto1.cpp	/^struct Voxel { $/;"	s	file:
+Voxel	proto1.cpp	/^struct Voxel : RectangleShape { $/;"	s	file:
 Wall	proto1.cpp	/^struct Wall : Entity { \/\/ base$/;"	s	file:
 Wall1	proto1.cpp	/^struct Wall1 : Wall {$/;"	s	file:
 Wall2	proto1.cpp	/^struct Wall2 : Wall {$/;"	s	file:
 _USE_MATH_DEFINES	stdlibs.h	5;"	d
 color	proto1.cpp	/^    Color color;$/;"	m	struct:Voxel	file:
 draw	proto1.cpp	/^    virtual void draw() { }$/;"	f	struct:Entity
-entity	proto1.cpp	/^    vector<shared_ptr<Entity>> entity;$/;"	m	struct:Game	file:
+drawPhase	proto1.cpp	/^    void drawPhase() {$/;"	f	struct:Game
+entity	proto1.cpp	/^vector<shared_ptr<Entity>> entity;$/;"	v
 entityCount	proto1.cpp	/^    static size_t entityCount;$/;"	m	struct:Entity	file:
 entityCount	proto1.cpp	/^size_t Entity::entityCount = 0;$/;"	m	class:Entity	file:
 getHealth	proto1.cpp	/^    virtual size_t getHealth() const { return vox.size(); }$/;"	f	struct:Entity
 getId	proto1.cpp	/^    const size_t& getId() const { return id; }$/;"	f	struct:Entity
-getPos	proto1.cpp	/^    Vec2 getPos() const { return shape.getPosition(); }$/;"	f	struct:Voxel
 getPos	proto1.cpp	/^    Vec2& getPos() { return pos; }$/;"	f	struct:Entity
 getVox	proto1.cpp	/^    vector<Voxel>& getVox() { return vox; }$/;"	f	struct:Entity
 health	proto1.cpp	/^    optional<int> health; \/\/ voxel health$/;"	m	struct:Voxel	file:
@@ -48,16 +48,13 @@ inputPhase	proto1.cpp	/^    void inputPhase() {$/;"	f	struct:Game
 isIntersecting	proto1.cpp	/^template<class T1, class T2> bool isIntersecting(T1& a, T2& b) {$/;"	f
 main	proto1.cpp	/^int main()$/;"	f
 move	proto1.cpp	/^    virtual void move(Vec2 offset) { $/;"	f	struct:Entity
-move	proto1.cpp	/^    void move(Vec2 offset) { shape.move(offset); }$/;"	f	struct:Voxel
 path	proto1.cpp	/^    vector<Vec2> path;$/;"	m	struct:Enemy	file:
 pos	proto1.cpp	/^    Vec2 pos; \/\/ overall position of entity$/;"	m	struct:Entity	file:
 removeDestroyedEntities	proto1.cpp	/^void removeDestroyedEntities(vector<Entity> & vec) {$/;"	f
-setPos	proto1.cpp	/^    void setPos(Vec2 pos) { shape.setPosition(pos); }$/;"	f	struct:Voxel
 setPos	proto1.cpp	/^    void setPos(Vec2 pos) {$/;"	f	struct:Entity
-shape	proto1.cpp	/^    RectangleShape shape;$/;"	m	struct:Voxel	file:
 testCollision	proto1.cpp	/^void testCollision(Entity &e1, Entity &e2) {$/;"	f
-update	proto1.cpp	/^    virtual void update() { \/* check for collision *\/ pos += vel;\/* update pos *\/  }$/;"	f	struct:Entity
-updateDrawPhase	proto1.cpp	/^    void updateDrawPhase() {$/;"	f	struct:Game
+update	proto1.cpp	/^    virtual void update(FrameTime ftStep) { \/* check for collision *\/ \/* update pos *\/  }$/;"	f	struct:Entity
+updatePhase	proto1.cpp	/^    void updatePhase() {$/;"	f	struct:Game
 vel	proto1.cpp	/^    Vec2 vel;    $/;"	m	struct:Bullet	file:
 vel	proto1.cpp	/^    Vec2 vel;$/;"	m	struct:Entity	file:
 vel	proto1.cpp	/^    Vec2 vel;$/;"	m	struct:Voxel	file:

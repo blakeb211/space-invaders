@@ -20,6 +20,8 @@ int main() {
 
         y++;
     }
+    // set origin of the shape
+    out_file << 
     in_file.close();
     out_file.close();
     return 0;
