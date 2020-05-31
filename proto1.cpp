@@ -2,7 +2,7 @@
 #include <SFML/System.hpp>
 #include "stdlibs.h"
 #include "globals.h"
-#include "builder.h" // contains Voxel def
+#include "builder.h" 
 
 using namespace std;
 using namespace sf;
@@ -19,10 +19,14 @@ vector<shared_ptr<Entity>> entity;
 //------------------------------------------------------------------------------------
 
 struct Entity {
+    //-----------------------------------------
+    // Constructor 
+    // ----------------------------------------
     Entity() : id{entityCount++} {}
     virtual void update(FrameTime ftStep) { /* check for collision */ /* update pos */  }
-
-    virtual void draw() { }
+    //-----------------------------------------
+    // Destructor 
+    // ----------------------------------------
     virtual ~Entity() { }  
     //-----------------------------------------
     // Set position of entity as a whole 
@@ -30,8 +34,10 @@ struct Entity {
     void setPos(Vec2 pos) {
         this->move(pos - this->pos);
     }
+    //-----------------------------------------
+    // Return position of entity as a whole
+    // ----------------------------------------
     Vec2& getPos() { return pos; }
-
     //-----------------------------------------
     // Move all voxels by an offset
     // ----------------------------------------
@@ -40,11 +46,17 @@ struct Entity {
         for(auto &v : vox) { 
             v.move(offset); }
     }
+    //-----------------------------------------
+    // Return the voxel vector  
+    // ----------------------------------------
     vector<Voxel>& getVox() { return vox; }
     //-----------------------------------------
     // Entity health is the voxel count 
     // ----------------------------------------
     virtual size_t getHealth() const { return vox.size(); }
+    //-----------------------------------------
+    // Return the entity id  
+    // ----------------------------------------
     const size_t& getId() const { return id; }
     //-----------------------------------------
     // Return the entity with the given id 

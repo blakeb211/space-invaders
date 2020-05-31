@@ -34,12 +34,16 @@ FEATURES
   Voxels - enemies can be destroyed
   Load levels from files
         ***Convenient enemy placement on screen 
-        ***Need Level Loading code
+        ***entities removed when go off screen
+        ***Need Level Loading code - enemies, enemy paths, paths
         ***Need Wall Building and convenient placement
         ***Need Player art
+        ***Refactor out Entity struct 
+        ***collision code 
+        ***animations
+
   Multiple weapons
   Enemies Avoid one Another
-  collision code that works with rotations
 
 Entity
   pos x, y

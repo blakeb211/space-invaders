@@ -8,6 +8,7 @@ B1	proto1.cpp	/^    B1(Vec2 pos) : Bullet({0.f,-1.f}) {$/;"	f	struct:B1
 B1	proto1.cpp	/^struct B1 : Bullet {$/;"	s	file:
 B2	proto1.cpp	/^    B2(Vec2 pos) : Bullet({0.f,-1.f}) {$/;"	f	struct:B2
 B2	proto1.cpp	/^struct B2 : Bullet {$/;"	s	file:
+Builder	builder.h	/^namespace Builder {$/;"	n
 Bullet	proto1.cpp	/^    Bullet(Vec2 vv) : vel{vv} {}$/;"	f	struct:Bullet
 Bullet	proto1.cpp	/^struct Bullet : Entity { $/;"	s	file:
 E1	proto1.cpp	/^    E1(Vec2 pos) {$/;"	f	struct:E1
@@ -21,18 +22,26 @@ E4	proto1.cpp	/^struct E4: Enemy {$/;"	s	file:
 Enemy	proto1.cpp	/^struct Enemy: Entity { \/\/ base$/;"	s	file:
 Entity	proto1.cpp	/^    Entity() : id{entityCount++} {}$/;"	f	struct:Entity
 Entity	proto1.cpp	/^struct Entity {$/;"	s	file:
+G	globals.h	/^namespace G {$/;"	n
 Game	proto1.cpp	/^    Game() {$/;"	f	struct:Game
 Game	proto1.cpp	/^struct Game {$/;"	s	file:
 Player	proto1.cpp	/^    Player(Vec2 pos) {$/;"	f	struct:Player
 Player	proto1.cpp	/^struct Player : public Entity {$/;"	s	file:
 Run	proto1.cpp	/^    void Run() {$/;"	f	struct:Game
-Voxel	proto1.cpp	/^    Voxel(float mX, float mY, Color c = Color::White) : color{c}, vel(0,0) {$/;"	f	struct:Voxel
-Voxel	proto1.cpp	/^struct Voxel : RectangleShape { $/;"	s	file:
+Voxel	voxel.cpp	/^Voxel::Voxel(float mX, float mY, Color c) {$/;"	f	class:Voxel
+Voxel	voxel.h	/^struct Voxel : sf::RectangleShape { $/;"	s
 Wall	proto1.cpp	/^struct Wall : Entity { \/\/ base$/;"	s	file:
 Wall1	proto1.cpp	/^struct Wall1 : Wall {$/;"	s	file:
 Wall2	proto1.cpp	/^struct Wall2 : Wall {$/;"	s	file:
 _USE_MATH_DEFINES	stdlibs.h	5;"	d
-color	proto1.cpp	/^    Color color;$/;"	m	struct:Voxel	file:
+build_B1	builder.cpp	/^    void Builder::build_B1(vector<Voxel> &vox) { $/;"	f	class:Builder
+build_B2	builder.cpp	/^    void Builder::build_B2(vector<Voxel> &vox) {$/;"	f	class:Builder
+build_E1	builder.cpp	/^    void Builder::build_E1(vector<Voxel> &vox) {$/;"	f	class:Builder
+build_E2	builder.cpp	/^    void Builder::build_E2(vector<Voxel> &vox) {$/;"	f	class:Builder
+build_E3	builder.cpp	/^    void Builder::build_E3(vector<Voxel> &vox) {$/;"	f	class:Builder
+build_E4	builder.cpp	/^    void Builder::build_E4(vector<Voxel> &vox) {$/;"	f	class:Builder
+build_player	builder.cpp	/^void Builder::build_player(vector<Voxel> &vox) {$/;"	f	class:Builder
+color	voxel.h	/^    sf::Color color;$/;"	m	struct:Voxel
 draw	proto1.cpp	/^    virtual void draw() { }$/;"	f	struct:Entity
 drawPhase	proto1.cpp	/^    void drawPhase() {$/;"	f	struct:Game
 entity	proto1.cpp	/^vector<shared_ptr<Entity>> entity;$/;"	v
@@ -42,7 +51,7 @@ getHealth	proto1.cpp	/^    virtual size_t getHealth() const { return vox.size();
 getId	proto1.cpp	/^    const size_t& getId() const { return id; }$/;"	f	struct:Entity
 getPos	proto1.cpp	/^    Vec2& getPos() { return pos; }$/;"	f	struct:Entity
 getVox	proto1.cpp	/^    vector<Voxel>& getVox() { return vox; }$/;"	f	struct:Entity
-health	proto1.cpp	/^    optional<int> health; \/\/ voxel health$/;"	m	struct:Voxel	file:
+health	voxel.h	/^    std::optional<int> health; \/\/ voxel health$/;"	m	struct:Voxel
 id	proto1.cpp	/^    size_t id; $/;"	m	struct:Entity	file:
 inputPhase	proto1.cpp	/^    void inputPhase() {$/;"	f	struct:Game
 isIntersecting	proto1.cpp	/^template<class T1, class T2> bool isIntersecting(T1& a, T2& b) {$/;"	f
@@ -57,7 +66,7 @@ update	proto1.cpp	/^    virtual void update(FrameTime ftStep) { \/* check for co
 updatePhase	proto1.cpp	/^    void updatePhase() {$/;"	f	struct:Game
 vel	proto1.cpp	/^    Vec2 vel;    $/;"	m	struct:Bullet	file:
 vel	proto1.cpp	/^    Vec2 vel;$/;"	m	struct:Entity	file:
-vel	proto1.cpp	/^    Vec2 vel;$/;"	m	struct:Voxel	file:
+vel	voxel.h	/^    Vec2 vel;$/;"	m	struct:Voxel
 vox	proto1.cpp	/^    vector<Voxel> vox;$/;"	m	struct:Entity	file:
 withId	proto1.cpp	/^    static shared_ptr<Entity> withId(size_t id) {$/;"	f	struct:Entity
 ~Entity	proto1.cpp	/^    virtual ~Entity() { }  $/;"	f	struct:Entity
