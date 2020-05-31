@@ -14,12 +14,8 @@ constexpr int screenWidth{1024}, screenHeight{768};
 const string screenTitle{"Shooter - Prototype #2"};
 constexpr float blockWidth{3.f}, blockHeight{3.f};
 constexpr float countBlocksX{screenWidth / blockWidth},countBlocksY{screenHeight/blockHeight}; 
-static bool gameOver{false};
-static bool pause{false};
-// Mega Entity Array
+// Entity mega array
 vector<shared_ptr<Entity>> entity;
-unsigned int levelId = 1;
-
 //------------------------------------------------------------------------------------
 // Global Structs
 //------------------------------------------------------------------------------------
@@ -510,29 +506,43 @@ void removeDestroyedEntities(vector<Entity> & vec) {
     vec.erase(remove_if(begin(vec), end(vec), [] (const Entity & e) { return e.getHealth() <= 0u; }), end(vec));
 }
 
-//------------------------------------------------------------------------------------
-// Program main entry point
-//------------------------------------------------------------------------------------
-int main()
-{
-    gameOver = false;
+
+
+struct Game {
+    // These members are related to the control of the game.
     RenderWindow window{{screenWidth, screenHeight}, screenTitle};
-    window.setFramerateLimit(200);
+    FrameTime lastFt{0.f}, currentSlice{0.f};
+    bool gameOver{false}, pause{false};
+
+    // These members are game entities.
+    unsigned int levelId{1};
+
     //-----------------------------------------
-    // Create the player 
+    // Game construction 
     // ----------------------------------------
-    entity.push_back(make_shared<Player>(Vec2(3.f*screenWidth / 4.f, screenHeight - 20.f))); 
-    entity.push_back(make_shared<E1>(Vec2(1.f*screenWidth / 6.f, 1.f * screenHeight / 8.f)));
-    entity.push_back(make_shared<E2>(Vec2(2.f*screenWidth / 6.f, 1.f * screenHeight / 8.f)));
-    entity.push_back(make_shared<E3>(Vec2(3.f*screenWidth / 6.f, 1.f * screenHeight / 8.f)));
-    entity.push_back(make_shared<E4>(Vec2(4.f*screenWidth / 6.f, 1.f * screenHeight / 8.f)));
-    while(!gameOver)
-    {
-        auto timePoint1(chrono::high_resolution_clock::now());
-        //-----------------------------------------
-        // Input Phase 
-        // ----------------------------------------
-        if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) break;
+    Game() {
+        gameOver = false;
+        window.setFramerateLimit(200);
+        // create the player
+        entity.push_back(make_shared<Player>(Vec2(3.f*screenWidth / 4.f, screenHeight - 20.f))); 
+        // Load level 1
+        entity.push_back(make_shared<E1>(Vec2(1.f*screenWidth / 6.f, 1.f * screenHeight / 8.f)));
+        entity.push_back(make_shared<E2>(Vec2(2.f*screenWidth / 6.f, 1.f * screenHeight / 8.f)));
+        entity.push_back(make_shared<E3>(Vec2(3.f*screenWidth / 6.f, 1.f * screenHeight / 8.f)));
+        entity.push_back(make_shared<E4>(Vec2(4.f*screenWidth / 6.f, 1.f * screenHeight / 8.f)));
+    }
+    //-----------------------------------------
+    // Input phase 
+    // ----------------------------------------
+    void inputPhase() {
+        Event event;
+        while(window.pollEvent(event)) {
+            if(event.type == Event::Closed) {
+                window.close();
+                break;
+            }
+        }
+        if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) gameOver = true;
         if(Keyboard::isKeyPressed(Keyboard::Key::Left)) { 
             Entity::withId(0)->move({-10.f,0.f}); 
         }
@@ -545,10 +555,12 @@ int main()
         if(Keyboard::isKeyPressed(Keyboard::Key::LShift)) { 
             entity.push_back(make_shared<B2>(Entity::withId(0)->getPos()));
         }
+    }
 
-        //-----------------------------------------
-        // Update and Draw Phase 
-        // ----------------------------------------
+    //-----------------------------------------
+    // Update and draw phase 
+    // ----------------------------------------
+    void updateDrawPhase() {
         window.clear(Color::Black);
         for(auto & e  : entity) {
             e->update();
@@ -557,16 +569,39 @@ int main()
             }
         }
         window.display();
-
-        auto timePoint2(chrono::high_resolution_clock::now());
-        auto elapsedTime(timePoint2 - timePoint1);
-        FrameTime ft{chrono::duration_cast<chrono::duration<float, milli>>(
-                elapsedTime)
-            .count()};
-        auto fSeconds = ft / 1000.f;
-        auto fps = 1.f / fSeconds;
-        auto fps2 = static_cast<int>(round(fps));
-        window.setTitle(screenTitle + " FPS: " + to_string(fps2));
     }
+
+    //-----------------------------------------
+    // Run phase 
+    // ----------------------------------------
+    void Run() {
+        while(!gameOver)
+        {
+            auto timePoint1(chrono::high_resolution_clock::now());
+
+            inputPhase();
+            updateDrawPhase();
+
+            // calculate FPS 
+            auto timePoint2(chrono::high_resolution_clock::now());
+            auto elapsedTime(timePoint2 - timePoint1);
+            FrameTime ft{chrono::duration_cast<chrono::duration<float, milli>>(
+                    elapsedTime)
+                .count()};
+            auto fSeconds = ft / 1000.f;
+            auto fps = 1.f / fSeconds;
+            auto fps2 = static_cast<int>(round(fps));
+            window.setTitle(screenTitle + " FPS: " + to_string(fps2));
+        }
+    }
+
+};
+
+//------------------------------------------------------------------------------------
+// Program main entry point
+//------------------------------------------------------------------------------------
+int main()
+{
+    Game{}.Run();
     return 0;
 }
