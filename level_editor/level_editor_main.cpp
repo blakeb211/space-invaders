@@ -11,7 +11,6 @@ class Example : public olc::PixelGameEngine
   public:
     Example()
     {
-      out_file = fstream("level_data.txt", ios::app);
       sAppName = "Level Editor";
       input_timer = 0.f;
       path = vector<pair<int,int>>{};
@@ -39,13 +38,13 @@ class Example : public olc::PixelGameEngine
           //------------------------------------------------- 
           // mouse down: start building up path 
           //------------------------------------------------- 
-          auto HWB = GetMouse(0);
-          if (HWB.bPressed == true) { // get left button state
+          if (GetKey(olc::Key::SPACE).bPressed) { // get left button state
+            out_file = fstream("level_data.txt", ios::out);
             int x = GetMouseX();
             int y = GetMouseY();
-            path.push_back(make_pair(x, y));
+            path.emplace_back(make_pair(x, y));
             out_file << "pushing " << x << " , " << y << endl;
-            out_file.flush();
+            out_file.close();
           }
           //------------------------------------------------- 
           // mouse up: save, clear_path, reset
@@ -81,6 +80,5 @@ int main()
   if (demo.Construct(kScreenWidth / 3.f, kScreenHeight / 3.f, 3, 3))
     demo.Start();
 
-  demo.out_file.close();
   return 0;
 }
