@@ -1,10 +1,11 @@
 #include "builder.h"
 #include "entity.h"
 #include "globals.h"
-
+#include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
 using namespace std;
 using namespace sf;
-
+using Vec2 = Vector2<float>;
 
 void Builder::build_level(unsigned int & levelId) {
   switch(levelId) {
@@ -390,3 +391,7 @@ void Builder::build_E4(vector<Voxel> &vox) {
   vox.emplace_back(22.f * G::bW, 6.f * G::bW, Color(255,140,0,245));
 }
 
+void build_wall1(Vec2 start, Vec2 end, vector<Voxel> & vox) {
+
+
+}
