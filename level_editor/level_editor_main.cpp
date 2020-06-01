@@ -24,35 +24,53 @@ class Example : public olcConsoleGameEngine
     bool OnUserCreate() override
     {
       // Called once at the start, so create things here
+      out_file = fstream("level_data.txt", ios::app);
       return true;
     }
 
     // Called once per frame
     bool OnUserUpdate(float fElapsedTime) override
-    {
+    { 
+      Fill(0,0,kScreenWidth,kScreenHeight,0x0000);
       if (IsFocused()) {
-        input_timer += fElapsedTime;
-        if (input_timer > timer_max) {
-          input_timer -= timer_max;
           //------------------------------------------------- 
           // mouse down: start building up path 
           //------------------------------------------------- 
-          if (m_keys[VK_SPACE].bPressed) {
-            out_file = fstream("level_data.txt", ios::app);
+          if (m_keys[VK_SPACE].bReleased) {
             int x = GetMouseX();
             int y = GetMouseY();
-            path.emplace_back(make_pair(x, y));
-            out_file << "pushing " << x << " , " << y << endl;
+            path.push_back(make_pair(x, y));
           }
           //------------------------------------------------- 
-          // mouse up: save, clear_path, reset
+          // Write path to file 
           //------------------------------------------------- 
-          if (m_keys[VK_SPACE].bReleased) {
+          if (m_keys[VK_DOWN].bReleased) {
+            out_file << "E1\n";
+            for (auto i : path) {
+              out_file << i.first << " " << i.second << "|";
+            }
+            out_file << "\n";
+            out_file.flush();
+            path.erase(begin(path), end(path));
+          }
+          //------------------------------------------------- 
+          // Undo
+          //------------------------------------------------- 
+          if (m_keys[VK_UP].bReleased) {
+            if (path.size() > 0)
+            path.erase(--end(path));
+          }
+
+          //------------------------------------------------- 
+          // ESCAPE - close output file
+          //------------------------------------------------- 
+          if (m_keys[VK_ESCAPE].bPressed) {
             out_file.close();
+            return false;
           }
+          
 
-        }
-
+          cout << "path size: " << path.size() << endl;
         // draw current path
         for(auto &i : path) {
           FillCircle((int)round(i.first),(int)round(i.second), 3); 
