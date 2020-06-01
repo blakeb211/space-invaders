@@ -14,12 +14,13 @@ class Example : public olc::PixelGameEngine
       out_file = fstream("level_data.txt", ios::app);
       sAppName = "Level Editor";
       input_timer = 0.f;
+      path = vector<pair<int,int>>(100);
     }
     // level editor vars
-    vector<pair<float,float>> path; 
+    vector<pair<int,int>> path; 
     fstream out_file;
     float input_timer;
-    const float timer_max{0.2f};
+    const float timer_max{0.3f};
 
   public:
     bool OnUserCreate() override
@@ -34,10 +35,22 @@ class Example : public olc::PixelGameEngine
       input_timer += fElapsedTime;
       if (input_timer > timer_max) {
         input_timer -= timer_max;
-        if (GetMouse(0).bPressed) { // get left button state
-        }
+        //------------------------------------------------- 
         // mouse down: start building up path 
+        //------------------------------------------------- 
+        if (GetMouse(0).bPressed) { // get left button state
+          int x = GetMouseX();
+          int y = GetMouseY();
+          path.push_back(make_pair(x, y));
+          cout << "pushing " << x << " , " << y << endl;
+        }
+        //------------------------------------------------- 
         // mouse up: save, clear_path, reset
+        //------------------------------------------------- 
+        if (GetMouse(0).bReleased) { // get left button state
+
+        }
+
       }
 
       // draw current path
@@ -48,7 +61,7 @@ class Example : public olc::PixelGameEngine
     }
 
     float CalcDistance(pair<float, float> p1, pair<float, float> p2) {
-      return sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));
+      return sqrt(pow(p1.first - p2.first, 2) + pow(p1.second - p2.second, 2));
     }
     
     // clean the current path up from having too many points close together
