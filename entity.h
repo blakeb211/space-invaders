@@ -6,7 +6,9 @@
 
 using Vec2 = sf::Vector2<float>;
 using FrameTime = float;
-
+//------------------------------------------------------------------------------------
+// Structs 
+//------------------------------------------------------------------------------------
 struct Entity {
   //-----------------------------------------
   // Constructor 
@@ -70,6 +72,10 @@ struct B1 : Bullet {
 
 struct B2 : Bullet {
   B2(Vec2 pos);
+};
+
+struct B3 : Bullet {
+  B3(Vec2 pos);
 };
 
 struct Player : public Entity {

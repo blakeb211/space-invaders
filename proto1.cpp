@@ -11,13 +11,6 @@ using Vec2 = Vector2<float>;
 using FrameTime = float;
 
 //------------------------------------------------------------------------------------
-// Globals 
-//------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------
-// Global Structs
-//------------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------------
 // Global Functions
 //------------------------------------------------------------------------------------
 template<class T1, class T2> bool isIntersecting(T1& a, T2& b) {
@@ -30,7 +23,6 @@ void testCollision(Entity &e1, Entity &e2) {
 }
 
 void removeDestroyedEntities(vector<shared_ptr<Entity>> & vec) {
-  // TODO: consider a threshold for different entity types
   vec.erase(remove_if(begin(vec), end(vec), [] (const shared_ptr<Entity> & e) { return e->destroyed; }), end(vec));
 }
 

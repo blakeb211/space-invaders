@@ -76,6 +76,10 @@ size_t Entity::entityCount = 0;
     Builder::build_B2(vox);
     setPos(pos);
   }
+  B3::B3(Vec2 pos) : Bullet({0.f,-0.6f}) {
+    Builder::build_B3(vox);
+    setPos(pos);
+  }
  
 // Player methods
   Player::Player(Vec2 pos) : mTimerMax{30.f}, mTimer{0.f}, mCanShoot{false} {
@@ -114,4 +118,3 @@ size_t Entity::entityCount = 0;
   }
 
 // Wall types
-

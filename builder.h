@@ -18,6 +18,7 @@ namespace Builder {
   void build_player(std::vector<Voxel> &vox);
   void build_B1(std::vector<Voxel> &vox);
   void build_B2(std::vector<Voxel> &vox);
+  void build_B3(std::vector<Voxel> &vox);
   void build_E1(std::vector<Voxel> &vox);
   void build_E2(std::vector<Voxel> &vox);
   void build_E3(std::vector<Voxel> &vox);
