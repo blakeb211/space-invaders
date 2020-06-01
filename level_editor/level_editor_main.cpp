@@ -1,17 +1,16 @@
 #define OLC_PGE_APPLICATION
-#include "olcPixelGameEngine.h"
+#include "olcConsoleGameEngine.h"
 #include "stdlibs.h"
 using namespace std;
 
 constexpr float kScreenWidth = 800.f;
 constexpr float kScreenHeight = 6.f * kScreenWidth / 9.f;
 
-class Example : public olc::PixelGameEngine
+class Example : public olcConsoleGameEngine
 {
   public:
     Example()
     {
-      sAppName = "Level Editor";
       input_timer = 0.f;
       path = vector<pair<int,int>>{};
     }
@@ -38,26 +37,25 @@ class Example : public olc::PixelGameEngine
           //------------------------------------------------- 
           // mouse down: start building up path 
           //------------------------------------------------- 
-          if (GetKey(olc::Key::SPACE).bPressed) { // get left button state
-            out_file = fstream("level_data.txt", ios::out);
+          if (m_keys[VK_SPACE].bPressed) {
+            out_file = fstream("level_data.txt", ios::app);
             int x = GetMouseX();
             int y = GetMouseY();
             path.emplace_back(make_pair(x, y));
             out_file << "pushing " << x << " , " << y << endl;
-            out_file.close();
           }
           //------------------------------------------------- 
           // mouse up: save, clear_path, reset
           //------------------------------------------------- 
-          if (GetMouse(0).bReleased) { // get left button state
-
+          if (m_keys[VK_SPACE].bReleased) {
+            out_file.close();
           }
 
         }
 
         // draw current path
         for(auto &i : path) {
-          FillCircle((int)round(i.first),(int)round(i.second), 3, olc::WHITE); 
+          FillCircle((int)round(i.first),(int)round(i.second), 3); 
         }
       }
       return true;
@@ -77,7 +75,7 @@ class Example : public olc::PixelGameEngine
 int main()
 {
   Example demo;
-  if (demo.Construct(kScreenWidth / 3.f, kScreenHeight / 3.f, 3, 3))
+  if (demo.ConstructConsole(kScreenWidth / 3.f, kScreenHeight / 3.f, 3, 3))
     demo.Start();
 
   return 0;
