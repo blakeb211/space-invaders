@@ -41,6 +41,8 @@ void Builder::build_level(unsigned int & levelId) {
                         default: 
                             throw exception("switch in Builder::build_level failed");
                             break;
+                    };
+                    cout << "enemy  was added to G::entity" << endl;
                     // add the newly created enemy's entity id to the enemyIds vector
                     enemyIds.push((*(--end(G::entity)))->getId());
                 }
@@ -65,6 +67,8 @@ void Builder::build_level(unsigned int & levelId) {
                 if (ss.bad()) throw exception("sstring stream accessed when bad in Builder::build_level");
                 ss >> y;
                 ss >> c;
+                assert(x*G::screenWidth <= G::screenWidth);
+                assert(y*G::screenHeight <= G::screenHeight);
                 e_ptr->path.push_back(Vec2(x*G::screenWidth, y*G::screenHeight));
             }
             cout << "path was added to an entity" << endl;
