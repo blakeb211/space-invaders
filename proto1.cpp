@@ -31,7 +31,7 @@ struct Game {
   // These members are related to the control of the game.
   RenderWindow window{{G::screenWidth, G::screenHeight}, G::screenTitle};
   FrameTime lastFt{0.f}, currentSlice{0.f};
-  FrameTime ftStep{1.f}, ftSlice{1.f};
+  FrameTime ftStep{3.f}, ftSlice{3.f};
   bool gameOver{false}, pause{false};
 
   // These members are game entities.
