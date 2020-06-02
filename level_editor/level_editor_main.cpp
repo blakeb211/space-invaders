@@ -24,10 +24,10 @@ class Example : public olcConsoleGameEngine
     // level layout drawing
     vector<string> layout = 
     {"-------------------",
-     "------E1---E4---E1--",
+     "------3---4---1--",
      "-------------------",
-     "----E4---E2---E3---E1--",
-     "-----------E3--------", 
+     "----2---1---2----",
+     "-----------4--------", 
      "-------------------", 
      "-------------------", 
      "-------------------"};
@@ -92,7 +92,7 @@ class Example : public olcConsoleGameEngine
         // j = char count on line i
         for (int i = 0; i < layout.size(); i++) {
           for (int j = 0; j < layout[i].size(); j++) {
-            if ((layout[i])[j] == 'E') {
+            if (isdigit((layout[i])[j])) {
               int xpos = (((float)(j+1)) / layout[i].size()) * kScreenWidth;
               int ypos = (((float)(i+1)) /layout.size()) * kScreenHeight;
               FillCircle(xpos / kPixelSize,ypos / kPixelSize,2, 'L', 145);
