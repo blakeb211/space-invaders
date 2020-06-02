@@ -3,8 +3,8 @@
 #include "stdlibs.h"
 using namespace std;
 
-constexpr float kScreenWidth = 800.f;
-constexpr float kScreenHeight = 6.f * kScreenWidth / 9.f;
+constexpr float kScreenWidth = 1024.f;
+constexpr float kScreenHeight = 3.f * kScreenWidth / 4.f;
 constexpr float kPixelSize = 3.f;
 // TODO: add object placement before path drawing
 // TODO: need a convenient file format 
@@ -21,12 +21,26 @@ class Example : public olcConsoleGameEngine
     fstream out_file;
     float input_timer;
     const float timer_max{0.3f};
+    // level layout drawing
+    vector<string> layout = 
+    {"-------------------",
+     "------E1---E4---E1--",
+     "-------------------",
+     "----E4---E2---E3---E1--",
+     "-----------E3--------", 
+     "-------------------", 
+     "-------------------"};
 
   public:
     bool OnUserCreate() override
     {
       // Called once at the start, so create things here
-      out_file = fstream("level_data.txt", ios::app);
+      out_file = fstream("level1_data.txt", ios::out);
+      // print the layout first
+      for (auto s : layout) {
+        out_file << s << endl;
+      }
+      out_file << endl;
       return true;
     }
 
@@ -48,12 +62,10 @@ class Example : public olcConsoleGameEngine
         //------------------------------------------------- 
         if (m_keys[VK_DOWN].bReleased) {
           if (path.size() > 0) {
-            out_file << "E1\n";
             for (auto i : path) {
-              out_file << i.first << " " << i.second << "|";
+              out_file << setprecision(2) << i.first/kScreenWidth << " " << i.second/kScreenHeight << "|";
             }
-
-            out_file << "\n";
+            out_file << "\n\n";
             out_file.flush();
             path.erase(begin(path), end(path));
           }
@@ -74,8 +86,18 @@ class Example : public olcConsoleGameEngine
           return false;
         }
 
-
-        cout << "path size: " << path.size() << endl;
+        // draw enemy positions
+        // i = line count
+        // j = char count on line i
+        for (int i = 0; i < layout.size(); i++) {
+          for (int j = 0; j < layout[i].size(); j++) {
+            if ((layout[i])[j] == 'E') {
+              int xpos = (((float)(j+1)) / layout[i].size()) * kScreenWidth;
+              int ypos = (((float)(i+1)) /layout.size()) * kScreenHeight;
+              FillCircle(xpos / kPixelSize,ypos / kPixelSize,2, 'L', 145);
+            }
+          }
+        }
         // draw current path
         for(auto &i : path) {
           FillCircle((int)round(i.first),(int)round(i.second), 3); 
@@ -88,10 +110,6 @@ class Example : public olcConsoleGameEngine
       return sqrt(pow(p1.first - p2.first, 2) + pow(p1.second - p2.second, 2));
     }
 
-    // clean the current path up from having too many points close together
-    void CleanPath() {
-
-    }
 };
 
 
