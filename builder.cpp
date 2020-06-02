@@ -10,23 +10,52 @@ using Vec2 = Vector2<float>;
 void Builder::build_level(unsigned int & levelId) {
     // open the file levelN_data.txt
     ifstream in_file("level" + to_string(levelId) + "_data.txt", ios::in); 
-            //G::entity.push_back(make_shared<E3>(Vec2(4.f*G::screenWidth / 6.f, 3.f * G::screenHeight / 8.f)));
-            while(in_file.good()) {
-                string line;
-                getline(in_file, line); 
-                // check if its a level layout line
-                if (line.find('-') != string::npos) {
-                for(int i = 0; i < line.size(); i++)
-                }
-                // check if its a path line
-                if (line.find('|') != string::npos) {
-                // int int| 
-                }
+    unsigned int enemyCount = 0;
+    unsigned int pathCount = 0;
+    vector<int> enemyIds = {};
 
-            }
+    while(in_file.good()) {
+        string line;
+        getline(in_file, line); 
+        // check if its a level layout line
+        if (line.find('-') != string::npos) {
+            for(int i = 0; i < line.size(); i++)
+                if (isdigit(line[i])) {
+                    enemyCount++;
+                    switch(line[i]) {
+                        case 1:
+                            G::entity.push_back(make_shared<E1>(Vec2(4.f*G::screenWidth / 6.f, 3.f * G::screenHeight / 8.f)));
+                            break;
+                        case 2:
+                            G::entity.push_back(make_shared<E2>(Vec2(4.f*G::screenWidth / 6.f, 3.f * G::screenHeight / 8.f)));
+                            break;
+                        case 3:
+                            G::entity.push_back(make_shared<E3>(Vec2(4.f*G::screenWidth / 6.f, 3.f * G::screenHeight / 8.f)));
+                            break;
+                        case 4:
+                            G::entity.push_back(make_shared<E4>(Vec2(4.f*G::screenWidth / 6.f, 3.f * G::screenHeight / 8.f)));
+                            break;
+                        default: 
+                            throw exception("switch in Builder::build_level failed");
+                            break;
+                    }
+                    // add the newly created enemy id to the enemyIds vector
+                    enemyIds.push_back((*(--end(G::entity)))->getId());
+                }
+        }
+        // load the paths
+        // check if its a path line
+        if (line.find('|') != string::npos) {
+            pathCount++;
+            // int int| 
+
+        }
+
     }
     in_file.close();
+    assert(enemyCount == pathCount);
 }
+
 void Builder::build_player(vector<Voxel> &vox) {
     vox.emplace_back(0.f,0.f);
     vox.emplace_back(0.f+1.f * G::bW, 0.f);

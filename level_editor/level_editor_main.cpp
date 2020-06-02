@@ -40,7 +40,7 @@ class Example : public olcConsoleGameEngine
       // Called once at the start, so create things here
       out_file = fstream("level1_data.txt", ios::out);
       // print the layout first
-      assert(layout.size() == 0);
+      assert(layout.size() == 9);
       for (auto s : layout) {
         out_file << s << endl;
       }
