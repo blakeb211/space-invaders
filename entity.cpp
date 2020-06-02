@@ -100,7 +100,8 @@ size_t Entity::entityCount = 0;
     currPathPoint = 0;
   }
   void Enemy::update(FrameTime ftStep) {
-    Vector2<float> moveDir = path[currPathPoint] - getPos();
+    auto moveDir = path[currPathPoint] - getPos();
+    move(moveDir); 
     // add code to move the enemy close to its path point
   }
 
