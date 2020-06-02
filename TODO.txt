@@ -30,9 +30,30 @@ Actions
 Command Pattern
 
 FEATURES
-  Paths
+  Paths vector<Vec2>
   Voxels - enemies can be destroyed
   Load levels from files
+  FILE FORMAT
+    + 1 LEVEL PER FILE
+
+    -------------------
+    ----E1----E3-----E4
+    -------E2-----E2---
+    -------------------
+    --E1-E1-E3-E3-E4-E4
+    -------------------
+    -------------------
+   
+    parser will count enemies - 11
+    and so then will read 11 paths
+
+    1 path per line
+    x y x y x y x y x y x y
+    numbers as fraction of width and height
+
+    W1  x y x y
+    W2  x y x y
+
         **need path creation code
         ***Need Level Loading code - enemies, enemy paths, paths
         ***Need Wall Building and convenient placement
