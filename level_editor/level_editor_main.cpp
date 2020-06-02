@@ -21,16 +21,18 @@ class Example : public olcConsoleGameEngine
     fstream out_file;
     float input_timer;
     const float timer_max{0.3f};
-    // level layout drawing
-    vector<string> layout = 
+    // level layout drawing - must be 9 lines long
+    const vector<string> layout = 
     {"-------------------",
      "------3---4---1--",
      "-------------------",
      "----2---1---2----",
+     "-------------------", 
      "-----------4--------", 
      "-------------------", 
+     "-------------------",
      "-------------------", 
-     "-------------------"};
+    };
 
   public:
     bool OnUserCreate() override
@@ -38,6 +40,7 @@ class Example : public olcConsoleGameEngine
       // Called once at the start, so create things here
       out_file = fstream("level1_data.txt", ios::out);
       // print the layout first
+      assert(layout.size() == 0);
       for (auto s : layout) {
         out_file << s << endl;
       }

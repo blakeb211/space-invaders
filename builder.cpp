@@ -16,13 +16,12 @@ void Builder::build_level(unsigned int & levelId) {
                 getline(in_file, line); 
                 // check if its a level layout line
                 if (line.find('-') != string::npos) {
-                
+                for(int i = 0; i < line.size(); i++)
                 }
                 // check if its a path line
                 if (line.find('|') != string::npos) {
-                
+                // int int| 
                 }
-
 
             }
     }
