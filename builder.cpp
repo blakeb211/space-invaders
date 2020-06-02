@@ -27,16 +27,16 @@ void Builder::build_level(unsigned int & levelId) {
                     int digit = line[i] - '0';
                     switch(digit) {
                         case 1:
-                            G::entity.push_back(make_shared<E1>(Vec2(4.f*G::screenWidth / 6.f, 3.f * G::screenHeight / 8.f)));
+                            G::entity.push_back(make_shared<E1>(Vec2(0.f, 0.f)));
                             break;
                         case 2:
-                            G::entity.push_back(make_shared<E2>(Vec2(4.f*G::screenWidth / 6.f, 3.f * G::screenHeight / 8.f)));
+                            G::entity.push_back(make_shared<E2>(Vec2(0.f, 0.f)));
                             break;
                         case 3:
-                            G::entity.push_back(make_shared<E3>(Vec2(4.f*G::screenWidth / 6.f, 3.f * G::screenHeight / 8.f)));
+                            G::entity.push_back(make_shared<E3>(Vec2(0.f, 0.f)));
                             break;
                         case 4:
-                            G::entity.push_back(make_shared<E4>(Vec2(4.f*G::screenWidth / 6.f, 3.f * G::screenHeight / 8.f)));
+                            G::entity.push_back(make_shared<E4>(Vec2(0.f, 0.f)));
                             break;
                         default: 
                             throw exception("switch in Builder::build_level failed");
@@ -69,8 +69,12 @@ void Builder::build_level(unsigned int & levelId) {
                 ss >> c;
                 assert(x*G::screenWidth <= G::screenWidth);
                 assert(y*G::screenHeight <= G::screenHeight);
-                e_ptr->path.push_back(Vec2(x*G::screenWidth, y*G::screenHeight));
+                // Convert from level editor coords to game coords
+                const float kCoordsConv = 3.f; 
+                e_ptr->path.push_back(Vec2(x*G::screenWidth*kCoordsConv, y*G::screenHeight*kCoordsConv));
             }
+            // set enemies starting position to the first point on its path
+            e_ptr->setPos(e_ptr->path[0]);
             cout << "path was added to an entity" << endl;
         }
     }

@@ -96,23 +96,30 @@ size_t Entity::entityCount = 0;
   }
 
 // Enemy types
+  Enemy::Enemy() {
+    currPathPoint = 0;
+  }
+  void Enemy::update(FrameTime ftStep) {
+    Vector2<float> moveDir = path[currPathPoint] - getPos();
+    // add code to move the enemy close to its path point
+  }
 
-  E1::E1(Vec2 pos) {
+  E1::E1(Vec2 pos) : Enemy() {
     Builder::build_E1(vox);
     setPos(pos);
   }
   
-  E2::E2(Vec2 pos) {
+  E2::E2(Vec2 pos) : Enemy() {
     Builder::build_E2(vox);
     setPos(pos);
   }
 
-  E3::E3(Vec2 pos) {
+  E3::E3(Vec2 pos) : Enemy() {
     Builder::build_E3(vox);
     setPos(pos);
   }
 
-  E4::E4(Vec2 pos) {
+  E4::E4(Vec2 pos) : Enemy() {
     Builder::build_E4(vox);
     setPos(pos);
   }

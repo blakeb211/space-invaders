@@ -88,7 +88,10 @@ struct Player : public Entity {
 
 // Enemy types
 struct Enemy: Entity { // base
+  Enemy();
+  virtual void update(FrameTime ftStep) override;
   std::vector<Vec2> path;
+  unsigned int currPathPoint;
 };
 
 struct E1: Enemy {
