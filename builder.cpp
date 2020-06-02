@@ -9,11 +9,12 @@ using Vec2 = Vector2<float>;
 
 void Builder::build_level(unsigned int & levelId) {
     // open the file levelN_data.txt
+    cout << "opening level loading input file" << endl;
     ifstream in_file("level" + to_string(levelId) + "_data.txt", ios::in); 
     unsigned int enemyCount = 0;
     unsigned int pathCount = 0;
-    vector<int> enemyIds = {};
-
+    queue<unsigned int> enemyIds = {};
+    cout << "entering while loop" << endl;
     while(in_file.good()) {
         string line;
         getline(in_file, line); 
@@ -22,7 +23,9 @@ void Builder::build_level(unsigned int & levelId) {
             for(int i = 0; i < line.size(); i++)
                 if (isdigit(line[i])) {
                     enemyCount++;
-                    switch(line[i]) {
+                    // convert char number to int number 
+                    int digit = line[i] - '0';
+                    switch(digit) {
                         case 1:
                             G::entity.push_back(make_shared<E1>(Vec2(4.f*G::screenWidth / 6.f, 3.f * G::screenHeight / 8.f)));
                             break;
@@ -38,20 +41,36 @@ void Builder::build_level(unsigned int & levelId) {
                         default: 
                             throw exception("switch in Builder::build_level failed");
                             break;
-                    }
-                    // add the newly created enemy id to the enemyIds vector
-                    enemyIds.push_back((*(--end(G::entity)))->getId());
+                    // add the newly created enemy's entity id to the enemyIds vector
+                    enemyIds.push((*(--end(G::entity)))->getId());
                 }
         }
         // load the paths
         // check if its a path line
+        //shared_ptr<Player> p_ptr = dynamic_pointer_cast<Player> (Entity::withId(0));
         if (line.find('|') != string::npos) {
             pathCount++;
-            // int int| 
-
+            unsigned int currEntityId = enemyIds.front(); // pop from the front
+            enemyIds.pop();
+            // get a pointer to the enemy
+            shared_ptr<Enemy> e_ptr = dynamic_pointer_cast<Enemy> (Entity::withId(currEntityId));
+            // read in the path
+            istringstream ss(line);
+            // read in the whole line of float float|
+            while(ss.good()) { 
+                float x;
+                float y;
+                char c;
+                ss >> x;
+                if (ss.bad()) throw exception("sstring stream accessed when bad in Builder::build_level");
+                ss >> y;
+                ss >> c;
+                e_ptr->path.push_back(Vec2(x*G::screenWidth, y*G::screenHeight));
+            }
+            cout << "path was added to an entity" << endl;
         }
-
     }
+    cout << "closing level loading input file" << endl;
     in_file.close();
     assert(enemyCount == pathCount);
 }
