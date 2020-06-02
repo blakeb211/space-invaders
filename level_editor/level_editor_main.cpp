@@ -5,7 +5,9 @@ using namespace std;
 
 constexpr float kScreenWidth = 800.f;
 constexpr float kScreenHeight = 6.f * kScreenWidth / 9.f;
-
+constexpr float kPixelSize = 3.f;
+// TODO: add object placement before path drawing
+// TODO: need a convenient file format 
 class Example : public olcConsoleGameEngine
 {
   public:
@@ -33,44 +35,47 @@ class Example : public olcConsoleGameEngine
     { 
       Fill(0,0,kScreenWidth,kScreenHeight,0x0000);
       if (IsFocused()) {
-          //------------------------------------------------- 
-          // mouse down: start building up path 
-          //------------------------------------------------- 
-          if (m_keys[VK_SPACE].bReleased) {
-            int x = GetMouseX();
-            int y = GetMouseY();
-            path.push_back(make_pair(x, y));
-          }
-          //------------------------------------------------- 
-          // Write path to file 
-          //------------------------------------------------- 
-          if (m_keys[VK_DOWN].bReleased) {
+        //------------------------------------------------- 
+        // mouse down: start building up path 
+        //------------------------------------------------- 
+        if (m_keys[VK_SPACE].bReleased) {
+          int x = GetMouseX();
+          int y = GetMouseY();
+          path.push_back(make_pair(x, y));
+        }
+        //------------------------------------------------- 
+        // Write the path to file 
+        //------------------------------------------------- 
+        if (m_keys[VK_DOWN].bReleased) {
+          if (path.size() > 0) {
             out_file << "E1\n";
             for (auto i : path) {
               out_file << i.first << " " << i.second << "|";
             }
+
             out_file << "\n";
             out_file.flush();
             path.erase(begin(path), end(path));
           }
-          //------------------------------------------------- 
-          // Undo
-          //------------------------------------------------- 
-          if (m_keys[VK_UP].bReleased) {
-            if (path.size() > 0)
-            path.erase(--end(path));
-          }
+        }
+        //------------------------------------------------- 
+        // Undo
+        //------------------------------------------------- 
+        if (m_keys[VK_UP].bReleased) {
+          if (path.size() > 0)
+            path.pop_back(); 
+        }
 
-          //------------------------------------------------- 
-          // ESCAPE - close output file
-          //------------------------------------------------- 
-          if (m_keys[VK_ESCAPE].bPressed) {
-            out_file.close();
-            return false;
-          }
-          
+        //------------------------------------------------- 
+        // ESCAPE - close output file
+        //------------------------------------------------- 
+        if (m_keys[VK_ESCAPE].bPressed) {
+          out_file.close();
+          return false;
+        }
 
-          cout << "path size: " << path.size() << endl;
+
+        cout << "path size: " << path.size() << endl;
         // draw current path
         for(auto &i : path) {
           FillCircle((int)round(i.first),(int)round(i.second), 3); 
@@ -93,7 +98,7 @@ class Example : public olcConsoleGameEngine
 int main()
 {
   Example demo;
-  if (demo.ConstructConsole(kScreenWidth / 3.f, kScreenHeight / 3.f, 3, 3))
+  if (demo.ConstructConsole(kScreenWidth / kPixelSize, kScreenHeight / kPixelSize, kPixelSize, kPixelSize))
     demo.Start();
 
   return 0;

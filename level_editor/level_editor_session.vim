@@ -79,12 +79,12 @@ set ttimeoutlen=100
 set undofile
 set visualbell
 set wildmenu
-set window=38
+set window=40
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd C:\
+cd C:\code\second_shooter\level_editor
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -229,15 +229,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 31 - ((30 * winheight(0) + 19) / 38)
+let s:l = 30 - ((29 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-31
-normal! 037|
+30
+normal! 0
 lcd C:\
 tabnext
-edit C:\code\second_shooter\level_editor\olcPixelGameEngine.h
+edit C:\code\second_shooter\level_editor\level_data.txt
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -258,13 +258,13 @@ setlocal breakindentopt=
 setlocal bufhidden=
 setlocal buflisted
 setlocal buftype=
-setlocal cindent
+setlocal nocindent
 setlocal cinkeys=0{,0},0),0],:,0#,!^F,o,O,e
 setlocal cinoptions=
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
-setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-setlocal commentstring=/*%s*/
+setlocal comments=fb:-,fb:*,n:>
+setlocal commentstring=
 setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
@@ -282,8 +282,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
-if &filetype != 'cpp'
-setlocal filetype=cpp
+if &filetype != 'text'
+setlocal filetype=text
 endif
 setlocal fixendofline
 setlocal foldcolumn=0
@@ -297,7 +297,7 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatoptions=croql
+setlocal formatoptions=tcq
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal formatprg=
 setlocal grepprg=
@@ -323,7 +323,7 @@ setlocal nrformats=bin,hex
 set number
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=ccomplete#Complete
+setlocal omnifunc=
 setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
@@ -349,8 +349,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'cpp'
-setlocal syntax=cpp
+if &syntax != 'text'
+setlocal syntax=text
 endif
 setlocal tabstop=2
 setlocal tagcase=
@@ -359,7 +359,7 @@ setlocal tags=
 setlocal termwinkey=
 setlocal termwinscroll=10000
 setlocal termwinsize=
-setlocal textwidth=120
+setlocal textwidth=78
 setlocal thesaurus=
 setlocal undofile
 setlocal undolevels=-123456
@@ -371,7 +371,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 19) / 38)
+let s:l = 1 - ((0 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -525,18 +525,20 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 19) / 38)
+let s:l = 1 - ((0 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
 normal! 038|
 lcd C:\
-tabnext 1
+tabnext 3
 set stal=1
-badd +37 C:\code\second_shooter\level_editor\level_editor_main.cpp
-badd +1 C:\code\second_shooter\level_editor\compile.vim
+badd +1 c:\code\second_shooter\level_editor\level_editor_session.vim
 badd +0 C:\code\second_shooter\level_editor\olcPixelGameEngine.h
+badd +1 C:\code\second_shooter\level_editor\compile.vim
+badd +0 C:\code\second_shooter\level_editor\level_editor_main.cpp
+badd +0 C:\code\second_shooter\level_editor\level_data.txt
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0
   silent exe 'bwipe ' . s:wipebuf
 endif
