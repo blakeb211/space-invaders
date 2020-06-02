@@ -32,18 +32,12 @@ struct Game {
   RenderWindow window{{G::screenWidth, G::screenHeight}, G::screenTitle};
   FrameTime lastFt{0.f}, currentSlice{0.f};
   FrameTime ftStep{3.f}, ftSlice{3.f};
-  bool gameOver{false}, pause{false};
+  bool gameOver{false};
 
-  // These members are game entities.
-  unsigned int levelId{1};
-
-  //-----------------------------------------
-  // Game construction 
-  // ----------------------------------------
   Game() {
-    gameOver = false;
     window.setFramerateLimit(80);
-    // create the player
+    unsigned int levelId = 1;
+    // Create Player
     G::entity.push_back(make_shared<Player>(Vec2(3.f*G::screenWidth / 4.f, G::screenHeight - 20.f))); 
     // Load level
     Builder::build_level(levelId);
@@ -61,10 +55,10 @@ struct Game {
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Escape)) gameOver = true;
     if(Keyboard::isKeyPressed(Keyboard::Key::Left)) { 
-      Entity::withId(0)->move({ftStep * -11.f,0.f}); 
+      Entity::withId(0)->move({ftStep * -1.f * G::kPlayerSpeed,0.f}); 
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Right)) { 
-      Entity::withId(0)->move({ftStep * +11.f,0.f}); 
+      Entity::withId(0)->move({ftStep * G::kPlayerSpeed,0.f}); 
     }
     if(Keyboard::isKeyPressed(Keyboard::Key::Space)) { 
       // player shoot
