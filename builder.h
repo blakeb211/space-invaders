@@ -24,6 +24,7 @@ namespace Builder {
   void build_E3(std::vector<Voxel> &vox);
   void build_E4(std::vector<Voxel> &vox);
   void build_level(unsigned int & levelId);
+  float calc_dist(const Vec2 & va,const Vec2 & vb);
   void build_wall1(sf::Vector2<float> start, sf::Vector2<float> end, std::vector<Voxel> &vox);
 
 } // namespace Builder

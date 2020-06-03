@@ -11,13 +11,13 @@ Framework
 
 Collision Detection
   sfml AABB
+            vox1.getGlobalBounds().intersects(vox2.getGlobalBounds())
+
   quadtree
 
 Game Entity Management
     Components
-        no inheritance - iteration #1
         virtual funcs - iteration #2
-        pure virtuals (interfaces) - iteration #3
 
  Naming Conventions 
   functions
@@ -36,17 +36,10 @@ FEATURES
   FILE FORMAT
     + 1 LEVEL PER FILE
 
-    -------------------
-    ----E1----E3-----E4
-    -------E2-----E2---
-    -------------------
-    --E1-E1-E3-E3-E4-E4
-    -------------------
-    -------------------
-   
-    parser will count enemies - 11
-    and so then will read 11 paths
-
+    -1-2-1-3-1-3
+    parser will count enemies and 
+    read the same number of paths
+    
     1 path per line
     x y x y x y x y x y x y
     numbers as fraction of width and height
@@ -54,11 +47,10 @@ FEATURES
     W1  x y x y
     W2  x y x y
 
-        **need path creation code
-        ***Need Level Loading code - enemies, enemy paths, paths
+        **need Wall building and placement code
         ***Need Wall Building and convenient placement
-        ***Need Player art
         ***collision code  AABB
+        ***Need Player art
         ***animations
 
   Multiple weapons

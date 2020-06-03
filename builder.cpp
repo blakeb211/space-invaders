@@ -448,7 +448,19 @@ void Builder::build_E4(vector<Voxel> &vox) {
     vox.emplace_back(22.f * G::bW, 6.f * G::bW, Color(255,140,0,245));
 }
 
-void build_wall1(Vec2 start, Vec2 end, vector<Voxel> & vox) {
+float Builder::calc_dist(const Vec2 & va,const Vec2 & vb) {
+    return sqrt(pow(va.x - vb.x, 2) + pow(va.y - vb.y,2));
+}
 
-
+void Builder::build_wall1(Vec2 start, Vec2 end, vector<Voxel> & vox) {
+    // create a vector from start to end
+    Vec2 wallPath = end - start;
+    auto length = sqrt(pow(wallPath.x,2) + pow(wallPath.y,2));
+    Vec2 unitVec = Vec2(wallPath.x / length, wallPath.y / length);
+    // march from start to end placing voxels 
+    while(calc_dist(start, end) > 1.0f) {
+        // place voxel
+        vox.emplace_back(start.x,start.y, Color(210,105,30,255));
+        start += unitVec * 0.3f;
+    }
 }
