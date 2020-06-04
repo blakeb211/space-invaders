@@ -95,9 +95,13 @@ void Builder::build_level(unsigned int & levelId) {
                 assert(c=='B' || c == 'D');
                 // Convert from level editor coords to game coords
                 const float kCoordsConv = 3.f; 
+                x_start *= G::screenWidth;
+                x_end *= G::screenWidth;
+                y_start *= G::screenHeight;
+                y_end *= G::screenHeight;
                 // build the wall
                 if (c == 'B') {
-                    G::entity.push_back(Wall1(Vec2(x_start, y_start), Vec2(x_end, y_end)));
+                    G::entity.push_back(make_shared<Wall1>(Vec2(x_start, y_start), Vec2(x_end, y_end)));
                 }
                 if (c == 'D') {
 
@@ -488,9 +492,11 @@ void Builder::build_wall1(Vec2 start, Vec2 end, vector<Voxel> & vox) {
     auto length = sqrt(pow(wallPath.x,2) + pow(wallPath.y,2));
     Vec2 unitVec = Vec2(wallPath.x / length, wallPath.y / length);
     // march from start to end placing voxels 
-    while(calc_dist(start, end) > 1.0f) {
+    cout << "entering build_wall1 while loop" << endl;
+    while(calc_dist(start, end) > 5.0f) {
         // place voxel
         vox.emplace_back(start.x,start.y, Color(210,105,30,255));
         start += unitVec * 0.3f;
     }
+    cout << "exited build_wall1 while loop" << endl;
 }
