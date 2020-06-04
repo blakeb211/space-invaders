@@ -44,8 +44,8 @@ FEATURES
     x y x y x y x y x y x y
     numbers as fraction of width and height
 
-    W1  x y|x y|D  // D = destructible
-    W2  x y|x y|B  // B = bouncy
+    x y x y D  // D = destructible
+    x y x y B  // B = bouncy
 
         **need Wall building and placement code
         **need wall placement support in the editor

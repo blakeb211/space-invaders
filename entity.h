@@ -110,11 +110,13 @@ struct E4: Enemy {
   E4(Vec2 pos);
 };
 
-// Wall types
+// Wall types - they do not have a position
 struct Wall : Entity { // base
 };
-struct Wall1 : Wall {
-};
-struct Wall2 : Wall {
+
+struct Wall1 : Wall { // bouncy wall 
+    Wall1(Vec2 start, Vec2 end);
 };
 
+struct Wall2 : Wall { // destructible wall
+};

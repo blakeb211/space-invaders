@@ -13,6 +13,7 @@ void Builder::build_level(unsigned int & levelId) {
     ifstream in_file("level" + to_string(levelId) + "_data.txt", ios::in); 
     unsigned int enemyCount = 0;
     unsigned int pathCount = 0;
+    unsigned int wallCount = 0;
     queue<unsigned int> enemyIds = {};
     cout << "entering while loop" << endl;
     while(in_file.good()) {
@@ -49,7 +50,6 @@ void Builder::build_level(unsigned int & levelId) {
         }
         // load the paths
         // check if its a path line
-        //shared_ptr<Player> p_ptr = dynamic_pointer_cast<Player> (Entity::withId(0));
         if (line.find('|') != string::npos) {
             pathCount++;
             unsigned int currEntityId = enemyIds.front(); // pop from the front
@@ -77,6 +77,36 @@ void Builder::build_level(unsigned int & levelId) {
             e_ptr->setPos(e_ptr->path[0]);
             cout << "path was added to an entity" << endl;
         }
+        // load the walls 
+        // check if its a wall line: a B means a bouncy wall, a D means a destructible wall
+        if (line.find('B') != string::npos || line.find('D') != string::npos) {
+            wallCount++;
+            // read in the path
+            istringstream ss(line);
+            // read in the whole line of float float|
+            while(ss.good()) { 
+                float x_start, y_start, x_end, y_end;
+                char c;
+                ss >> x_start;
+                ss >> y_start;
+                ss >> x_end;
+                ss >> y_end;
+                ss >> c; // read in type of wall, 'B' or 'D' 
+                assert(c=='B' || c == 'D');
+                // Convert from level editor coords to game coords
+                const float kCoordsConv = 3.f; 
+                // build the wall
+                if (c == 'B') {
+                    G::entity.push_back(Wall1(Vec2(x_start, y_start), Vec2(x_end, y_end)));
+                }
+                if (c == 'D') {
+
+                }
+            }
+            // set enemies starting position to the first point on its path
+            cout << "wall was added to the level" << endl;
+        }
+
     }
     cout << "closing level loading input file" << endl;
     in_file.close();

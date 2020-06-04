@@ -141,3 +141,6 @@ E4::E4(Vec2 pos) : Enemy() {
 }
 
 // Wall types
+Wall1::Wall1(Vec2 start, Vec2 end) {
+    Builder::build_wall1(start, end, vox);
+}
