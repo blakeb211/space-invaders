@@ -6,8 +6,12 @@ using namespace std;
 constexpr float kScreenWidth = 1024.f;
 constexpr float kScreenHeight = 3.f * kScreenWidth / 4.f;
 constexpr float kPixelSize = 3.f;
-// TODO: add object placement before path drawing
-// TODO: need a convenient file format 
+
+// TODO: implement wall placement within editor
+struct Wall {
+    float ax, ay, bx, by;
+};
+
 class Example : public olcConsoleGameEngine
 {
   public:
@@ -33,7 +37,9 @@ class Example : public olcConsoleGameEngine
      "-------------------",
      "-------------------", 
     };
-
+    const vector<Wall> walls = { {0.1, 0.2, 0.9, 0.2} };
+    Wall wall1, wall2;
+   
   public:
     bool OnUserCreate() override
     {

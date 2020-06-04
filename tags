@@ -1,305 +1,89 @@
-	.\proto1_session.vim	/^inoremap  u$/;"	m
-	.\proto1_session.vim	/^vmap  "*d$/;"	m
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.7	//
-%	.\proto1_session.vim	/^nmap <silent> % <Plug>(MatchitNormalForward)$/;"	m
-%	.\proto1_session.vim	/^omap <silent> % <Plug>(MatchitOperationForward)$/;"	m
-0	.\proto1_session.vim	/^normal! 0$/;"	m
-017|	.\proto1_session.vim	/^normal! 017|$/;"	m
-047|	.\proto1_session.vim	/^normal! 047|$/;"	m
-<C-Del>	.\proto1_session.vim	/^vmap <C-Del> "*d$/;"	m
-<C-Insert>	.\proto1_session.vim	/^vmap <C-Insert> "*y$/;"	m
-<C-U>	.\proto1_session.vim	/^inoremap <C-U> u$/;"	m
-<C-X>	.\proto1_session.vim	/^vmap <C-X> "*d$/;"	m
-<F10>	.\proto1_session.vim	/^map <F10> :!%.exe$/;"	m
-<F2>	.\proto1_session.vim	/^map <F2> :source $VIM\\_vimrc$/;"	m
-<F3>	.\proto1_session.vim	/^map <F3> :e $VIM\\_vimrc$/;"	m
-<F4>	.\proto1_session.vim	/^map <F4> :cd c:\\code$/;"	m
-<F9>	.\proto1_session.vim	/^map <F9> :source %:p:h\\compile.vim$/;"	m
-<Plug>(MatchitNormalBackward)	.\proto1_session.vim	/^nnoremap <silent> <Plug>(MatchitNormalBackward) :call matchit#Match_wrapper('',0,'n')$/;"	m
-<Plug>(MatchitNormalForward)	.\proto1_session.vim	/^nnoremap <silent> <Plug>(MatchitNormalForward) :call matchit#Match_wrapper('',1,'n')$/;"	m
-<Plug>(MatchitNormalMultiBackward)	.\proto1_session.vim	/^nnoremap <silent> <Plug>(MatchitNormalMultiBackward) :call matchit#MultiMatch("bW", "n")$/;"	m
-<Plug>(MatchitNormalMultiForward)	.\proto1_session.vim	/^nnoremap <silent> <Plug>(MatchitNormalMultiForward) :call matchit#MultiMatch("W",  "n")$/;"	m
-<Plug>(MatchitOperationBackward)	.\proto1_session.vim	/^onoremap <silent> <Plug>(MatchitOperationBackward) :call matchit#Match_wrapper('',0,'o')$/;"	m
-<Plug>(MatchitOperationForward)	.\proto1_session.vim	/^onoremap <silent> <Plug>(MatchitOperationForward) :call matchit#Match_wrapper('',1,'o')$/;"	m
-<Plug>(MatchitOperationMultiBackward)	.\proto1_session.vim	/^onoremap <silent> <Plug>(MatchitOperationMultiBackward) :call matchit#MultiMatch("bW", "o")$/;"	m
-<Plug>(MatchitOperationMultiForward)	.\proto1_session.vim	/^onoremap <silent> <Plug>(MatchitOperationMultiForward) :call matchit#MultiMatch("W",  "o")$/;"	m
-<Plug>NetrwBrowseX	.\proto1_session.vim	/^nnoremap <silent> <Plug>NetrwBrowseX :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))$/;"	m
-<Plug>NetrwBrowseXVis	.\proto1_session.vim	/^vnoremap <silent> <Plug>NetrwBrowseXVis :call netrw#BrowseXVis()$/;"	m
-<S-Del>	.\proto1_session.vim	/^vmap <S-Del> "*d$/;"	m
-<S-Insert>	.\proto1_session.vim	/^map! <S-Insert> *$/;"	m
-<S-Insert>	.\proto1_session.vim	/^nmap <S-Insert> "*P$/;"	m
-<S-Insert>	.\proto1_session.vim	/^vmap <S-Insert> "-d"*P$/;"	m
-B1	.\proto1.cpp	/^  B1(Vec2 pos) : Bullet({0.f,-0.75f}) {$/;"	f	struct:B1
-B1	.\proto1.cpp	/^struct B1 : Bullet {$/;"	s	file:
-B2	.\proto1.cpp	/^  B2(Vec2 pos) : Bullet({0.f,-0.6f}) {$/;"	f	struct:B2
-B2	.\proto1.cpp	/^struct B2 : Bullet {$/;"	s	file:
-Ball	.\arkanoid_1\p2.cpp	/^    Ball(float mX, float mY)$/;"	f	struct:Ball
-Ball	.\arkanoid_1\p2.cpp	/^struct Ball$/;"	s	file:
-Ball	.\arkanoid_1\p3.cpp	/^    Ball(float mX, float mY)$/;"	f	struct:Ball
-Ball	.\arkanoid_1\p3.cpp	/^struct Ball$/;"	s	file:
-Ball	.\arkanoid_1\p4.cpp	/^    Ball(float mX, float mY)$/;"	f	struct:Ball
-Ball	.\arkanoid_1\p4.cpp	/^struct Ball$/;"	s	file:
-Ball	.\arkanoid_1\p5.cpp	/^    Ball(float mX, float mY)$/;"	f	struct:Ball
-Ball	.\arkanoid_1\p5.cpp	/^struct Ball$/;"	s	file:
-Ball	.\arkanoid_1\p6.cpp	/^    Ball(float mX, float mY)$/;"	f	struct:Ball
-Ball	.\arkanoid_1\p6.cpp	/^struct Ball$/;"	s	file:
-Ball	.\arkanoid_1\p7.cpp	/^    Ball(float mX, float mY)$/;"	f	struct:Ball
-Ball	.\arkanoid_1\p7.cpp	/^struct Ball$/;"	s	file:
-Ball	.\arkanoid_1\p8.cpp	/^    Ball(float mX, float mY)$/;"	f	struct:Ball
-Ball	.\arkanoid_1\p8.cpp	/^struct Ball$/;"	s	file:
-Ball	.\arkanoid_1\p9.cpp	/^    Ball(float mX, float mY)$/;"	f	struct:Ball
-Ball	.\arkanoid_1\p9.cpp	/^struct Ball$/;"	s	file:
-Ball	.\arkanoid_2\p5.cpp	/^    Ball(float mX, float mY)$/;"	f	struct:Ball
-Ball	.\arkanoid_2\p5.cpp	/^struct Ball$/;"	s	file:
-Brick	.\arkanoid_1\p7.cpp	/^    Brick(float mX, float mY)$/;"	f	struct:Brick
-Brick	.\arkanoid_1\p7.cpp	/^struct Brick$/;"	s	file:
-Brick	.\arkanoid_1\p8.cpp	/^    Brick(float mX, float mY)$/;"	f	struct:Brick
-Brick	.\arkanoid_1\p8.cpp	/^struct Brick$/;"	s	file:
-Brick	.\arkanoid_1\p9.cpp	/^    Brick(float mX, float mY)$/;"	f	struct:Brick
-Brick	.\arkanoid_1\p9.cpp	/^struct Brick : public Rectangle$/;"	s	file:
-Brick	.\arkanoid_2\p5.cpp	/^    Brick(float mX, float mY)$/;"	f	struct:Brick
-Brick	.\arkanoid_2\p5.cpp	/^struct Brick : public Rectangle$/;"	s	file:
-Builder	.\builder.h	/^namespace Builder {$/;"	n
-Bullet	.\proto1.cpp	/^  Bullet(Vec2 vv) : vel{vv} {}$/;"	f	struct:Bullet
-Bullet	.\proto1.cpp	/^struct Bullet : Entity { $/;"	s	file:
-E1	.\proto1.cpp	/^  E1(Vec2 pos) {$/;"	f	struct:E1
-E1	.\proto1.cpp	/^struct E1: Enemy {$/;"	s	file:
-E2	.\proto1.cpp	/^  E2(Vec2 pos) {$/;"	f	struct:E2
-E2	.\proto1.cpp	/^struct E2: Enemy {$/;"	s	file:
-E3	.\proto1.cpp	/^  E3(Vec2 pos) {$/;"	f	struct:E3
-E3	.\proto1.cpp	/^struct E3: Enemy {$/;"	s	file:
-E4	.\proto1.cpp	/^  E4(Vec2 pos) {$/;"	f	struct:E4
-E4	.\proto1.cpp	/^struct E4: Enemy {$/;"	s	file:
-Enemy	.\proto1.cpp	/^struct Enemy: Entity { \/\/ base$/;"	s	file:
-Entity	.\proto1.cpp	/^  Entity() : id{entityCount++}, destroyed{false} {}$/;"	f	struct:Entity
-Entity	.\proto1.cpp	/^struct Entity {$/;"	s	file:
-G	.\globals.h	/^namespace G {$/;"	n
-Game	.\arkanoid_2\p5.cpp	/^    Game()$/;"	f	struct:Game
-Game	.\arkanoid_2\p5.cpp	/^struct Game$/;"	s	file:
-Game	.\proto1.cpp	/^  Game() {$/;"	f	struct:Game
-Game	.\proto1.cpp	/^struct Game {$/;"	s	file:
-Paddle	.\arkanoid_1\p5.cpp	/^    Paddle(float mX, float mY)$/;"	f	struct:Paddle
-Paddle	.\arkanoid_1\p5.cpp	/^struct Paddle$/;"	s	file:
-Paddle	.\arkanoid_1\p6.cpp	/^    Paddle(float mX, float mY)$/;"	f	struct:Paddle
-Paddle	.\arkanoid_1\p6.cpp	/^struct Paddle$/;"	s	file:
-Paddle	.\arkanoid_1\p7.cpp	/^    Paddle(float mX, float mY)$/;"	f	struct:Paddle
-Paddle	.\arkanoid_1\p7.cpp	/^struct Paddle$/;"	s	file:
-Paddle	.\arkanoid_1\p8.cpp	/^    Paddle(float mX, float mY)$/;"	f	struct:Paddle
-Paddle	.\arkanoid_1\p8.cpp	/^struct Paddle$/;"	s	file:
-Paddle	.\arkanoid_1\p9.cpp	/^    Paddle(float mX, float mY)$/;"	f	struct:Paddle
-Paddle	.\arkanoid_1\p9.cpp	/^struct Paddle : public Rectangle$/;"	s	file:
-Paddle	.\arkanoid_2\p5.cpp	/^    Paddle(float mX, float mY)$/;"	f	struct:Paddle
-Paddle	.\arkanoid_2\p5.cpp	/^struct Paddle : public Rectangle$/;"	s	file:
-Player	.\proto1.cpp	/^  Player(Vec2 pos) : mTimerMax{30.f}, mTimer{0.f}, mCanShoot{false} {$/;"	f	struct:Player
-Player	.\proto1.cpp	/^struct Player : public Entity {$/;"	s	file:
-Q	.\proto1_session.vim	/^map Q gq$/;"	m
-Rectangle	.\arkanoid_1\p9.cpp	/^struct Rectangle$/;"	s	file:
-Rectangle	.\arkanoid_2\p5.cpp	/^struct Rectangle$/;"	s	file:
-Run	.\proto1.cpp	/^  void Run() {$/;"	f	struct:Game
-SessionLoad	.\proto1_session.vim	/^let SessionLoad = 1$/;"	v
-Voxel	.\voxel.cpp	/^Voxel::Voxel(float mX, float mY, Color c) {$/;"	f	class:Voxel
-Voxel	.\voxel.h	/^struct Voxel : sf::RectangleShape { $/;"	s
-Wall	.\proto1.cpp	/^struct Wall : Entity { \/\/ base$/;"	s	file:
-Wall1	.\proto1.cpp	/^struct Wall1 : Wall {$/;"	s	file:
-Wall2	.\proto1.cpp	/^struct Wall2 : Wall {$/;"	s	file:
-[%	.\proto1_session.vim	/^nmap <silent> [% <Plug>(MatchitNormalMultiBackward)$/;"	m
-[%	.\proto1_session.vim	/^omap <silent> [% <Plug>(MatchitOperationMultiBackward)$/;"	m
-]%	.\proto1_session.vim	/^nmap <silent> ]% <Plug>(MatchitNormalMultiForward)$/;"	m
-]%	.\proto1_session.vim	/^omap <silent> ]% <Plug>(MatchitOperationMultiForward)$/;"	m
-_USE_MATH_DEFINES	.\stdlibs.h	5;"	d
-bottom	.\arkanoid_1\p4.cpp	/^    float bottom() { return y() + shape.getRadius(); }$/;"	f	struct:Ball
-bottom	.\arkanoid_1\p5.cpp	/^    float bottom() { return y() + shape.getRadius(); }$/;"	f	struct:Ball
-bottom	.\arkanoid_1\p5.cpp	/^    float bottom() { return y() + shape.getSize().y \/ 2.f; }$/;"	f	struct:Paddle
-bottom	.\arkanoid_1\p6.cpp	/^    float bottom() { return y() + shape.getRadius(); }$/;"	f	struct:Ball
-bottom	.\arkanoid_1\p6.cpp	/^    float bottom() { return y() + shape.getSize().y \/ 2.f; }$/;"	f	struct:Paddle
-bottom	.\arkanoid_1\p7.cpp	/^    float bottom() { return y() + shape.getRadius(); }$/;"	f	struct:Ball
-bottom	.\arkanoid_1\p7.cpp	/^    float bottom() { return y() + shape.getSize().y \/ 2.f; }$/;"	f	struct:Brick
-bottom	.\arkanoid_1\p7.cpp	/^    float bottom() { return y() + shape.getSize().y \/ 2.f; }$/;"	f	struct:Paddle
-bottom	.\arkanoid_1\p8.cpp	/^    float bottom() { return y() + shape.getRadius(); }$/;"	f	struct:Ball
-bottom	.\arkanoid_1\p8.cpp	/^    float bottom() { return y() + shape.getSize().y \/ 2.f; }$/;"	f	struct:Brick
-bottom	.\arkanoid_1\p8.cpp	/^    float bottom() { return y() + shape.getSize().y \/ 2.f; }$/;"	f	struct:Paddle
-bottom	.\arkanoid_1\p9.cpp	/^    float bottom() { return y() + shape.getRadius(); }$/;"	f	struct:Ball
-bottom	.\arkanoid_1\p9.cpp	/^    float bottom() { return y() + shape.getSize().y \/ 2.f; }$/;"	f	struct:Rectangle
-bricks	.\arkanoid_2\p5.cpp	/^    vector<Brick> bricks;$/;"	m	struct:Game	file:
-build_B1	.\builder.cpp	/^    void Builder::build_B1(vector<Voxel> &vox) { $/;"	f	class:Builder
-build_B2	.\builder.cpp	/^    void Builder::build_B2(vector<Voxel> &vox) {$/;"	f	class:Builder
-build_E1	.\builder.cpp	/^    void Builder::build_E1(vector<Voxel> &vox) {$/;"	f	class:Builder
-build_E2	.\builder.cpp	/^    void Builder::build_E2(vector<Voxel> &vox) {$/;"	f	class:Builder
-build_E3	.\builder.cpp	/^    void Builder::build_E3(vector<Voxel> &vox) {$/;"	f	class:Builder
-build_E4	.\builder.cpp	/^    void Builder::build_E4(vector<Voxel> &vox) {$/;"	f	class:Builder
-build_player	.\builder.cpp	/^void Builder::build_player(vector<Voxel> &vox) {$/;"	f	class:Builder
-color	.\voxel.h	/^    sf::Color color;$/;"	m	struct:Voxel
-destroyed	.\proto1.cpp	/^  bool destroyed;$/;"	m	struct:Entity	file:
-drawPhase	.\arkanoid_2\p5.cpp	/^    void drawPhase()$/;"	f	struct:Game
-drawPhase	.\proto1.cpp	/^  void drawPhase() {$/;"	f	struct:Game
-entity	.\proto1.cpp	/^vector<shared_ptr<Entity>> entity;$/;"	v
-entityCount	.\proto1.cpp	/^  static size_t entityCount;$/;"	m	struct:Entity	file:
-entityCount	.\proto1.cpp	/^size_t Entity::entityCount = 0;$/;"	m	class:Entity	file:
-g%	.\proto1_session.vim	/^nmap <silent> g% <Plug>(MatchitNormalBackward)$/;"	m
-g%	.\proto1_session.vim	/^omap <silent> g% <Plug>(MatchitOperationBackward)$/;"	m
-getHealth	.\proto1.cpp	/^  virtual size_t getHealth() const { return vox.size(); }$/;"	f	struct:Entity
-getId	.\proto1.cpp	/^  const size_t& getId() const { return id; }$/;"	f	struct:Entity
-getPos	.\proto1.cpp	/^  Vec2& getPos() { return pos; }$/;"	f	struct:Entity
-getVox	.\proto1.cpp	/^  vector<Voxel>& getVox() { return vox; }$/;"	f	struct:Entity
-gx	.\proto1_session.vim	/^nmap gx <Plug>NetrwBrowseX$/;"	m
-gx	.\proto1_session.vim	/^vmap gx <Plug>NetrwBrowseXVis$/;"	m
-health	.\voxel.h	/^    std::optional<int> health; \/\/ voxel health$/;"	m	struct:Voxel
-id	.\proto1.cpp	/^  size_t id; $/;"	m	struct:Entity	file:
-inputPhase	.\arkanoid_2\p5.cpp	/^    void inputPhase()$/;"	f	struct:Game
-inputPhase	.\proto1.cpp	/^  void inputPhase() {$/;"	f	struct:Game
-isIntersecting	.\arkanoid_1\p6.cpp	/^bool isIntersecting(T1& mA, T2& mB)$/;"	f
-isIntersecting	.\arkanoid_1\p7.cpp	/^bool isIntersecting(T1& mA, T2& mB)$/;"	f
-isIntersecting	.\arkanoid_1\p8.cpp	/^bool isIntersecting(T1& mA, T2& mB)$/;"	f
-isIntersecting	.\arkanoid_1\p9.cpp	/^bool isIntersecting(T1& mA, T2& mB)$/;"	f
-isIntersecting	.\proto1.cpp	/^template<class T1, class T2> bool isIntersecting(T1& a, T2& b) {$/;"	f
-left	.\arkanoid_1\p4.cpp	/^    float left() { return x() - shape.getRadius(); }$/;"	f	struct:Ball
-left	.\arkanoid_1\p5.cpp	/^    float left() { return x() - shape.getRadius(); }$/;"	f	struct:Ball
-left	.\arkanoid_1\p5.cpp	/^    float left() { return x() - shape.getSize().x \/ 2.f; }$/;"	f	struct:Paddle
-left	.\arkanoid_1\p6.cpp	/^    float left() { return x() - shape.getRadius(); }$/;"	f	struct:Ball
-left	.\arkanoid_1\p6.cpp	/^    float left() { return x() - shape.getSize().x \/ 2.f; }$/;"	f	struct:Paddle
-left	.\arkanoid_1\p7.cpp	/^    float left() { return x() - shape.getRadius(); }$/;"	f	struct:Ball
-left	.\arkanoid_1\p7.cpp	/^    float left() { return x() - shape.getSize().x \/ 2.f; }$/;"	f	struct:Brick
-left	.\arkanoid_1\p7.cpp	/^    float left() { return x() - shape.getSize().x \/ 2.f; }$/;"	f	struct:Paddle
-left	.\arkanoid_1\p8.cpp	/^    float left() { return x() - shape.getRadius(); }$/;"	f	struct:Ball
-left	.\arkanoid_1\p8.cpp	/^    float left() { return x() - shape.getSize().x \/ 2.f; }$/;"	f	struct:Brick
-left	.\arkanoid_1\p8.cpp	/^    float left() { return x() - shape.getSize().x \/ 2.f; }$/;"	f	struct:Paddle
-left	.\arkanoid_1\p9.cpp	/^    float left() { return x() - shape.getRadius(); }$/;"	f	struct:Ball
-left	.\arkanoid_1\p9.cpp	/^    float left() { return x() - shape.getSize().x \/ 2.f; }$/;"	f	struct:Rectangle
-mCanShoot	.\proto1.cpp	/^  bool mCanShoot;$/;"	m	struct:Player	file:
-mTimer	.\proto1.cpp	/^  float mTimer;$/;"	m	struct:Player	file:
-mTimerMax	.\proto1.cpp	/^  const float mTimerMax;$/;"	m	struct:Player	file:
-main	.\arkanoid_1\p2.cpp	/^int main()$/;"	f
-main	.\arkanoid_1\p3.cpp	/^int main()$/;"	f
-main	.\arkanoid_1\p4.cpp	/^int main()$/;"	f
-main	.\arkanoid_1\p5.cpp	/^int main()$/;"	f
-main	.\arkanoid_1\p6.cpp	/^int main()$/;"	f
-main	.\arkanoid_1\p7.cpp	/^int main()$/;"	f
-main	.\arkanoid_1\p8.cpp	/^int main()$/;"	f
-main	.\arkanoid_1\p9.cpp	/^int main()$/;"	f
-main	.\arkanoid_2\p5.cpp	/^int main()$/;"	f
-main	.\ascii_art_to_code\art_loader.cpp	/^int main() {$/;"	f
-main	.\proto1.cpp	/^int main()$/;"	f
-move	.\proto1.cpp	/^  virtual void move(Vec2 offset) { $/;"	f	struct:Entity
-path	.\proto1.cpp	/^  vector<Vec2> path;$/;"	m	struct:Enemy	file:
-pos	.\proto1.cpp	/^  Vec2 pos; \/\/ overall position of entity$/;"	m	struct:Entity	file:
-removeDestroyedEntities	.\proto1.cpp	/^void removeDestroyedEntities(vector<shared_ptr<Entity>> & vec) {$/;"	f
-right	.\arkanoid_1\p4.cpp	/^    float right() { return x() + shape.getRadius(); }$/;"	f	struct:Ball
-right	.\arkanoid_1\p5.cpp	/^    float right() { return x() + shape.getRadius(); }$/;"	f	struct:Ball
-right	.\arkanoid_1\p5.cpp	/^    float right() { return x() + shape.getSize().x \/ 2.f; }$/;"	f	struct:Paddle
-right	.\arkanoid_1\p6.cpp	/^    float right() { return x() + shape.getRadius(); }$/;"	f	struct:Ball
-right	.\arkanoid_1\p6.cpp	/^    float right() { return x() + shape.getSize().x \/ 2.f; }$/;"	f	struct:Paddle
-right	.\arkanoid_1\p7.cpp	/^    float right() { return x() + shape.getRadius(); }$/;"	f	struct:Ball
-right	.\arkanoid_1\p7.cpp	/^    float right() { return x() + shape.getSize().x \/ 2.f; }$/;"	f	struct:Brick
-right	.\arkanoid_1\p7.cpp	/^    float right() { return x() + shape.getSize().x \/ 2.f; }$/;"	f	struct:Paddle
-right	.\arkanoid_1\p8.cpp	/^    float right() { return x() + shape.getRadius(); }$/;"	f	struct:Ball
-right	.\arkanoid_1\p8.cpp	/^    float right() { return x() + shape.getSize().x \/ 2.f; }$/;"	f	struct:Brick
-right	.\arkanoid_1\p8.cpp	/^    float right() { return x() + shape.getSize().x \/ 2.f; }$/;"	f	struct:Paddle
-right	.\arkanoid_1\p9.cpp	/^    float right() { return x() + shape.getRadius(); }$/;"	f	struct:Ball
-right	.\arkanoid_1\p9.cpp	/^    float right() { return x() + shape.getSize().x \/ 2.f; }$/;"	f	struct:Rectangle
-run	.\arkanoid_2\p5.cpp	/^    void run()$/;"	f	struct:Game
-s:cpo_save	.\proto1_session.vim	/^let s:cpo_save=&cpo$/;"	v
-s:l	.\proto1_session.vim	/^let s:l = 19 - ((18 * winheight(0) + 27) \/ 55)$/;"	v
-s:l	.\proto1_session.vim	/^let s:l = 44 - ((43 * winheight(0) + 27) \/ 55)$/;"	v
-s:l	.\proto1_session.vim	/^let s:l = 7 - ((6 * winheight(0) + 27) \/ 55)$/;"	v
-s:so_save	.\proto1_session.vim	/^let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0$/;"	v
-s:sx	.\proto1_session.vim	/^let s:sx = expand("<sfile>:p:r")."x.vim"$/;"	v
-s:wipebuf	.\proto1_session.vim	/^  let s:wipebuf = bufnr('%')$/;"	v
-setPos	.\proto1.cpp	/^  void setPos(Vec2 pos) {$/;"	f	struct:Entity
-shape	.\arkanoid_1\p2.cpp	/^    CircleShape shape;$/;"	m	struct:Ball	file:
-shape	.\arkanoid_1\p3.cpp	/^    CircleShape shape;$/;"	m	struct:Ball	file:
-shape	.\arkanoid_1\p4.cpp	/^    CircleShape shape;$/;"	m	struct:Ball	file:
-shape	.\arkanoid_1\p5.cpp	/^    CircleShape shape;$/;"	m	struct:Ball	file:
-shape	.\arkanoid_1\p5.cpp	/^    RectangleShape shape;$/;"	m	struct:Paddle	file:
-shape	.\arkanoid_1\p6.cpp	/^    CircleShape shape;$/;"	m	struct:Ball	file:
-shape	.\arkanoid_1\p6.cpp	/^    RectangleShape shape;$/;"	m	struct:Paddle	file:
-shape	.\arkanoid_1\p7.cpp	/^    CircleShape shape;$/;"	m	struct:Ball	file:
-shape	.\arkanoid_1\p7.cpp	/^    RectangleShape shape;$/;"	m	struct:Brick	file:
-shape	.\arkanoid_1\p7.cpp	/^    RectangleShape shape;$/;"	m	struct:Paddle	file:
-shape	.\arkanoid_1\p8.cpp	/^    CircleShape shape;$/;"	m	struct:Ball	file:
-shape	.\arkanoid_1\p8.cpp	/^    RectangleShape shape;$/;"	m	struct:Brick	file:
-shape	.\arkanoid_1\p8.cpp	/^    RectangleShape shape;$/;"	m	struct:Paddle	file:
-shape	.\arkanoid_1\p9.cpp	/^    CircleShape shape;$/;"	m	struct:Ball	file:
-shape	.\arkanoid_1\p9.cpp	/^    RectangleShape shape;$/;"	m	struct:Rectangle	file:
-shape	.\arkanoid_2\p5.cpp	/^    CircleShape shape;$/;"	m	struct:Ball	file:
-shape	.\arkanoid_2\p5.cpp	/^    RectangleShape shape;$/;"	m	struct:Rectangle	file:
-testCollision	.\arkanoid_1\p6.cpp	/^void testCollision(Paddle& mPaddle, Ball& mBall)$/;"	f
-testCollision	.\arkanoid_1\p7.cpp	/^void testCollision(Paddle& mPaddle, Ball& mBall)$/;"	f
-testCollision	.\arkanoid_1\p8.cpp	/^void testCollision(Brick& mBrick, Ball& mBall)$/;"	f
-testCollision	.\arkanoid_1\p8.cpp	/^void testCollision(Paddle& mPaddle, Ball& mBall)$/;"	f
-testCollision	.\arkanoid_1\p9.cpp	/^void testCollision(Brick& mBrick, Ball& mBall)$/;"	f
-testCollision	.\arkanoid_1\p9.cpp	/^void testCollision(Paddle& mPaddle, Ball& mBall)$/;"	f
-testCollision	.\proto1.cpp	/^void testCollision(Entity &e1, Entity &e2) {$/;"	f
-top	.\arkanoid_1\p4.cpp	/^    float top() { return y() - shape.getRadius(); }$/;"	f	struct:Ball
-top	.\arkanoid_1\p5.cpp	/^    float top() { return y() - shape.getRadius(); }$/;"	f	struct:Ball
-top	.\arkanoid_1\p5.cpp	/^    float top() { return y() - shape.getSize().y \/ 2.f; }$/;"	f	struct:Paddle
-top	.\arkanoid_1\p6.cpp	/^    float top() { return y() - shape.getRadius(); }$/;"	f	struct:Ball
-top	.\arkanoid_1\p6.cpp	/^    float top() { return y() - shape.getSize().y \/ 2.f; }$/;"	f	struct:Paddle
-top	.\arkanoid_1\p7.cpp	/^    float top() { return y() - shape.getRadius(); }$/;"	f	struct:Ball
-top	.\arkanoid_1\p7.cpp	/^    float top() { return y() - shape.getSize().y \/ 2.f; }$/;"	f	struct:Brick
-top	.\arkanoid_1\p7.cpp	/^    float top() { return y() - shape.getSize().y \/ 2.f; }$/;"	f	struct:Paddle
-top	.\arkanoid_1\p8.cpp	/^    float top() { return y() - shape.getRadius(); }$/;"	f	struct:Ball
-top	.\arkanoid_1\p8.cpp	/^    float top() { return y() - shape.getSize().y \/ 2.f; }$/;"	f	struct:Brick
-top	.\arkanoid_1\p8.cpp	/^    float top() { return y() - shape.getSize().y \/ 2.f; }$/;"	f	struct:Paddle
-top	.\arkanoid_1\p9.cpp	/^    float top() { return y() - shape.getRadius(); }$/;"	f	struct:Ball
-top	.\arkanoid_1\p9.cpp	/^    float top() { return y() - shape.getSize().y \/ 2.f; }$/;"	f	struct:Rectangle
-update	.\arkanoid_1\p3.cpp	/^    void update() { shape.move(velocity); }$/;"	f	struct:Ball
-update	.\arkanoid_1\p4.cpp	/^    void update()$/;"	f	struct:Ball
-update	.\arkanoid_1\p5.cpp	/^    void update()$/;"	f	struct:Ball
-update	.\arkanoid_1\p5.cpp	/^    void update()$/;"	f	struct:Paddle
-update	.\arkanoid_1\p6.cpp	/^    void update()$/;"	f	struct:Ball
-update	.\arkanoid_1\p6.cpp	/^    void update()$/;"	f	struct:Paddle
-update	.\arkanoid_1\p7.cpp	/^    void update()$/;"	f	struct:Ball
-update	.\arkanoid_1\p7.cpp	/^    void update()$/;"	f	struct:Paddle
-update	.\arkanoid_1\p8.cpp	/^    void update()$/;"	f	struct:Ball
-update	.\arkanoid_1\p8.cpp	/^    void update()$/;"	f	struct:Paddle
-update	.\arkanoid_1\p9.cpp	/^    void update()$/;"	f	struct:Ball
-update	.\arkanoid_1\p9.cpp	/^    void update()$/;"	f	struct:Paddle
-update	.\arkanoid_2\p5.cpp	/^    void update(FrameTime mFT)$/;"	f	struct:Ball
-update	.\arkanoid_2\p5.cpp	/^    void update(FrameTime mFT)$/;"	f	struct:Paddle
-update	.\proto1.cpp	/^  virtual void update(FrameTime ftStep) { \/* check for collision *\/ \/* update pos *\/  }$/;"	f	struct:Entity
-updatePhase	.\arkanoid_2\p5.cpp	/^    void updatePhase()$/;"	f	struct:Game
-updatePhase	.\proto1.cpp	/^  void updatePhase() {$/;"	f	struct:Game
-vel	.\proto1.cpp	/^  Vec2 vel;    $/;"	m	struct:Bullet	file:
-vel	.\proto1.cpp	/^  Vec2 vel;$/;"	m	struct:Entity	file:
-vel	.\voxel.h	/^    Vec2 vel;$/;"	m	struct:Voxel
-velocity	.\arkanoid_1\p5.cpp	/^    Vector2f velocity;$/;"	m	struct:Paddle	file:
-velocity	.\arkanoid_1\p6.cpp	/^    Vector2f velocity;$/;"	m	struct:Paddle	file:
-velocity	.\arkanoid_1\p7.cpp	/^    Vector2f velocity;$/;"	m	struct:Paddle	file:
-velocity	.\arkanoid_1\p8.cpp	/^    Vector2f velocity;$/;"	m	struct:Paddle	file:
-velocity	.\arkanoid_1\p9.cpp	/^    Vector2f velocity;$/;"	m	struct:Paddle	file:
-velocity	.\arkanoid_2\p5.cpp	/^    Vector2f velocity;$/;"	m	struct:Paddle	file:
-vox	.\proto1.cpp	/^  vector<Voxel> vox;$/;"	m	struct:Entity	file:
-withId	.\proto1.cpp	/^  static shared_ptr<Entity> withId(size_t id) {$/;"	f	struct:Entity
-x	.\arkanoid_1\p4.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Ball
-x	.\arkanoid_1\p5.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Ball
-x	.\arkanoid_1\p5.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Paddle
-x	.\arkanoid_1\p6.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Ball
-x	.\arkanoid_1\p6.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Paddle
-x	.\arkanoid_1\p7.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Ball
-x	.\arkanoid_1\p7.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Brick
-x	.\arkanoid_1\p7.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Paddle
-x	.\arkanoid_1\p8.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Ball
-x	.\arkanoid_1\p8.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Brick
-x	.\arkanoid_1\p8.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Paddle
-x	.\arkanoid_1\p9.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Ball
-x	.\arkanoid_1\p9.cpp	/^    float x() { return shape.getPosition().x; }$/;"	f	struct:Rectangle
-y	.\arkanoid_1\p4.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Ball
-y	.\arkanoid_1\p5.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Ball
-y	.\arkanoid_1\p5.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Paddle
-y	.\arkanoid_1\p6.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Ball
-y	.\arkanoid_1\p6.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Paddle
-y	.\arkanoid_1\p7.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Ball
-y	.\arkanoid_1\p7.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Brick
-y	.\arkanoid_1\p7.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Paddle
-y	.\arkanoid_1\p8.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Ball
-y	.\arkanoid_1\p8.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Brick
-y	.\arkanoid_1\p8.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Paddle
-y	.\arkanoid_1\p9.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Ball
-y	.\arkanoid_1\p9.cpp	/^    float y() { return shape.getPosition().y; }$/;"	f	struct:Rectangle
-zt	.\proto1_session.vim	/^normal! zt$/;"	m
-~Entity	.\proto1.cpp	/^  virtual ~Entity() { }  $/;"	f	struct:Entity
+B1	entity.cpp	/^B1::B1(Vec2 pos) : Bullet({0.f,-0.75f}) {$/;"	f	class:B1
+B1	entity.h	/^struct B1 : Bullet {$/;"	s
+B2	entity.cpp	/^B2::B2(Vec2 pos) : Bullet({0.f,-0.6f}) {$/;"	f	class:B2
+B2	entity.h	/^struct B2 : Bullet {$/;"	s
+B3	entity.cpp	/^B3::B3(Vec2 pos) : Bullet({0.f,-0.6f}) {$/;"	f	class:B3
+B3	entity.h	/^struct B3 : Bullet {$/;"	s
+Builder	builder.h	/^namespace Builder {$/;"	n
+Bullet	entity.cpp	/^Bullet::Bullet(Vec2 vv) : vel{vv} {}$/;"	f	class:Bullet
+Bullet	entity.h	/^struct Bullet : Entity { $/;"	s
+E1	entity.cpp	/^E1::E1(Vec2 pos) : Enemy() {$/;"	f	class:E1
+E1	entity.h	/^struct E1: Enemy {$/;"	s
+E2	entity.cpp	/^E2::E2(Vec2 pos) : Enemy() {$/;"	f	class:E2
+E2	entity.h	/^struct E2: Enemy {$/;"	s
+E3	entity.cpp	/^E3::E3(Vec2 pos) : Enemy() {$/;"	f	class:E3
+E3	entity.h	/^struct E3: Enemy {$/;"	s
+E4	entity.cpp	/^E4::E4(Vec2 pos) : Enemy() {$/;"	f	class:E4
+E4	entity.h	/^struct E4: Enemy {$/;"	s
+Enemy	entity.cpp	/^Enemy::Enemy() {$/;"	f	class:Enemy
+Enemy	entity.h	/^struct Enemy: Entity { \/\/ base$/;"	s
+Entity	entity.cpp	/^Entity::Entity() : id{entityCount++}, destroyed{false} {}$/;"	f	class:Entity
+Entity	entity.h	/^struct Entity {$/;"	s
+G	globals.h	/^namespace G {$/;"	n
+Game	proto1.cpp	/^  Game() {$/;"	f	struct:Game
+Game	proto1.cpp	/^struct Game {$/;"	s	file:
+Player	entity.cpp	/^Player::Player(Vec2 pos) : mTimerMax{30.f}, mTimer{0.f}, mCanShoot{false} {$/;"	f	class:Player
+Player	entity.h	/^struct Player : public Entity {$/;"	s
+Run	proto1.cpp	/^  void Run() {$/;"	f	struct:Game
+Voxel	voxel.cpp	/^Voxel::Voxel(float mX, float mY, Color c) {$/;"	f	class:Voxel
+Voxel	voxel.h	/^struct Voxel : sf::RectangleShape { $/;"	s
+Wall	entity.h	/^struct Wall : Entity { \/\/ base$/;"	s
+Wall1	entity.h	/^struct Wall1 : Wall {$/;"	s
+Wall2	entity.h	/^struct Wall2 : Wall {$/;"	s
+_USE_MATH_DEFINES	stdlibs.h	5;"	d
+build_B1	builder.cpp	/^void Builder::build_B1(vector<Voxel> &vox) { $/;"	f	class:Builder
+build_B2	builder.cpp	/^void Builder::build_B2(vector<Voxel> &vox) {$/;"	f	class:Builder
+build_B3	builder.cpp	/^void Builder::build_B3(vector<Voxel> &vox) {$/;"	f	class:Builder
+build_E1	builder.cpp	/^void Builder::build_E1(vector<Voxel> &vox) {$/;"	f	class:Builder
+build_E2	builder.cpp	/^void Builder::build_E2(vector<Voxel> &vox) {$/;"	f	class:Builder
+build_E3	builder.cpp	/^void Builder::build_E3(vector<Voxel> &vox) {$/;"	f	class:Builder
+build_E4	builder.cpp	/^void Builder::build_E4(vector<Voxel> &vox) {$/;"	f	class:Builder
+build_level	builder.cpp	/^void Builder::build_level(unsigned int & levelId) {$/;"	f	class:Builder
+build_player	builder.cpp	/^void Builder::build_player(vector<Voxel> &vox) {$/;"	f	class:Builder
+build_wall1	builder.cpp	/^void Builder::build_wall1(Vec2 start, Vec2 end, vector<Voxel> & vox) {$/;"	f	class:Builder
+calc_dist	builder.cpp	/^float Builder::calc_dist(const Vec2 & va,const Vec2 & vb) {$/;"	f	class:Builder
+color	voxel.h	/^  sf::Color color;$/;"	m	struct:Voxel
+currPathPoint	entity.h	/^  unsigned int currPathPoint;$/;"	m	struct:Enemy
+destroyed	entity.h	/^  bool destroyed;$/;"	m	struct:Entity
+drawPhase	proto1.cpp	/^  void drawPhase() {$/;"	f	struct:Game
+entity	globals.h	/^  inline std::vector<std::shared_ptr<Entity>> entity;$/;"	v
+entityCount	entity.cpp	/^size_t Entity::entityCount = 0;$/;"	m	class:Entity	file:
+entityCount	entity.h	/^  static size_t entityCount; \/\/ defined in cpp file$/;"	m	struct:Entity
+getHealth	entity.cpp	/^size_t Entity::getHealth() const { return vox.size(); }$/;"	f	class:Entity
+getId	entity.cpp	/^const size_t& Entity::getId() const { return id; }$/;"	f	class:Entity
+getPos	entity.cpp	/^Vec2& Entity::getPos() { return pos; }$/;"	f	class:Entity
+getVox	entity.cpp	/^vector<Voxel>& Entity::getVox() { return vox; }$/;"	f	class:Entity
+health	voxel.h	/^  std::optional<int> health; \/\/ voxel health$/;"	m	struct:Voxel
+id	entity.h	/^  size_t id; $/;"	m	struct:Entity
+inputPhase	proto1.cpp	/^  void inputPhase() {$/;"	f	struct:Game
+isIntersecting	proto1.cpp	/^template<class T1, class T2> bool isIntersecting(T1& a, T2& b) {$/;"	f
+mCanShoot	entity.h	/^  bool mCanShoot;$/;"	m	struct:Player
+mTimer	entity.h	/^  float mTimer;$/;"	m	struct:Player
+mTimerMax	entity.h	/^  const float mTimerMax;$/;"	m	struct:Player
+main	proto1.cpp	/^int main()$/;"	f
+move	entity.cpp	/^void Entity::move(Vec2 offset) { $/;"	f	class:Entity
+override	entity.h	/^  virtual void update(FrameTime ftStep) override;  $/;"	m	struct:Bullet
+override	entity.h	/^  virtual void update(FrameTime ftStep) override;$/;"	m	struct:Enemy
+override	entity.h	/^  virtual void update(FrameTime ftStep) override;$/;"	m	struct:Player
+path	entity.h	/^  std::vector<Vec2> path;$/;"	m	struct:Enemy
+pos	entity.h	/^  Vec2 pos; \/\/ overall position of entity$/;"	m	struct:Entity
+removeDestroyedEntities	proto1.cpp	/^void removeDestroyedEntities(vector<shared_ptr<Entity>> & vec) {$/;"	f
+setPos	entity.cpp	/^void Entity::setPos(Vec2 pos) {$/;"	f	class:Entity
+testCollision	proto1.cpp	/^void testCollision(Entity &e1, Entity &e2) {$/;"	f
+update	entity.cpp	/^void Bullet::update(FrameTime ftStep){ $/;"	f	class:Bullet
+update	entity.cpp	/^void Enemy::update(FrameTime ftStep) {$/;"	f	class:Enemy
+update	entity.cpp	/^void Entity::update(FrameTime ftStep) { \/* check for collision *\/ \/* update pos *\/  }$/;"	f	class:Entity
+update	entity.cpp	/^void Player::update(FrameTime ftStep) {$/;"	f	class:Player
+updatePhase	proto1.cpp	/^  void updatePhase() {$/;"	f	struct:Game
+vel	entity.h	/^  Vec2 vel;    $/;"	m	struct:Bullet
+vel	entity.h	/^  Vec2 vel;$/;"	m	struct:Entity
+vel	voxel.h	/^  Vec2 vel;$/;"	m	struct:Voxel
+vox	entity.h	/^  std::vector<Voxel> vox;$/;"	m	struct:Entity
+withId	entity.cpp	/^shared_ptr<Entity> Entity::withId(size_t id) {$/;"	f	class:Entity
+~Entity	entity.cpp	/^Entity::~Entity() { }  $/;"	f	class:Entity

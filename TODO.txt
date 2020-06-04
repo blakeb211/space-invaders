@@ -44,11 +44,12 @@ FEATURES
     x y x y x y x y x y x y
     numbers as fraction of width and height
 
-    W1  x y x y
-    W2  x y x y
+    W1  x y|x y|D  // D = destructible
+    W2  x y|x y|B  // B = bouncy
 
         **need Wall building and placement code
-        ***Need Wall Building and convenient placement
+        **need wall placement support in the editor
+        **editor should also write out instructions to the console
         ***collision code  AABB
         ***Need Player art
         ***animations
