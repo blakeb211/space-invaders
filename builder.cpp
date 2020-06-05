@@ -102,9 +102,12 @@ void Builder::build_level(unsigned int & levelId) {
                 // build the wall
                 if (c == 'B') {
                     G::entity.push_back(make_shared<Wall1>(Vec2(x_start, y_start), Vec2(x_end, y_end)));
+                    // break out of the stringstream reading loop 
+                    break;
                 }
                 if (c == 'D') {
-
+                    // break out of the stringstream reading loop 
+                    break;
                 }
             }
             // set enemies starting position to the first point on its path
