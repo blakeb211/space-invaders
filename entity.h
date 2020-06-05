@@ -116,7 +116,9 @@ struct Wall : Entity { // base
 
 struct Wall1 : Wall { // bouncy wall 
     Wall1(Vec2 start, Vec2 end);
+    virtual void update(FrameTime ftStep) override; // test for collision 
 };
 
 struct Wall2 : Wall { // destructible wall
+    virtual void update(FrameTime ftStep) override; // test for collision 
 };

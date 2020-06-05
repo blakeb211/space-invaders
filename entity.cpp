@@ -144,3 +144,12 @@ E4::E4(Vec2 pos) : Enemy() {
 Wall1::Wall1(Vec2 start, Vec2 end) {
     Builder::build_wall1(start, end, vox);
 }
+
+void Wall1::update(FrameTime ftStep) {
+    // check for collisions
+}
+
+void Wall2::update(FrameTime ftStep) {
+    // check for collisions
+    
+}

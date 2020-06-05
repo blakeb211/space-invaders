@@ -47,10 +47,11 @@ FEATURES
     x y x y D  // D = destructible
     x y x y B  // B = bouncy
 
-        **need Wall building and placement code
+        ***collision code  AABB
+        shape.getGlobalBounds()
+
         **need wall placement support in the editor
         **editor should also write out instructions to the console
-        ***collision code  AABB
         ***Need Player art
         ***animations
 
