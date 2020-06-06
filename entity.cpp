@@ -70,21 +70,25 @@ void Bullet::update(FrameTime ftStep){
 B1::B1(Vec2 pos) : Bullet({0.f,-0.75f}) {
     Builder::build_B1(vox);
     setPos(pos);
+    // set bullet 1 voxel health
 }
 
 B2::B2(Vec2 pos) : Bullet({0.f,-0.6f}) {
     Builder::build_B2(vox);
     setPos(pos);
+    // set bullet 2 voxel health
 }
 B3::B3(Vec2 pos) : Bullet({0.f,-0.6f}) {
     Builder::build_B3(vox);
     setPos(pos);
+    // set bullet 2 voxel health
 }
 
 // Player methods
 Player::Player(Vec2 pos) : mTimerMax{75.f}, mTimer{0.f}, mCanShoot{false} {
     Builder::build_player(vox);
     setPos(pos);
+    // set player voxel health
 }
 
 void Player::update(FrameTime ftStep) {
