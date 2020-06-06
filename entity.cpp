@@ -82,7 +82,7 @@ B3::B3(Vec2 pos) : Bullet({0.f,-0.6f}) {
 }
 
 // Player methods
-Player::Player(Vec2 pos) : mTimerMax{30.f}, mTimer{0.f}, mCanShoot{false} {
+Player::Player(Vec2 pos) : mTimerMax{75.f}, mTimer{0.f}, mCanShoot{false} {
     Builder::build_player(vox);
     setPos(pos);
 }
@@ -96,9 +96,8 @@ void Player::update(FrameTime ftStep) {
 }
 
 // Enemy types
-Enemy::Enemy() {
-    currPathPoint = 0;
-}
+Enemy::Enemy() : currPathPoint{0} {}
+
 void Enemy::update(FrameTime ftStep) {
     auto _pos = getPos();
     auto pathPoint = path[currPathPoint];
@@ -124,26 +123,31 @@ void Enemy::update(FrameTime ftStep) {
 E1::E1(Vec2 pos) : Enemy() {
     Builder::build_E1(vox);
     setPos(pos);
+    //set all voxels to a fixed health value
 }
 
 E2::E2(Vec2 pos) : Enemy() {
     Builder::build_E2(vox);
     setPos(pos);
+    //set all voxels to a fixed health value
 }
 
 E3::E3(Vec2 pos) : Enemy() {
     Builder::build_E3(vox);
     setPos(pos);
+    //set all voxels to a fixed health value
 }
 
 E4::E4(Vec2 pos) : Enemy() {
     Builder::build_E4(vox);
     setPos(pos);
+    //set all voxels to a fixed health value
 }
 
 // Wall types
 Wall1::Wall1(Vec2 start, Vec2 end) {
     Builder::build_wall1(start, end, vox);
+    // set all optional<int> health to nullopt
 }
 
 void Wall1::update(FrameTime ftStep) {

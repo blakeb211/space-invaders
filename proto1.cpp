@@ -36,7 +36,7 @@ struct Game {
 
     Game() {
         window.setFramerateLimit(80);
-        unsigned int levelId = 1;
+        unsigned int levelId{1};
         // Create Player
         G::entity.push_back(make_shared<Player>(Vec2(3.f*G::screenWidth / 4.f, G::screenHeight - 20.f))); 
         // Load level
@@ -89,6 +89,8 @@ struct Game {
         window.clear(Color::Black);
         // Update using ftStep for framerate 
         // independent gameplay
+        
+        /* produce collision  */
         for(auto & e  : G::entity) { e->update(ftStep); }
     }
 

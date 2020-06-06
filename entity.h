@@ -83,7 +83,7 @@ struct Player : public Entity {
   virtual void update(FrameTime ftStep) override;
   bool mCanShoot;
   float mTimer;
-  const float mTimerMax;
+  const float mTimerMax; // reload timer
 };
 
 // Enemy types
