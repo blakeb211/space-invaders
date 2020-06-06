@@ -106,6 +106,7 @@ void Enemy::update(FrameTime ftStep) {
     if (dist2goal < 3.f) {
         if (currPathPoint == path.size() - 1)
         {
+            // move from last path point to first path point
             currPathPoint = 0; 
         }
         else {
@@ -113,11 +114,11 @@ void Enemy::update(FrameTime ftStep) {
         }
         pathPoint = path[currPathPoint];
     }
-    float length = sqrt(pow(_pos.x,2) + pow(_pos.y,2));
     auto moveDir = pathPoint - _pos;
+    float length = sqrt(pow(moveDir.x,2) + pow(moveDir.y,2));
     auto unitVec = Vec2(moveDir.x / length, moveDir.y / length);
-    move(unitVec * ftStep); 
-    // add code to move the enemy close to its path point
+    float slowDownFactor = 0.2f;
+    move(unitVec * slowDownFactor * ftStep); 
 }
 
 E1::E1(Vec2 pos) : Enemy() {
