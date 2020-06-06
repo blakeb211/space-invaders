@@ -45,12 +45,23 @@ size_t Entity::getHealth() const { return vox.size(); }
 // ----------------------------------------
 const size_t& Entity::getId() const { return id; }
 //-----------------------------------------
-// Return the entity with the given id 
+// Static method: Return the entity with the given id 
 // ----------------------------------------
 shared_ptr<Entity> Entity::withId(size_t id) {
     return *find_if(begin(G::entity),end(G::entity),
             [&id](const shared_ptr<Entity> & e) 
             { return e->id == id; });
+}
+
+//-----------------------------------------
+// Static method: Set health of each voxel 
+// ----------------------------------------
+void Entity::setVoxelHealth(Entity & e, optional<unsigned int> health) { 
+    if (e.vox.size() == 0) 
+        throw exception("tried to set health of entity with 0 voxels");
+    for(auto & v : e.vox) {
+        v.health = health;
+    }
 }
 
 // out of line static initializers
@@ -70,13 +81,13 @@ void Bullet::update(FrameTime ftStep){
 B1::B1(Vec2 pos) : Bullet({0.f,-0.75f}) {
     Builder::build_B1(vox);
     setPos(pos);
-    // set bullet 1 voxel health
+    Entity::setVoxelHealth(*this, 1);
 }
 
 B2::B2(Vec2 pos) : Bullet({0.f,-0.6f}) {
     Builder::build_B2(vox);
     setPos(pos);
-    // set bullet 2 voxel health
+    Entity::setVoxelHealth(*this, 2);
 }
 B3::B3(Vec2 pos) : Bullet({0.f,-0.6f}) {
     Builder::build_B3(vox);
@@ -88,7 +99,7 @@ B3::B3(Vec2 pos) : Bullet({0.f,-0.6f}) {
 Player::Player(Vec2 pos) : mTimerMax{75.f}, mTimer{0.f}, mCanShoot{false} {
     Builder::build_player(vox);
     setPos(pos);
-    // set player voxel health
+    Entity::setVoxelHealth(*this, 5);
 }
 
 void Player::update(FrameTime ftStep) {
@@ -127,31 +138,35 @@ void Enemy::update(FrameTime ftStep) {
 E1::E1(Vec2 pos) : Enemy() {
     Builder::build_E1(vox);
     setPos(pos);
-    //set all voxels to a fixed health value
+    Entity::setVoxelHealth(*this, 1);
 }
 
 E2::E2(Vec2 pos) : Enemy() {
     Builder::build_E2(vox);
     setPos(pos);
+    Entity::setVoxelHealth(*this, 2);
     //set all voxels to a fixed health value
 }
 
 E3::E3(Vec2 pos) : Enemy() {
     Builder::build_E3(vox);
     setPos(pos);
+    Entity::setVoxelHealth(*this, 3);
     //set all voxels to a fixed health value
 }
 
 E4::E4(Vec2 pos) : Enemy() {
     Builder::build_E4(vox);
     setPos(pos);
+    Entity::setVoxelHealth(*this, 4);
     //set all voxels to a fixed health value
 }
 
 // Wall types
 Wall1::Wall1(Vec2 start, Vec2 end) {
     Builder::build_wall1(start, end, vox);
-    // set all optional<int> health to nullopt
+    // This is a bouncy wall so health == nullopt
+    Entity::setVoxelHealth(*this, nullopt);
 }
 
 void Wall1::update(FrameTime ftStep) {

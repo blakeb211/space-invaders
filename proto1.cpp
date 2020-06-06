@@ -90,7 +90,7 @@ struct Game {
         // Update using ftStep for framerate 
         // independent gameplay
         
-        /* produce collision  */
+        /* produce collision map*/
         for(auto & e  : G::entity) { e->update(ftStep); }
     }
 

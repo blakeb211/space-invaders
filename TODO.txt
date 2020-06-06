@@ -11,9 +11,13 @@ Framework
 
 Collision Detection
   sfml AABB
+            generate list of unique entity pairs 
+            give each entity a typeid
             vox1.getGlobalBounds().intersects(vox2.getGlobalBounds())
+            once collision detected -> how to propagate change to individual
+            voxels?
 
-  quadtree
+  quadtree - if needed for speed
 
 Game Entity Management
     Components

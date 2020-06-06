@@ -47,7 +47,11 @@ struct Entity {
   // Return the entity with the given id 
   // ----------------------------------------
   static std::shared_ptr<Entity> withId(size_t id); 
-
+  //-----------------------------------------
+  // Set health of each voxel 
+  // ----------------------------------------
+  static void setVoxelHealth(Entity & e, std::optional<unsigned int> health); 
+  
   bool destroyed;
   protected:
   std::vector<Voxel> vox;

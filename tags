@@ -78,6 +78,7 @@ path	entity.h	/^  std::vector<Vec2> path;$/;"	m	struct:Enemy
 pos	entity.h	/^  Vec2 pos; \/\/ overall position of entity$/;"	m	struct:Entity
 removeDestroyedEntities	proto1.cpp	/^void removeDestroyedEntities(vector<shared_ptr<Entity>> & vec) {$/;"	f
 setPos	entity.cpp	/^void Entity::setPos(Vec2 pos) {$/;"	f	class:Entity
+setVoxelHealth	entity.cpp	/^void Entity::setVoxelHealth(Entity & e, optional<unsigned int> health) { $/;"	f	class:Entity
 testCollision	proto1.cpp	/^void testCollision(Entity &e1, Entity &e2) {$/;"	f
 update	entity.cpp	/^void Bullet::update(FrameTime ftStep){ $/;"	f	class:Bullet
 update	entity.cpp	/^void Enemy::update(FrameTime ftStep) {$/;"	f	class:Enemy
