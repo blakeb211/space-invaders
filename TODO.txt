@@ -12,6 +12,7 @@ Framework
 Collision Detection
   sfml AABB
             generate list of unique entity pairs 
+                n(n-1) / 2 unique pairs 
             give each entity a typeid
             vox1.getGlobalBounds().intersects(vox2.getGlobalBounds())
             once collision detected -> how to propagate change to individual

@@ -7,6 +7,10 @@
 using Vec2 = sf::Vector2<float>;
 using FrameTime = float;
 //------------------------------------------------------------------------------------
+// Enums 
+//------------------------------------------------------------------------------------
+enum struct EntityType { Player = 1, Bullet = 2, Wall1 = 3, Wall2 = 4, Enemy = 5 };
+//------------------------------------------------------------------------------------
 // Structs 
 //------------------------------------------------------------------------------------
 struct Entity {
@@ -59,6 +63,7 @@ struct Entity {
   Vec2 pos; // overall position of entity
   // is there a way to make this const and make a copy constructor?
   size_t id; 
+  EntityType o_type;
   private:
   static size_t entityCount; // defined in cpp file
 };

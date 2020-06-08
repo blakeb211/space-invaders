@@ -68,7 +68,9 @@ void Entity::setVoxelHealth(Entity & e, optional<unsigned int> health) {
 size_t Entity::entityCount = 0;
 
 // Bullet types
-Bullet::Bullet(Vec2 vv) : vel{vv} {}
+Bullet::Bullet(Vec2 vv) : vel{vv} {
+    o_type = EntityType::Bullet;
+}
 
 void Bullet::update(FrameTime ftStep){ 
     move(ftStep*vel);  
@@ -96,7 +98,8 @@ B3::B3(Vec2 pos) : Bullet({0.f,-0.6f}) {
 }
 
 // Player methods
-Player::Player(Vec2 pos) : mTimerMax{75.f}, mTimer{0.f}, mCanShoot{false} {
+Player::Player(Vec2 pos) : mTimerMax{75.f}, mTimer{0.f}, mCanShoot{false}  {
+    o_type = EntityType::Player;
     Builder::build_player(vox);
     setPos(pos);
     Entity::setVoxelHealth(*this, 5);
@@ -111,7 +114,9 @@ void Player::update(FrameTime ftStep) {
 }
 
 // Enemy types
-Enemy::Enemy() : currPathPoint{0} {}
+Enemy::Enemy() : currPathPoint{0} {
+    o_type = EntityType::Enemy;
+}
 
 void Enemy::update(FrameTime ftStep) {
     auto _pos = getPos();
@@ -164,6 +169,7 @@ E4::E4(Vec2 pos) : Enemy() {
 
 // Wall types
 Wall1::Wall1(Vec2 start, Vec2 end) {
+    o_type = EntityType::Wall1;
     Builder::build_wall1(start, end, vox);
     // This is a bouncy wall so health == nullopt
     Entity::setVoxelHealth(*this, nullopt);

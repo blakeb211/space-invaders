@@ -5,38 +5,44 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.7	//
 B1	entity.cpp	/^B1::B1(Vec2 pos) : Bullet({0.f,-0.75f}) {$/;"	f	class:B1
-B1	entity.h	/^struct B1 : Bullet {$/;"	s
+B1	entity.h	/^struct B1 : Bullet {$/;"	s	class:EntityType
 B2	entity.cpp	/^B2::B2(Vec2 pos) : Bullet({0.f,-0.6f}) {$/;"	f	class:B2
-B2	entity.h	/^struct B2 : Bullet {$/;"	s
+B2	entity.h	/^struct B2 : Bullet {$/;"	s	class:EntityType
 B3	entity.cpp	/^B3::B3(Vec2 pos) : Bullet({0.f,-0.6f}) {$/;"	f	class:B3
-B3	entity.h	/^struct B3 : Bullet {$/;"	s
+B3	entity.h	/^struct B3 : Bullet {$/;"	s	class:EntityType
 Builder	builder.h	/^namespace Builder {$/;"	n
 Bullet	entity.cpp	/^Bullet::Bullet(Vec2 vv) : vel{vv} {}$/;"	f	class:Bullet
-Bullet	entity.h	/^struct Bullet : Entity { $/;"	s
+Bullet	entity.h	/^enum class EntityType { Player = 1, Bullet = 2, Wall1 = 3, Wall2 = 4, Enemy = 5 };$/;"	m	class:EntityType
+Bullet	entity.h	/^struct Bullet : Entity { $/;"	s	class:EntityType
 E1	entity.cpp	/^E1::E1(Vec2 pos) : Enemy() {$/;"	f	class:E1
-E1	entity.h	/^struct E1: Enemy {$/;"	s
+E1	entity.h	/^struct E1: Enemy {$/;"	s	class:EntityType
 E2	entity.cpp	/^E2::E2(Vec2 pos) : Enemy() {$/;"	f	class:E2
-E2	entity.h	/^struct E2: Enemy {$/;"	s
+E2	entity.h	/^struct E2: Enemy {$/;"	s	class:EntityType
 E3	entity.cpp	/^E3::E3(Vec2 pos) : Enemy() {$/;"	f	class:E3
-E3	entity.h	/^struct E3: Enemy {$/;"	s
+E3	entity.h	/^struct E3: Enemy {$/;"	s	class:EntityType
 E4	entity.cpp	/^E4::E4(Vec2 pos) : Enemy() {$/;"	f	class:E4
-E4	entity.h	/^struct E4: Enemy {$/;"	s
+E4	entity.h	/^struct E4: Enemy {$/;"	s	class:EntityType
 Enemy	entity.cpp	/^Enemy::Enemy() : currPathPoint{0} {}$/;"	f	class:Enemy
-Enemy	entity.h	/^struct Enemy: Entity { \/\/ base$/;"	s
+Enemy	entity.h	/^enum class EntityType { Player = 1, Bullet = 2, Wall1 = 3, Wall2 = 4, Enemy = 5 };$/;"	m	class:EntityType
+Enemy	entity.h	/^struct Enemy: Entity { \/\/ base$/;"	s	class:EntityType
 Entity	entity.cpp	/^Entity::Entity() : id{entityCount++}, destroyed{false} {}$/;"	f	class:Entity
-Entity	entity.h	/^struct Entity {$/;"	s
+Entity	entity.h	/^struct Entity {$/;"	s	class:EntityType
+EntityType	entity.h	/^enum class EntityType { Player = 1, Bullet = 2, Wall1 = 3, Wall2 = 4, Enemy = 5 };$/;"	c
 G	globals.h	/^namespace G {$/;"	n
 Game	proto1.cpp	/^    Game() {$/;"	f	struct:Game
 Game	proto1.cpp	/^struct Game {$/;"	s	file:
 Player	entity.cpp	/^Player::Player(Vec2 pos) : mTimerMax{75.f}, mTimer{0.f}, mCanShoot{false} {$/;"	f	class:Player
-Player	entity.h	/^struct Player : public Entity {$/;"	s
+Player	entity.h	/^enum class EntityType { Player = 1, Bullet = 2, Wall1 = 3, Wall2 = 4, Enemy = 5 };$/;"	m	class:EntityType
+Player	entity.h	/^struct Player : public Entity {$/;"	s	class:EntityType
 Run	proto1.cpp	/^    void Run() {$/;"	f	struct:Game
 Voxel	voxel.cpp	/^Voxel::Voxel(float mX, float mY, Color c) {$/;"	f	class:Voxel
 Voxel	voxel.h	/^struct Voxel : sf::RectangleShape { $/;"	s
-Wall	entity.h	/^struct Wall : Entity { \/\/ base$/;"	s
+Wall	entity.h	/^struct Wall : Entity { \/\/ base$/;"	s	class:EntityType
 Wall1	entity.cpp	/^Wall1::Wall1(Vec2 start, Vec2 end) {$/;"	f	class:Wall1
-Wall1	entity.h	/^struct Wall1 : Wall { \/\/ bouncy wall $/;"	s
-Wall2	entity.h	/^struct Wall2 : Wall { \/\/ destructible wall$/;"	s
+Wall1	entity.h	/^enum class EntityType { Player = 1, Bullet = 2, Wall1 = 3, Wall2 = 4, Enemy = 5 };$/;"	m	class:EntityType
+Wall1	entity.h	/^struct Wall1 : Wall { \/\/ bouncy wall $/;"	s	class:EntityType
+Wall2	entity.h	/^enum class EntityType { Player = 1, Bullet = 2, Wall1 = 3, Wall2 = 4, Enemy = 5 };$/;"	m	class:EntityType
+Wall2	entity.h	/^struct Wall2 : Wall { \/\/ destructible wall$/;"	s	class:EntityType
 _USE_MATH_DEFINES	stdlibs.h	5;"	d
 build_B1	builder.cpp	/^void Builder::build_B1(vector<Voxel> &vox) { $/;"	f	class:Builder
 build_B2	builder.cpp	/^void Builder::build_B2(vector<Voxel> &vox) {$/;"	f	class:Builder
@@ -50,32 +56,33 @@ build_player	builder.cpp	/^void Builder::build_player(vector<Voxel> &vox) {$/;"	
 build_wall1	builder.cpp	/^void Builder::build_wall1(Vec2 start, Vec2 end, vector<Voxel> & vox) {$/;"	f	class:Builder
 calc_dist	builder.cpp	/^float Builder::calc_dist(const Vec2 & va,const Vec2 & vb) {$/;"	f	class:Builder
 color	voxel.h	/^  sf::Color color;$/;"	m	struct:Voxel
-currPathPoint	entity.h	/^  unsigned int currPathPoint;$/;"	m	struct:Enemy
-destroyed	entity.h	/^  bool destroyed;$/;"	m	struct:Entity
+currPathPoint	entity.h	/^  unsigned int currPathPoint;$/;"	m	struct:EntityType::Enemy
+destroyed	entity.h	/^  bool destroyed;$/;"	m	struct:EntityType::Entity
 drawPhase	proto1.cpp	/^    void drawPhase() {$/;"	f	struct:Game
 entity	globals.h	/^  inline std::vector<std::shared_ptr<Entity>> entity;$/;"	v
 entityCount	entity.cpp	/^size_t Entity::entityCount = 0;$/;"	m	class:Entity	file:
-entityCount	entity.h	/^  static size_t entityCount; \/\/ defined in cpp file$/;"	m	struct:Entity
+entityCount	entity.h	/^  static size_t entityCount; \/\/ defined in cpp file$/;"	m	struct:EntityType::Entity
 getHealth	entity.cpp	/^size_t Entity::getHealth() const { return vox.size(); }$/;"	f	class:Entity
 getId	entity.cpp	/^const size_t& Entity::getId() const { return id; }$/;"	f	class:Entity
 getPos	entity.cpp	/^Vec2& Entity::getPos() { return pos; }$/;"	f	class:Entity
 getVox	entity.cpp	/^vector<Voxel>& Entity::getVox() { return vox; }$/;"	f	class:Entity
 health	voxel.h	/^  std::optional<int> health; \/\/ voxel health$/;"	m	struct:Voxel
-id	entity.h	/^  size_t id; $/;"	m	struct:Entity
+id	entity.h	/^  size_t id; $/;"	m	struct:EntityType::Entity
 inputPhase	proto1.cpp	/^    void inputPhase() {$/;"	f	struct:Game
 isIntersecting	proto1.cpp	/^template<class T1, class T2> bool isIntersecting(T1& a, T2& b) {$/;"	f
-mCanShoot	entity.h	/^  bool mCanShoot;$/;"	m	struct:Player
-mTimer	entity.h	/^  float mTimer;$/;"	m	struct:Player
-mTimerMax	entity.h	/^  const float mTimerMax; \/\/ reload timer$/;"	m	struct:Player
+mCanShoot	entity.h	/^  bool mCanShoot;$/;"	m	struct:EntityType::Player
+mTimer	entity.h	/^  float mTimer;$/;"	m	struct:EntityType::Player
+mTimerMax	entity.h	/^  const float mTimerMax; \/\/ reload timer$/;"	m	struct:EntityType::Player
 main	proto1.cpp	/^int main()$/;"	f
 move	entity.cpp	/^void Entity::move(Vec2 offset) { $/;"	f	class:Entity
-override	entity.h	/^    virtual void update(FrameTime ftStep) override; \/\/ test for collision $/;"	m	struct:Wall1
-override	entity.h	/^    virtual void update(FrameTime ftStep) override; \/\/ test for collision $/;"	m	struct:Wall2
-override	entity.h	/^  virtual void update(FrameTime ftStep) override;  $/;"	m	struct:Bullet
-override	entity.h	/^  virtual void update(FrameTime ftStep) override;$/;"	m	struct:Enemy
-override	entity.h	/^  virtual void update(FrameTime ftStep) override;$/;"	m	struct:Player
-path	entity.h	/^  std::vector<Vec2> path;$/;"	m	struct:Enemy
-pos	entity.h	/^  Vec2 pos; \/\/ overall position of entity$/;"	m	struct:Entity
+o_type	entity.h	/^  EntityType o_type;$/;"	m	struct:EntityType::Entity
+override	entity.h	/^    virtual void update(FrameTime ftStep) override; \/\/ test for collision $/;"	m	struct:EntityType::Wall1
+override	entity.h	/^    virtual void update(FrameTime ftStep) override; \/\/ test for collision $/;"	m	struct:EntityType::Wall2
+override	entity.h	/^  virtual void update(FrameTime ftStep) override;  $/;"	m	struct:EntityType::Bullet
+override	entity.h	/^  virtual void update(FrameTime ftStep) override;$/;"	m	struct:EntityType::Enemy
+override	entity.h	/^  virtual void update(FrameTime ftStep) override;$/;"	m	struct:EntityType::Player
+path	entity.h	/^  std::vector<Vec2> path;$/;"	m	struct:EntityType::Enemy
+pos	entity.h	/^  Vec2 pos; \/\/ overall position of entity$/;"	m	struct:EntityType::Entity
 removeDestroyedEntities	proto1.cpp	/^void removeDestroyedEntities(vector<shared_ptr<Entity>> & vec) {$/;"	f
 setPos	entity.cpp	/^void Entity::setPos(Vec2 pos) {$/;"	f	class:Entity
 setVoxelHealth	entity.cpp	/^void Entity::setVoxelHealth(Entity & e, optional<unsigned int> health) { $/;"	f	class:Entity
@@ -87,9 +94,9 @@ update	entity.cpp	/^void Player::update(FrameTime ftStep) {$/;"	f	class:Player
 update	entity.cpp	/^void Wall1::update(FrameTime ftStep) {$/;"	f	class:Wall1
 update	entity.cpp	/^void Wall2::update(FrameTime ftStep) {$/;"	f	class:Wall2
 updatePhase	proto1.cpp	/^    void updatePhase() {$/;"	f	struct:Game
-vel	entity.h	/^  Vec2 vel;    $/;"	m	struct:Bullet
-vel	entity.h	/^  Vec2 vel;$/;"	m	struct:Entity
+vel	entity.h	/^  Vec2 vel;    $/;"	m	struct:EntityType::Bullet
+vel	entity.h	/^  Vec2 vel;$/;"	m	struct:EntityType::Entity
 vel	voxel.h	/^  Vec2 vel;$/;"	m	struct:Voxel
-vox	entity.h	/^  std::vector<Voxel> vox;$/;"	m	struct:Entity
+vox	entity.h	/^  std::vector<Voxel> vox;$/;"	m	struct:EntityType::Entity
 withId	entity.cpp	/^shared_ptr<Entity> Entity::withId(size_t id) {$/;"	f	class:Entity
 ~Entity	entity.cpp	/^Entity::~Entity() { }  $/;"	f	class:Entity
