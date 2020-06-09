@@ -119,6 +119,7 @@ struct Game {
             for(; currentSlice >= ftSlice; currentSlice -= ftSlice) {
                 updatePhase();
                 // check for collisions
+         
                 // remove dead entities
                 removeDestroyedEntities(G::entity);
             }
