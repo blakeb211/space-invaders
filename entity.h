@@ -60,6 +60,7 @@ struct Entity {
   protected:
   std::vector<Voxel> vox;
   Vec2 vel;
+  Vec2 dvel; // an extra velocity component that is dampened over time
   Vec2 pos; // overall position of entity
   // is there a way to make this const and make a copy constructor?
   size_t id; 
