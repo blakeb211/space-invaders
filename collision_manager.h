@@ -8,4 +8,9 @@
 struct CollisionManager {
 
     CollisionManager();
+    // init
+    CollisionManager(); 
+    // per frame method call
+    void CheckCollisionsForThisFrame();
+    void HandleCollisionsForThisFrame();
 };
