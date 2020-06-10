@@ -19,17 +19,15 @@ void CollisionManager::CheckCollisionsForThisFrame() {
     int collCheckCount = 0;
     for (int i = 0; i < entRef.size() - 1; i++) {
         for (int j = i + 1; j < entRef.size(); j++) {
+            // dont compare voxels if delta(x_coord) is greater than 20
+            if (abs(entRef[i]->getPos().x - entRef[j]->getPos().x) > 20.f) continue;
             entityPairCount++; 
             // Loop over voxels of each entity to check for overlap
-            
-            // skip collision check if entities are same type
-            // if (entRef[i]->o_type == entRef[j]->o_type) continue;
-            
             for (auto e1_v : entRef[i]->getVox()) {
                 for (auto e2_v : entRef[j]->getVox()) {
+                    if (abs(e1_v.getPosition().x - e2_v.getPosition().x) > 6.f) continue;
                     collCheckCount++;
                     if(e1_v.getGlobalBounds().intersects(e2_v.getGlobalBounds())) {
-                    
                     }
                 }
             } 

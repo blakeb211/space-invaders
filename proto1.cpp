@@ -117,8 +117,9 @@ struct Game {
                 updatePhase();
                 // check for collisions
                 updateCounter++;
-                if (updateCounter % 10 == 0)
-                coll_mgr.CheckCollisionsForThisFrame(); 
+                if (updateCounter % 5 == 0) {
+                    coll_mgr.CheckCollisionsForThisFrame(); 
+                }
                 // remove dead entities
                 removeDestroyedEntities(G::entity);
             }
