@@ -82,7 +82,7 @@ void Bullet::update(FrameTime ftStep){
     }
 }
 
-B1::B1(Vec2 pos) : Bullet({0.f,-0.75f}) {
+B1::B1(Vec2 pos) : Bullet({0.f,-0.6f}) {
     Builder::build_B1(vox);
     setPos(pos);
     Entity::setVoxelHealth(*this, 1);
