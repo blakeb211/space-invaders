@@ -29,6 +29,11 @@ Collision Detection
                    voxels of each entity only
             3. do collision checks on a separate thread
 
+
+// FUTURE PROJECTS
+    Task system 
+    Multithreading with a threadpool
+
 Game Entity Management
     Components
         virtual funcs - iteration #2
