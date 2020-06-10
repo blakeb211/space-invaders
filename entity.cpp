@@ -10,6 +10,8 @@ using Vec2 = Vector2<float>;
 // ----------------------------------------
 Entity::Entity() : id{entityCount++}, destroyed{false} {}
 void Entity::update(FrameTime ftStep) { /* check for collision */ /* update pos */  }
+
+void Entity::collideWith(EntityType et, unsigned int ivox) { }
 //-----------------------------------------
 // Destructor 
 // ----------------------------------------
@@ -137,7 +139,10 @@ void Enemy::update(FrameTime ftStep) {
     float length = sqrt(pow(moveDir.x,2) + pow(moveDir.y,2));
     auto unitVec = Vec2(moveDir.x / length, moveDir.y / length);
     float slowDownFactor = 0.2f;
+    // move in direction of next goal position
     move(unitVec * slowDownFactor * ftStep); 
+    // move by dvel, which dampens to 0 over time, as well
+    move(dvel);
 }
 
 E1::E1(Vec2 pos) : Enemy() {

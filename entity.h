@@ -19,6 +19,7 @@ struct Entity {
   // ----------------------------------------
   Entity();
   virtual void update(FrameTime ftStep); 
+  virtual void collideWith(EntityType et, unsigned int ivox); 
   //-----------------------------------------
   // Destructor 
   // ----------------------------------------

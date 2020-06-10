@@ -92,7 +92,6 @@ struct Game {
         window.clear(Color::Black);
         // Update using ftStep for framerate 
         // independent gameplay
-         
         /* produce collision map*/
         for(auto & e  : G::entity) { e->update(ftStep); }
     }
@@ -123,7 +122,7 @@ struct Game {
                 updatePhase();
                 // check for collisions
                 updateCounter++;
-                if (updateCounter % 2000 == 0)
+                if (updateCounter % 300 == 0)
                     coll_mgr.CheckCollisionsForThisFrame(); 
                 // remove dead entities
                 removeDestroyedEntities(G::entity);
