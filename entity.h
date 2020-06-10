@@ -58,6 +58,7 @@ struct Entity {
   static void setVoxelHealth(Entity & e, std::optional<unsigned int> health); 
   
   bool destroyed;
+  EntityType o_type;
   protected:
   std::vector<Voxel> vox;
   Vec2 vel;
@@ -65,7 +66,6 @@ struct Entity {
   Vec2 pos; // overall position of entity
   // is there a way to make this const and make a copy constructor?
   size_t id; 
-  EntityType o_type;
   private:
   static size_t entityCount; // defined in cpp file
 };

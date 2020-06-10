@@ -9,26 +9,48 @@ using namespace sf;
 
 CollisionManager::CollisionManager() { cout << "Initializing Collision Manager" << endl; }
 // init
-// per frame method call
+
+// do all voxel collision checks between entities 
 void CollisionManager::CheckCollisionsForThisFrame() {
     // get ref to gloabl entity vector
     auto & entRef = G::entity;
     // find unique pairs of entities to test collisions
     int entityPairCount = 0;
+    int collCheckCount = 0;
     for (int i = 0; i < entRef.size() - 1; i++) {
         for (int j = i + 1; j < entRef.size(); j++) {
             entityPairCount++; 
             // Loop over voxels of each entity to check for overlap
+            
+            // skip collision check if entities are same type
+            // if (entRef[i]->o_type == entRef[j]->o_type) continue;
+            
             for (auto e1_v : entRef[i]->getVox()) {
                 for (auto e2_v : entRef[j]->getVox()) {
+                    collCheckCount++;
                     if(e1_v.getGlobalBounds().intersects(e2_v.getGlobalBounds())) {
-
+                    
                     }
                 }
             } 
         }
     }
+    cout << "Entities: " << entRef.size() << " Entity Pairs: " << entityPairCount << endl ;
+    cout << "Voxels compared:" << collCheckCount << endl;
+    /* 
+     * Entities: 13 Entity Pairs: 78
+     * Collision checks done :    1'687'711
+     * Entities: 25 Entity Pairs: 300
+     * Collision checks done :    1'989'601
+     */
+
+    /* with o_type == o_type removed:
+     * Entities: 25 Entity Pairs: 300
+     * Voxels compared: 1'231'844
+     * Entities: 10 Entity Pairs: 45
+     * Voxels compared: 907'994 */
 }
+
 void CollisionManager::HandleCollisionsForThisFrame() {
     // loop over voxels
     // check voxel-voxel collisions for each entity pair

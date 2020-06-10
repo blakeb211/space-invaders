@@ -14,18 +14,8 @@ using FrameTime = float;
 //------------------------------------------------------------------------------------
 // Global Functions
 //------------------------------------------------------------------------------------
-template<class T1, class T2> bool isIntersecting(T1& a, T2& b) {
-    return true;
-}
 
-void testCollision(Entity &e1, Entity &e2) {
-    if (!isIntersecting(e1, e2)) return;
-    // handle collision
-}
-
-void removeDestroyedEntities(vector<shared_ptr<Entity>> & vec) {
-    vec.erase(remove_if(begin(vec), end(vec), [] (const shared_ptr<Entity> & e) { return e->destroyed; }), end(vec));
-} 
+ 
 
 
 struct Game {
@@ -45,6 +35,11 @@ struct Game {
         // Load level
         Builder::build_level(levelId);
     }
+    
+    static void removeDestroyedEntities(vector<shared_ptr<Entity>> & vec) {
+        vec.erase(remove_if(begin(vec), end(vec), [] (const shared_ptr<Entity> & e) { return e->destroyed; }), end(vec));
+    }
+
     //-----------------------------------------
     // Input phase : called every frame
     // ----------------------------------------
@@ -122,8 +117,9 @@ struct Game {
                 updatePhase();
                 // check for collisions
                 updateCounter++;
-                if (updateCounter % 300 == 0)
-                    coll_mgr.CheckCollisionsForThisFrame(); 
+            if (updateCounter % 300 == 0) {
+                 coll_mgr.CheckCollisionsForThisFrame(); 
+            }
                 // remove dead entities
                 removeDestroyedEntities(G::entity);
             }
