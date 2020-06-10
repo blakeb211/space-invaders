@@ -82,18 +82,18 @@ void Bullet::update(FrameTime ftStep){
     }
 }
 
-B1::B1(Vec2 pos) : Bullet({0.f,-0.6f}) {
+B1::B1(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
     Builder::build_B1(vox);
     setPos(pos);
     Entity::setVoxelHealth(*this, 1);
 }
 
-B2::B2(Vec2 pos) : Bullet({0.f,-0.6f}) {
+B2::B2(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
     Builder::build_B2(vox);
     setPos(pos);
     Entity::setVoxelHealth(*this, 2);
 }
-B3::B3(Vec2 pos) : Bullet({0.f,-0.6f}) {
+B3::B3(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
     Builder::build_B3(vox);
     setPos(pos);
     // set bullet 2 voxel health
