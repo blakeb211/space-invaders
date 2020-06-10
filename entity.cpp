@@ -181,10 +181,8 @@ Wall1::Wall1(Vec2 start, Vec2 end) {
 }
 
 void Wall1::update(FrameTime ftStep) {
-    // check for collisions
 }
 
 void Wall2::update(FrameTime ftStep) {
-    // check for collisions
-    
+   // destructibility? 
 }

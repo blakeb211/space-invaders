@@ -496,10 +496,10 @@ void Builder::build_wall1(Vec2 start, Vec2 end, vector<Voxel> & vox) {
     Vec2 unitVec = Vec2(wallPath.x / length, wallPath.y / length);
     // march from start to end placing voxels 
     cout << "entering build_wall1 while loop" << endl;
-    while(calc_dist(start, end) > 1.0f) {
+    while(calc_dist(start, end) > 4.0f) {
         // place voxel
         vox.emplace_back(start.x,start.y, Color(210,55,70,255));
-        start += unitVec * 0.3f;
+        start += unitVec * 4.0f;
     }
     cout << "exited build_wall1 while loop" << endl;
 }

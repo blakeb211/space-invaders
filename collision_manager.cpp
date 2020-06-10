@@ -35,20 +35,12 @@ void CollisionManager::CheckCollisionsForThisFrame() {
             } 
         }
     }
-    cout << "Entities: " << entRef.size() << " Entity Pairs: " << entityPairCount << endl ;
-    cout << "Voxels compared:" << collCheckCount << endl;
-    /* 
-     * Entities: 13 Entity Pairs: 78
-     * Collision checks done :    1'687'711
-     * Entities: 25 Entity Pairs: 300
-     * Collision checks done :    1'989'601
-     */
-
-    /* with o_type == o_type removed:
-     * Entities: 25 Entity Pairs: 300
-     * Voxels compared: 1'231'844
-     * Entities: 10 Entity Pairs: 45
-     * Voxels compared: 907'994 */
+    //cout << "Entities: " << entRef.size() << " Entity Pairs: " << entityPairCount << endl ;
+    //cout << "Voxels compared:" << collCheckCount << endl;
+    
+    /* with reduced # of voxels for the walls */
+    /* Entities: 25 Entity Pairs: 300
+     * Voxels compared:263'033 */
 }
 
 void CollisionManager::HandleCollisionsForThisFrame() {
