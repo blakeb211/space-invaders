@@ -20,6 +20,8 @@ Collision Detection
             -1. profile code
             0. what is current count of voxels per entity type involved in collision checks?
             1. use a spatial data structure
+                **simplest thing would be check voxel x-distance before
+                performing collision check
                 how to check collisions with wall when wall position doesn't
                 mean much
             2. only check collisions on surface voxels?
