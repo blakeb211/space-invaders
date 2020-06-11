@@ -15,9 +15,6 @@ using FrameTime = float;
 // Global Functions
 //------------------------------------------------------------------------------------
 
- 
-
-
 struct Game {
     // These members are related to the control of the game.
     RenderWindow window{{G::screenWidth, G::screenHeight}, G::screenTitle};

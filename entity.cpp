@@ -82,6 +82,15 @@ void Bullet::update(FrameTime ftStep){
     }
 }
 
+//-----------------------------------------
+// Handle bullet collisions 
+// ----------------------------------------
+void Bullet::collideWith(EntityType et, unsigned int ivox) { 
+    auto currColor = vox[ivox].getFillColor();
+    auto subtract = Color(5,5,5, 255); 
+    vox[ivox].setFillColor(currColor - subtract);
+}
+
 B1::B1(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
     Builder::build_B1(vox);
     setPos(pos);
@@ -115,6 +124,7 @@ void Player::update(FrameTime ftStep) {
     }
 }
 
+void Player::collideWith(EntityType et, unsigned int ivox) { }
 // Enemy types
 Enemy::Enemy() : currPathPoint{0} {
     o_type = EntityType::Enemy;
@@ -144,6 +154,8 @@ void Enemy::update(FrameTime ftStep) {
     // move by dvel, which dampens to 0 over time, as well
     move(dvel);
 }
+
+void Enemy::collideWith(EntityType et, unsigned int ivox) { }
 
 E1::E1(Vec2 pos) : Enemy() {
     Builder::build_E1(vox);
@@ -183,6 +195,9 @@ Wall1::Wall1(Vec2 start, Vec2 end) {
 void Wall1::update(FrameTime ftStep) {
 }
 
+void Wall1::collideWith(EntityType et, unsigned int ivox) { }
+
 void Wall2::update(FrameTime ftStep) {
-   // destructibility? 
 }
+
+void Wall2::collideWith(EntityType et, unsigned int ivox) { }

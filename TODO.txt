@@ -14,10 +14,10 @@ Collision Detection
             generate list of unique entity pairs 
                 n(n-1) / 2 unique pairs 
             give each entity a typeid
-            once collision detected -> propagate change to entities by calling
+            *** once collision detected -> propagate change to entities by calling
             their collideWith method with a voxel identifier
   speed ups
-            -1. profile code
+            -1. profile code with profiler "very sleepy"
             0. what is current count of voxels per entity type involved in collision checks?
             1. use a spatial data structure
                 **simplest thing would be check voxel x-distance before
