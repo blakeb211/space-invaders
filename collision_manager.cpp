@@ -20,14 +20,13 @@ void CollisionManager::CheckCollisionsForThisFrame() {
     for (int i = 0; i < entRef.size() - 1; i++) {
         for (int j = i + 1; j < entRef.size(); j++) {
             // dont compare voxels if delta(x_coord) is greater than 20
-            if (abs(entRef[i]->getPos().x - entRef[j]->getPos().x) > 20.f) continue;
+            if (abs(entRef[i]->getPos().x - entRef[j]->getPos().x) > 15.f) continue;
             entityPairCount++; 
             // Loop over voxels of each entity to check for overlap
             auto e1_vox = entRef[i]->getVox();
             auto e2_vox = entRef[j]->getVox();
             for (int vi1 = 0; vi1 < e1_vox.size(); vi1++) {
                 for (int vi2 =0; vi2 < e2_vox.size(); vi2++) {
-                    if (abs(e1_vox[vi1].getPosition().x - e2_vox[vi2].getPosition().x) > 6.f) continue;
                     collCheckCount++;
                     if(e1_vox[vi1].getGlobalBounds().intersects(e2_vox[vi2].getGlobalBounds())) {
                         // collision occurred, so call the collideWith methods on both entities

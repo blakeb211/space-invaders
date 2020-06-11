@@ -43,7 +43,6 @@ vector<Voxel>& Entity::getVox() { return vox; }
 // is set
 // ----------------------------------------
 void Entity::eraseDeadVoxel() {
-    if (!hasDeadVoxel) return;
     vox.erase(remove_if(begin(vox), end(vox), [] (const Voxel & v) { return *v.health <= 0; }), end(vox));
     hasDeadVoxel = false;
   // add a voxel destruction animation
@@ -188,21 +187,21 @@ E1::E1(Vec2 pos) : Enemy() {
 E2::E2(Vec2 pos) : Enemy() {
   Builder::build_E2(vox);
   setPos(pos);
-  Entity::setVoxelHealth(*this, 2);
+  Entity::setVoxelHealth(*this, 1);
   //set all voxels to a fixed health value
 }
 
 E3::E3(Vec2 pos) : Enemy() {
   Builder::build_E3(vox);
   setPos(pos);
-  Entity::setVoxelHealth(*this, 3);
+  Entity::setVoxelHealth(*this, 1);
   //set all voxels to a fixed health value
 }
 
 E4::E4(Vec2 pos) : Enemy() {
   Builder::build_E4(vox);
   setPos(pos);
-  Entity::setVoxelHealth(*this, 4);
+  Entity::setVoxelHealth(*this, 1);
   //set all voxels to a fixed health value
 }
 
