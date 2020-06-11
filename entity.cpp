@@ -11,7 +11,8 @@ using Vec2 = Vector2<float>;
 Entity::Entity() : id{entityCount++}, destroyed{false}, hasDeadVoxel{false} {}
 void Entity::update(FrameTime ftStep) { /* check for collision */ /* update pos */  }
 
-void Entity::collideWith(EntityType et, unsigned int ivox) { }
+void Entity::collideWith(EntityType et, unsigned int ivox) {
+}
 //-----------------------------------------
 // Destructor 
 // ----------------------------------------
@@ -96,12 +97,9 @@ void Bullet::update(FrameTime ftStep){
 // Handle bullet collisions 
 // ----------------------------------------
 void Bullet::collideWith(EntityType et, unsigned int ivox) { 
-  auto currColor = vox[ivox].getFillColor();
-  auto subtract = Color(10,10,10,255); 
-  vox[ivox].setFillColor(currColor - subtract);
-  *(vox[ivox].health) -= 1;
+  vox[ivox].setFillColor(sf::Color::Red);
+  //*(vox[ivox].health) -= 1;
   // kill voxel elsewhere
-  if(*vox[ivox].health <= 0) hasDeadVoxel = true;
 }
 
 B1::B1(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
@@ -137,8 +135,9 @@ void Player::update(FrameTime ftStep) {
   }
 }
 
-void Player::collideWith(EntityType et, unsigned int ivox) {
-  *(vox[ivox].health) -= 1;
+void Player::collideWith(EntityType et, unsigned int ivox) { 
+  vox[ivox].setFillColor(sf::Color::Red);
+  //*(vox[ivox].health) -= 1;
   // kill voxel elsewhere
 }
 // Enemy types
@@ -164,7 +163,7 @@ void Enemy::update(FrameTime ftStep) {
   auto moveDir = pathPoint - _pos;
   float length = sqrt(pow(moveDir.x,2) + pow(moveDir.y,2));
   auto unitVec = Vec2(moveDir.x / length, moveDir.y / length);
-  float slowDownFactor = 0.02f;
+  float slowDownFactor = 0.1f;
   // move in direction of next goal position
   move(unitVec * slowDownFactor * ftStep); 
   // move by dvel, which dampens to 0 over time, as well
@@ -172,7 +171,8 @@ void Enemy::update(FrameTime ftStep) {
 }
 
 void Enemy::collideWith(EntityType et, unsigned int ivox) {
-  *(vox[ivox].health) -= 1;
+  vox[ivox].setFillColor(sf::Color::Red);
+  //*(vox[ivox].health) -= 1;
   // kill voxel elsewhere
 }
 
@@ -215,6 +215,7 @@ void Wall1::update(FrameTime ftStep) {
 }
 
 void Wall1::collideWith(EntityType et, unsigned int ivox) {
+  vox[ivox].setFillColor(sf::Color::Red);
     // this is a bouncy wall for bullets
 }
 
@@ -222,6 +223,7 @@ void Wall2::update(FrameTime ftStep) {
 }
 
 void Wall2::collideWith(EntityType et, unsigned int ivox) {
-  *(vox[ivox].health) -= 1;
+  vox[ivox].setFillColor(sf::Color::Red);
+  //*(vox[ivox].health) -= 1;
   // kill voxel elsewhere
 }
