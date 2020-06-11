@@ -89,6 +89,7 @@ void Bullet::collideWith(EntityType et, unsigned int ivox) {
     auto currColor = vox[ivox].getFillColor();
     auto subtract = Color(5,5,5, 255); 
     vox[ivox].setFillColor(currColor - subtract);
+    cout << "Bullet collideWith called\n";
 }
 
 B1::B1(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {

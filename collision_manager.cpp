@@ -23,11 +23,24 @@ void CollisionManager::CheckCollisionsForThisFrame() {
             if (abs(entRef[i]->getPos().x - entRef[j]->getPos().x) > 20.f) continue;
             entityPairCount++; 
             // Loop over voxels of each entity to check for overlap
-            for (auto e1_v : entRef[i]->getVox()) {
-                for (auto e2_v : entRef[j]->getVox()) {
-                    if (abs(e1_v.getPosition().x - e2_v.getPosition().x) > 6.f) continue;
+            auto e1_vox = entRef[i]->getVox();
+            auto e2_vox = entRef[j]->getVox();
+            int e1_vox_size = e1_vox.size();
+            int e2_vox_size = e2_vox.size();
+            for (int vi1 = 0; vi1 < e1_vox_size; vi1++) {
+                for (int vi2 =0; vi2 < e2_vox_size; vi2++) {
+                    if (abs(e1_vox[vi1].getPosition().x - e2_vox[vi2].getPosition().x) > 6.f) continue;
                     collCheckCount++;
-                    if(e1_v.getGlobalBounds().intersects(e2_v.getGlobalBounds())) {
+                    if(e1_vox[vi1].getGlobalBounds().intersects(e2_vox[vi2].getGlobalBounds())) {
+                        if (entRef[i]->o_type == EntityType::Bullet) {
+                            entRef[i]->collideWith(EntityType::Bullet, vi1);
+                            cout << "coll i happened" << endl;
+                        }
+                        if (entRef[j]->o_type == EntityType::Bullet) {
+                            entRef[j]->collideWith(EntityType::Bullet, vi2);
+                            cout << "coll j happened" << endl;
+                        }
+
                     }
                 }
             } 
