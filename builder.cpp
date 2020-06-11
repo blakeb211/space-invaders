@@ -70,7 +70,7 @@ void Builder::build_level(unsigned int & levelId) {
                 assert(x*G::screenWidth <= G::screenWidth);
                 assert(y*G::screenHeight <= G::screenHeight);
                 // Convert from level editor coords to game coords
-                const float kCoordsConv = 3.f; 
+                const float kCoordsConv = G::blockWidth; 
                 e_ptr->path.push_back(Vec2(x*G::screenWidth*kCoordsConv, y*G::screenHeight*kCoordsConv));
             }
             // set enemies starting position to the first point on its path
@@ -499,7 +499,7 @@ void Builder::build_wall1(Vec2 start, Vec2 end, vector<Voxel> & vox) {
     while(calc_dist(start, end) > 4.0f) {
         // place voxel
         vox.emplace_back(start.x,start.y, Color(210,55,70,255));
-        start += unitVec * 4.0f;
+        start += unitVec * G::blockWidth;
     }
     cout << "exited build_wall1 while loop" << endl;
 }

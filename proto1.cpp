@@ -63,7 +63,7 @@ struct Game {
             // player shoot
             shared_ptr<Player> p_ptr = dynamic_pointer_cast<Player> (Entity::withId(0));
             if (p_ptr->mCanShoot) {
-                G::entity.push_back(make_shared<B1>(p_ptr->getPos() + Vec2(0,-10)));
+                G::entity.push_back(make_shared<B1>(p_ptr->getPos() + Vec2(0,-25)));
                 p_ptr->mCanShoot = false;
             }
         }
@@ -71,7 +71,7 @@ struct Game {
             // player shoot 
             shared_ptr<Player> p_ptr = dynamic_pointer_cast<Player> (Entity::withId(0));
             if (p_ptr->mCanShoot) {
-                G::entity.push_back(make_shared<B2>(Entity::withId(0)->getPos()+ Vec2(0,-10)));
+                G::entity.push_back(make_shared<B2>(Entity::withId(0)->getPos()+ Vec2(0,-25)));
                 p_ptr->mCanShoot = false;
             }
         }

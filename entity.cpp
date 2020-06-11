@@ -43,8 +43,8 @@ vector<Voxel>& Entity::getVox() { return vox; }
 // is set
 // ----------------------------------------
 void Entity::eraseDeadVoxel() {
-    vox.erase(remove_if(begin(vox), end(vox), [] (const Voxel & v) { return *v.health <= 0; }), end(vox));
-    hasDeadVoxel = false;
+    if (o_type == EntityType::Wall1) return; 
+    vox.erase(remove_if(begin(vox), end(vox), [] (const Voxel & v) { return *v.health <= 0;  }), end(vox));
   // add a voxel destruction animation
 }
 //-----------------------------------------
@@ -113,7 +113,7 @@ B1::B1(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
 B2::B2(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
   Builder::build_B2(vox);
   setPos(pos);
-  Entity::setVoxelHealth(*this, 2);
+  Entity::setVoxelHealth(*this, 1);
 }
 B3::B3(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
   Builder::build_B3(vox);
@@ -140,7 +140,6 @@ void Player::update(FrameTime ftStep) {
 void Player::collideWith(EntityType et, unsigned int ivox) {
   *(vox[ivox].health) -= 1;
   // kill voxel elsewhere
-  if(*vox[ivox].health <= 0) hasDeadVoxel = true;
 }
 // Enemy types
 Enemy::Enemy() : currPathPoint{0} {
@@ -175,7 +174,6 @@ void Enemy::update(FrameTime ftStep) {
 void Enemy::collideWith(EntityType et, unsigned int ivox) {
   *(vox[ivox].health) -= 1;
   // kill voxel elsewhere
-  if(*vox[ivox].health <= 0) hasDeadVoxel = true;
 }
 
 E1::E1(Vec2 pos) : Enemy() {
@@ -226,5 +224,4 @@ void Wall2::update(FrameTime ftStep) {
 void Wall2::collideWith(EntityType et, unsigned int ivox) {
   *(vox[ivox].health) -= 1;
   // kill voxel elsewhere
-  if(*vox[ivox].health <= 0) hasDeadVoxel = true;
 }

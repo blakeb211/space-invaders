@@ -5,7 +5,7 @@ using namespace std;
 
 constexpr float kScreenWidth = 1024.f;
 constexpr float kScreenHeight = 3.f * kScreenWidth / 4.f;
-constexpr float kPixelSize = 3.f;
+constexpr float kPixelSize = 6.f;
 
 // TODO: implement wall placement within editor
 struct Wall {
