@@ -86,6 +86,10 @@ struct Game {
         // independent gameplay
         /* produce collision map*/
         for(auto & e  : G::entity) { e->update(ftStep); }
+                // check for collisions
+                coll_mgr.CheckCollisionsForThisFrame(); 
+                // remove dead entities
+                removeDestroyedEntities(G::entity);
     }
 
     //-----------------------------------------
@@ -111,12 +115,8 @@ struct Game {
 
             currentSlice += lastFt;
             for(; currentSlice >= ftSlice; currentSlice -= ftSlice) {
-                updatePhase();
-                // check for collisions
                 updateCounter++;
-                coll_mgr.CheckCollisionsForThisFrame(); 
-                // remove dead entities
-                removeDestroyedEntities(G::entity);
+                updatePhase();
             }
             drawPhase();
             // calculate FPS 

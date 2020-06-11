@@ -120,7 +120,7 @@ B3::B3(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
 }
 
 // Player methods
-Player::Player(Vec2 pos) : mTimerMax{75.f}, mTimer{0.f}, mCanShoot{false}  {
+Player::Player(Vec2 pos) : mTimerMax{100.f}, mTimer{0.f}, mCanShoot{false}  {
   o_type = EntityType::Player;
   Builder::build_player(vox);
   setPos(pos);
@@ -163,7 +163,7 @@ void Enemy::update(FrameTime ftStep) {
   auto moveDir = pathPoint - _pos;
   float length = sqrt(pow(moveDir.x,2) + pow(moveDir.y,2));
   auto unitVec = Vec2(moveDir.x / length, moveDir.y / length);
-  float slowDownFactor = 0.2f;
+  float slowDownFactor = 0.15f;
   // move in direction of next goal position
   move(unitVec * slowDownFactor * ftStep); 
   // move by dvel, which dampens to 0 over time, as well

@@ -26,10 +26,12 @@ void CollisionManager::CheckCollisionsForThisFrame() {
             // Loop over voxels of each entity to check for overlap
             auto e1_vox = entRef[i]->getVox();
             auto e2_vox = entRef[j]->getVox();
+            int e1_vox_size = e1_vox.size();
+            int e2_vox_size = e2_vox.size();
             bool vi1_collided = false;
-            for (int vi1 = 0; vi1 < e1_vox.size(); vi1++) {
+            for (int vi1 = 0; vi1 < e1_vox_size; vi1++) {
                 vi1_collided = false;
-                for (int vi2 =0; vi2 < e2_vox.size(); vi2++) {
+                for (int vi2 = 0; vi2 < e2_vox_size; vi2++) {
                     collCheckCount++;
                     if(e1_vox[vi1].getGlobalBounds().intersects(e2_vox[vi2].getGlobalBounds())) {
                         vi1_collided = true;
@@ -46,9 +48,6 @@ void CollisionManager::CheckCollisionsForThisFrame() {
             //entRef[i]->eraseDeadVoxel();
         }
     }
-    //cout << "Entities: " << entRef.size() << " Entity Pairs: " << entityPairCount << endl ;
-    //cout << "Voxels compared:" << collCheckCount << endl;
-
 }
 
 void CollisionManager::HandleCollisionsForThisFrame() {

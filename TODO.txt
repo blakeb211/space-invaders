@@ -14,16 +14,16 @@ Collision Detection
             generate list of unique entity pairs 
                 n(n-1) / 2 unique pairs 
             give each entity a typeid
-            *** once collision detected -> propagate change to entities by calling
-            their collideWith method with a voxel identifier
-  speed ups
+            *** fix position of entities
+            *** make walls out of individual wall entities
+            *** refactor
             -1. profile code with profiler "very sleepy"
-            0. what is current count of voxels per entity type involved in collision checks?
             1. use a spatial data structure
                 **simplest thing would be check voxel x-distance before
                 performing collision check
                 how to check collisions with wall when wall position doesn't
                 mean much
+                // build wall out of individual wall entities
             2. only check collisions on surface voxels?
                 a. maintain a data structure that holds weak ptrs to surface
                    voxels of each entity only
