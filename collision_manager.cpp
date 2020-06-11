@@ -44,8 +44,8 @@ void CollisionManager::CheckCollisionsForThisFrame() {
                     entRef[i]->collideWith(entRef[j]->o_type, vi1);  
                 }
             }
-            //entRef[j]->eraseDeadVoxel();
-            //entRef[i]->eraseDeadVoxel();
+            entRef[j]->eraseDeadVoxel();
+            entRef[i]->eraseDeadVoxel();
         }
     }
 }

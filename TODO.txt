@@ -17,7 +17,10 @@ Collision Detection
             *** fix position of entities
             *** make walls out of individual wall entities
             *** refactor
-            -1. profile code with profiler "very sleepy"
+            *** update collideWith to take the position of the voxel they
+            collided with
+            ***Want entities to get knocked back from collisions
+
             1. use a spatial data structure
                 **simplest thing would be check voxel x-distance before
                 performing collision check
@@ -27,7 +30,6 @@ Collision Detection
             2. only check collisions on surface voxels?
                 a. maintain a data structure that holds weak ptrs to surface
                    voxels of each entity only
-            3. do collision checks on a separate thread
 
 
 // FUTURE PROJECTS

@@ -87,6 +87,7 @@ Bullet::Bullet(Vec2 vv) : vel{vv} {
 
 void Bullet::update(FrameTime ftStep){ 
   move(ftStep*vel);  
+  move(ftStep*dvel);
   // mark for destruction if go off screen
   if (pos.x < 0 || pos.x > G::screenWidth || pos.y < 0 || pos.y > G::screenHeight) {
     destroyed = true;
@@ -98,7 +99,10 @@ void Bullet::update(FrameTime ftStep){
 // ----------------------------------------
 void Bullet::collideWith(EntityType et, unsigned int ivox) { 
   vox[ivox].setFillColor(sf::Color::Red);
-  //*(vox[ivox].health) -= 1;
+  float xvel =((float)(0 + rand() % 12) - 6.0f) / 10.f;
+  float yvel = +0.2f;
+  dvel = Vec2(xvel, yvel); 
+  *(vox[ivox].health) -= 1;
   // kill voxel elsewhere
 }
 
@@ -137,7 +141,7 @@ void Player::update(FrameTime ftStep) {
 
 void Player::collideWith(EntityType et, unsigned int ivox) { 
   vox[ivox].setFillColor(sf::Color::Red);
-  //*(vox[ivox].health) -= 1;
+  *(vox[ivox].health) -= 1;
   // kill voxel elsewhere
 }
 // Enemy types
@@ -167,39 +171,39 @@ void Enemy::update(FrameTime ftStep) {
   // move in direction of next goal position
   move(unitVec * slowDownFactor * ftStep); 
   // move by dvel, which dampens to 0 over time, as well
-  move(dvel);
+  move(dvel*ftStep);
 }
 
 void Enemy::collideWith(EntityType et, unsigned int ivox) {
   vox[ivox].setFillColor(sf::Color::Red);
-  //*(vox[ivox].health) -= 1;
+  *(vox[ivox].health) -= 1;
   // kill voxel elsewhere
 }
 
 E1::E1(Vec2 pos) : Enemy() {
   Builder::build_E1(vox);
   setPos(pos);
-  Entity::setVoxelHealth(*this, 1);
+  Entity::setVoxelHealth(*this, 2);
 }
 
 E2::E2(Vec2 pos) : Enemy() {
   Builder::build_E2(vox);
   setPos(pos);
-  Entity::setVoxelHealth(*this, 1);
+  Entity::setVoxelHealth(*this, 2);
   //set all voxels to a fixed health value
 }
 
 E3::E3(Vec2 pos) : Enemy() {
   Builder::build_E3(vox);
   setPos(pos);
-  Entity::setVoxelHealth(*this, 1);
+  Entity::setVoxelHealth(*this, 4);
   //set all voxels to a fixed health value
 }
 
 E4::E4(Vec2 pos) : Enemy() {
   Builder::build_E4(vox);
   setPos(pos);
-  Entity::setVoxelHealth(*this, 1);
+  Entity::setVoxelHealth(*this, 4);
   //set all voxels to a fixed health value
 }
 
@@ -224,6 +228,6 @@ void Wall2::update(FrameTime ftStep) {
 
 void Wall2::collideWith(EntityType et, unsigned int ivox) {
   vox[ivox].setFillColor(sf::Color::Red);
-  //*(vox[ivox].health) -= 1;
+  *(vox[ivox].health) -= 1;
   // kill voxel elsewhere
 }
