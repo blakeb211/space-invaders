@@ -19,7 +19,7 @@ struct Game {
     // These members are related to the control of the game.
     RenderWindow window{{G::screenWidth, G::screenHeight}, G::screenTitle};
     FrameTime lastFt{0.f}, currentSlice{0.f};
-    FrameTime ftStep{8.f}, ftSlice{8.f};
+    FrameTime ftStep{12.f}, ftSlice{12.f};
     bool gameOver{false};
     CollisionManager coll_mgr;
     int updateCounter = 0;

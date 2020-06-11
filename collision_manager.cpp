@@ -21,7 +21,7 @@ void CollisionManager::CheckCollisionsForThisFrame() {
         for (int j = i + 1; j < entRef.size(); j++) {
             // dont compare voxels if delta(x_coord) is greater than 20 
             if (entRef[i]->o_type == entRef[j]->o_type) continue;
-            if (abs(entRef[i]->getPos().x - entRef[j]->getPos().x) > 20.f) continue;
+            if (abs(entRef[i]->getPos().x - entRef[j]->getPos().x) > 180.f || abs(entRef[i]->getPos().y - entRef[j]->getPos().y) > 180.f) continue;
             entityPairCount++; 
             // Loop over voxels of each entity to check for overlap
             auto e1_vox = entRef[i]->getVox();

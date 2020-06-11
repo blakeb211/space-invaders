@@ -163,7 +163,7 @@ void Enemy::update(FrameTime ftStep) {
   auto moveDir = pathPoint - _pos;
   float length = sqrt(pow(moveDir.x,2) + pow(moveDir.y,2));
   auto unitVec = Vec2(moveDir.x / length, moveDir.y / length);
-  float slowDownFactor = 0.1f;
+  float slowDownFactor = 0.2f;
   // move in direction of next goal position
   move(unitVec * slowDownFactor * ftStep); 
   // move by dvel, which dampens to 0 over time, as well
