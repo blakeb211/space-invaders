@@ -1,7 +1,6 @@
 #pragma once
 #include "stdlibs.h"
 #include "entity.h"
-
 //------------------------------------------------------------------------------------
 // Globals 
 //------------------------------------------------------------------------------------
@@ -18,5 +17,6 @@ namespace G {
   constexpr float kBulletSpeed{0.8f};
   constexpr float countBlocksX{screenWidth / blockWidth},countBlocksY{screenHeight/blockWidth}; 
   inline std::vector<std::shared_ptr<Entity>> entity;
+  inline std::vector<std::shared_ptr<Voxel>> free_voxels;
 
 } // globals namespace
