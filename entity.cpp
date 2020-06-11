@@ -8,7 +8,7 @@ using Vec2 = Vector2<float>;
 //-----------------------------------------
 // Constructor 
 // ----------------------------------------
-Entity::Entity() : id{entityCount++}, destroyed{false} {}
+Entity::Entity() : id{entityCount++}, destroyed{false}, hasDeadVoxel{false} {}
 void Entity::update(FrameTime ftStep) { /* check for collision */ /* update pos */  }
 
 void Entity::collideWith(EntityType et, unsigned int ivox) { }
@@ -39,10 +39,13 @@ void Entity::move(Vec2 offset) {
 // ----------------------------------------
 vector<Voxel>& Entity::getVox() { return vox; }
 //-----------------------------------------
-// Erase a voxel within a given entity 
+// Erase one dead voxel is hasDeadVoxel flag
+// is set
 // ----------------------------------------
-void Entity::destructVoxel(unsigned int voxIndex) {
-  this->vox.erase(begin(voxRef) + voxIndex);
+void Entity::eraseDeadVoxel() {
+    if (!hasDeadVoxel) return;
+    vox.erase(remove_if(begin(vox), end(vox), [] (const Voxel & v) { return *v.health <= 0; }), end(vox));
+    hasDeadVoxel = false;
   // add a voxel destruction animation
 }
 //-----------------------------------------
@@ -97,10 +100,9 @@ void Bullet::collideWith(EntityType et, unsigned int ivox) {
   auto currColor = vox[ivox].getFillColor();
   auto subtract = Color(10,10,10,255); 
   vox[ivox].setFillColor(currColor - subtract);
-  vox[ivox].health--;
-  // kill voxel 
-  if (vox[ivox].health <= 0) 
-    destructVoxel(ivox);
+  *(vox[ivox].health) -= 1;
+  // kill voxel elsewhere
+  if(*vox[ivox].health <= 0) hasDeadVoxel = true;
 }
 
 B1::B1(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
@@ -117,7 +119,7 @@ B2::B2(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
 B3::B3(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
   Builder::build_B3(vox);
   setPos(pos);
-  // set bullet 2 voxel health
+  // set bullet 3 voxel health
 }
 
 // Player methods
@@ -137,10 +139,9 @@ void Player::update(FrameTime ftStep) {
 }
 
 void Player::collideWith(EntityType et, unsigned int ivox) {
-  vox[ivox].health--;
-  // kill voxel 
-  if (vox[ivox].health <= 0) 
-    destructVoxel(ivox);
+  *(vox[ivox].health) -= 1;
+  // kill voxel elsewhere
+  if(*vox[ivox].health <= 0) hasDeadVoxel = true;
 }
 // Enemy types
 Enemy::Enemy() : currPathPoint{0} {
@@ -165,7 +166,7 @@ void Enemy::update(FrameTime ftStep) {
   auto moveDir = pathPoint - _pos;
   float length = sqrt(pow(moveDir.x,2) + pow(moveDir.y,2));
   auto unitVec = Vec2(moveDir.x / length, moveDir.y / length);
-  float slowDownFactor = 0.2f;
+  float slowDownFactor = 0.02f;
   // move in direction of next goal position
   move(unitVec * slowDownFactor * ftStep); 
   // move by dvel, which dampens to 0 over time, as well
@@ -173,10 +174,9 @@ void Enemy::update(FrameTime ftStep) {
 }
 
 void Enemy::collideWith(EntityType et, unsigned int ivox) {
-  vox[ivox].health--;
-  // kill voxel 
-  if (vox[ivox].health <= 0) 
-    destructVoxel(ivox);
+  *(vox[ivox].health) -= 1;
+  // kill voxel elsewhere
+  if(*vox[ivox].health <= 0) hasDeadVoxel = true;
 }
 
 E1::E1(Vec2 pos) : Enemy() {
@@ -217,14 +217,15 @@ Wall1::Wall1(Vec2 start, Vec2 end) {
 void Wall1::update(FrameTime ftStep) {
 }
 
-void Wall1::collideWith(EntityType et, unsigned int ivox) { }
+void Wall1::collideWith(EntityType et, unsigned int ivox) {
+    // this is a bouncy wall for bullets
+}
 
 void Wall2::update(FrameTime ftStep) {
 }
 
 void Wall2::collideWith(EntityType et, unsigned int ivox) {
-  vox[ivox].health--;
-  // kill voxel 
-  if (vox[ivox].health <= 0) 
-    destructVoxel(ivox);
+  *(vox[ivox].health) -= 1;
+  // kill voxel elsewhere
+  if(*vox[ivox].health <= 0) hasDeadVoxel = true;
 }

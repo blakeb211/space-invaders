@@ -19,7 +19,7 @@ struct Game {
     // These members are related to the control of the game.
     RenderWindow window{{G::screenWidth, G::screenHeight}, G::screenTitle};
     FrameTime lastFt{0.f}, currentSlice{0.f};
-    FrameTime ftStep{12.f}, ftSlice{12.f};
+    FrameTime ftStep{3.f}, ftSlice{3.f};
     bool gameOver{false};
     CollisionManager coll_mgr;
     int updateCounter = 0;
@@ -63,7 +63,7 @@ struct Game {
             // player shoot
             shared_ptr<Player> p_ptr = dynamic_pointer_cast<Player> (Entity::withId(0));
             if (p_ptr->mCanShoot) {
-                G::entity.push_back(make_shared<B1>(p_ptr->getPos()));
+                G::entity.push_back(make_shared<B1>(p_ptr->getPos() + Vec2(0,-10)));
                 p_ptr->mCanShoot = false;
             }
         }
@@ -71,7 +71,7 @@ struct Game {
             // player shoot 
             shared_ptr<Player> p_ptr = dynamic_pointer_cast<Player> (Entity::withId(0));
             if (p_ptr->mCanShoot) {
-                G::entity.push_back(make_shared<B2>(Entity::withId(0)->getPos()));
+                G::entity.push_back(make_shared<B2>(Entity::withId(0)->getPos()+ Vec2(0,-10)));
                 p_ptr->mCanShoot = false;
             }
         }
@@ -114,9 +114,7 @@ struct Game {
                 updatePhase();
                 // check for collisions
                 updateCounter++;
-                if (updateCounter % 5 == 0) {
-                    coll_mgr.CheckCollisionsForThisFrame(); 
-                }
+                coll_mgr.CheckCollisionsForThisFrame(); 
                 // remove dead entities
                 removeDestroyedEntities(G::entity);
             }

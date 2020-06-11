@@ -27,10 +27,11 @@ struct Entity {
   // Set position of entity as a whole 
   // ----------------------------------------
   void setPos(Vec2 pos); 
+  virtual void collideWith(EntityType et, unsigned int ivox);
   //-----------------------------------------
   // Erase a voxel 
   // ----------------------------------------
-  void destructVoxel(unsigned int voxIndex);
+  void eraseDeadVoxel();
   //-----------------------------------------
   // Return position of entity as a whole
   // ----------------------------------------
@@ -60,13 +61,15 @@ struct Entity {
   // ----------------------------------------
   static void setVoxelHealth(Entity & e, std::optional<unsigned int> health); 
   bool destroyed;
+  bool hasDeadVoxel;
+  EntityType o_type;
   protected:
   std::vector<Voxel> vox;
   Vec2 vel;
+  Vec2 dvel;
   Vec2 pos; // overall position of entity
   // is there a way to make this const and make a copy constructor?
   size_t id; 
-  EntityType o_type;
   private:
   static size_t entityCount; // defined in cpp file
 };
@@ -76,6 +79,7 @@ struct Bullet : Entity {
   Bullet(Vec2 vv);
   Vec2 vel;    
   virtual void update(FrameTime ftStep) override;  
+  virtual void collideWith(EntityType et, unsigned int ivox) override;
 };
 
 struct B1 : Bullet {
@@ -93,6 +97,7 @@ struct B3 : Bullet {
 struct Player : public Entity {
   Player(Vec2 pos); 
   virtual void update(FrameTime ftStep) override;
+  virtual void collideWith(EntityType et, unsigned int ivox) override;
   bool mCanShoot;
   float mTimer;
   const float mTimerMax; // reload timer
@@ -102,6 +107,7 @@ struct Player : public Entity {
 struct Enemy: Entity { // base
   Enemy();
   virtual void update(FrameTime ftStep) override;
+  virtual void collideWith(EntityType et, unsigned int ivox) override;
   std::vector<Vec2> path;
   unsigned int currPathPoint;
 };
@@ -129,8 +135,10 @@ struct Wall : Entity { // base
 struct Wall1 : Wall { // bouncy wall 
     Wall1(Vec2 start, Vec2 end);
     virtual void update(FrameTime ftStep) override; // test for collision 
+    virtual void collideWith(EntityType et, unsigned int ivox) override;
 };
 
 struct Wall2 : Wall { // destructible wall
     virtual void update(FrameTime ftStep) override; // test for collision 
+    virtual void collideWith(EntityType et, unsigned int ivox) override;
 };

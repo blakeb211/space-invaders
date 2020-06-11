@@ -30,20 +30,19 @@ void CollisionManager::CheckCollisionsForThisFrame() {
                     if (abs(e1_vox[vi1].getPosition().x - e2_vox[vi2].getPosition().x) > 6.f) continue;
                     collCheckCount++;
                     if(e1_vox[vi1].getGlobalBounds().intersects(e2_vox[vi2].getGlobalBounds())) {
-                      // collision occurred, so call the collideWith methods on both entities
-                      entRef[i]->collideWith(entRef[j]->o_type, vi1); 
-                      entRef[j]->collideWith(entRef[i]->o_type, vi2); 
+                        // collision occurred, so call the collideWith methods on both entities
+                        entRef[i]->collideWith(entRef[j]->o_type, vi1);  
+                        entRef[j]->collideWith(entRef[i]->o_type, vi2); 
                     }
                 }
-            } 
+            }
+            entRef[j]->eraseDeadVoxel();
         }
+            entRef[i]->eraseDeadVoxel();
     }
     //cout << "Entities: " << entRef.size() << " Entity Pairs: " << entityPairCount << endl ;
     //cout << "Voxels compared:" << collCheckCount << endl;
-    
-    /* with reduced # of voxels for the walls */
-    /* Entities: 25 Entity Pairs: 300
-     * Voxels compared:263'033 */
+
 }
 
 void CollisionManager::HandleCollisionsForThisFrame() {
