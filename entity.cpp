@@ -134,7 +134,7 @@ void Bullet::collideWith(EntityType et, unsigned int ivox) {
 B1::B1(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
     Builder::build_B1(vox);
     resetOrigin();
-    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
+    //vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
     Entity::setVoxelHealth(*this, 1);
 }
@@ -142,7 +142,7 @@ B1::B1(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
 B2::B2(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
     Builder::build_B2(vox);
     resetOrigin();
-    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
+    //vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
     Entity::setVoxelHealth(*this, 1);
 }
@@ -159,7 +159,7 @@ Player::Player(Vec2 pos) : mTimerMax{100.f}, mTimer{0.f}, mCanShoot{false}  {
     o_type = EntityType::Player;
     Builder::build_player(vox);
     resetOrigin();
-    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
+    //vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
     Entity::setVoxelHealth(*this, 5);
 }
@@ -216,7 +216,7 @@ void Enemy::collideWith(EntityType et, unsigned int ivox) {
 E1::E1(Vec2 pos) : Enemy() {
     Builder::build_E1(vox);
     resetOrigin();
-    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
+    //vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
     Entity::setVoxelHealth(*this, 2);
 }
@@ -224,7 +224,7 @@ E1::E1(Vec2 pos) : Enemy() {
 E2::E2(Vec2 pos) : Enemy() {
     Builder::build_E2(vox);
     resetOrigin();
-    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
+    //vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
     Entity::setVoxelHealth(*this, 2);
     //set all voxels to a fixed health value
@@ -233,7 +233,7 @@ E2::E2(Vec2 pos) : Enemy() {
 E3::E3(Vec2 pos) : Enemy() {
     Builder::build_E3(vox);
     resetOrigin();
-    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
+    //vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
     Entity::setVoxelHealth(*this, 4);
     //set all voxels to a fixed health value
@@ -242,7 +242,7 @@ E3::E3(Vec2 pos) : Enemy() {
 E4::E4(Vec2 pos) : Enemy() {
     Builder::build_E4(vox);
     resetOrigin();
-    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
+    //vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
     Entity::setVoxelHealth(*this, 4);
     //set all voxels to a fixed health value

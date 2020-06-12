@@ -14,11 +14,10 @@ Collision Detection
             generate list of unique entity pairs 
                 n(n-1) / 2 unique pairs 
             give each entity a typeid
-            *** make walls out of individual wall entities
-            *** refactor
-            *** update collideWith to take the position of the voxel they
-            collided with
+            *** refactor update collideWith to take the position of the voxel they
             ***Want entities to get knocked back from collisions
+            *** make walls out of individual wall entities
+            **fix wall builder
 
             1. use a spatial data structure
                 **simplest thing would be check voxel x-distance before
