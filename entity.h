@@ -41,6 +41,10 @@ struct Entity {
   // ----------------------------------------
   Vec2 getCenter() const; 
   //-----------------------------------------
+  // Reset Origin: avg of min+max x and y
+  // ----------------------------------------
+  void resetOrigin(); 
+  //-----------------------------------------
   // Move all voxels by an offset
   // ----------------------------------------
   virtual void move(Vec2 offset);  
