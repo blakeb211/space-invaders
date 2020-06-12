@@ -11,7 +11,7 @@ using Vec2 = Vector2<float>;
 Entity::Entity() : id{entityCount++}, destroyed{false}, hasDeadVoxel{false} {}
 void Entity::update(FrameTime ftStep) { /* check for collision */ /* update pos */  }
 
-void Entity::collideWith(EntityType et, unsigned int ivox) {
+void Entity::collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) {
 }
 //-----------------------------------------
 // Destructor 
@@ -33,7 +33,8 @@ Vec2 Entity::getPos() const { return pos; }
 void Entity::move(Vec2 offset) { 
     this->pos += offset;
     for(auto &v : vox) { 
-        v.move(offset); }
+        v.move(offset + v.dvel);
+    }
 }
 //-----------------------------------------
 // Return the pos + the origin = center 
@@ -122,12 +123,20 @@ void Bullet::update(FrameTime ftStep){
 //-----------------------------------------
 // Handle bullet collisions 
 // ----------------------------------------
-void Bullet::collideWith(EntityType et, unsigned int ivox) { 
-    vox[ivox].setFillColor(sf::Color::Red);
-    float xvel =((float)(0 + rand() % 12) - 6.0f) / 10.f;
-    float yvel = +0.2f;
-    dvel = Vec2(xvel, yvel); 
-    *(vox[ivox].health) -= 1;
+void Bullet::collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) { 
+    //float xvel =((float)(0 + rand() % 12) - 6.0f) / 10.f;
+    //float yvel = +0.2f;
+    //dvel = Vec2(xvel, yvel); 
+    // bullet fragments lose some overall speed and bounce mostly elastically
+    switch(et) {
+        case EntityType::Wall1:
+            // switch velocity of overall bullet
+            break;
+        default:
+            vox[ivox].dvel = (vox[ivox].getPosition() - voxPos)*0.7f;
+            *(vox[ivox].health) -= 1;
+            break;
+    };
     // kill voxel elsewhere
 }
 
@@ -136,7 +145,7 @@ B1::B1(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
     resetOrigin();
     //vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
-    Entity::setVoxelHealth(*this, 1);
+    Entity::setVoxelHealth(*this, 2);
 }
 
 B2::B2(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
@@ -144,7 +153,7 @@ B2::B2(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
     resetOrigin();
     //vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
-    Entity::setVoxelHealth(*this, 1);
+    Entity::setVoxelHealth(*this, 2);
 }
 B3::B3(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
     Builder::build_B3(vox);
@@ -172,7 +181,7 @@ void Player::update(FrameTime ftStep) {
     }
 }
 
-void Player::collideWith(EntityType et, unsigned int ivox) { 
+void Player::collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) { 
     vox[ivox].setFillColor(sf::Color::Red);
     *(vox[ivox].health) -= 1;
     // kill voxel elsewhere
@@ -200,14 +209,14 @@ void Enemy::update(FrameTime ftStep) {
     auto moveDir = pathPoint - _pos;
     float length = sqrt(pow(moveDir.x,2) + pow(moveDir.y,2));
     auto unitVec = Vec2(moveDir.x / length, moveDir.y / length);
-    float slowDownFactor = 0.15f;
+    float slowDownFactor = 0.10f;
     // move in direction of next goal position
     move(unitVec * slowDownFactor * ftStep); 
     // move by dvel, which dampens to 0 over time, as well
     move(dvel*ftStep);
 }
 
-void Enemy::collideWith(EntityType et, unsigned int ivox) {
+void Enemy::collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) {
     vox[ivox].setFillColor(sf::Color::Red);
     *(vox[ivox].health) -= 1;
     // kill voxel elsewhere
@@ -218,7 +227,7 @@ E1::E1(Vec2 pos) : Enemy() {
     resetOrigin();
     //vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
-    Entity::setVoxelHealth(*this, 2);
+    Entity::setVoxelHealth(*this, 4);
 }
 
 E2::E2(Vec2 pos) : Enemy() {
@@ -226,7 +235,7 @@ E2::E2(Vec2 pos) : Enemy() {
     resetOrigin();
     //vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
-    Entity::setVoxelHealth(*this, 2);
+    Entity::setVoxelHealth(*this, 4);
     //set all voxels to a fixed health value
 }
 
@@ -235,7 +244,7 @@ E3::E3(Vec2 pos) : Enemy() {
     resetOrigin();
     //vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
-    Entity::setVoxelHealth(*this, 4);
+    Entity::setVoxelHealth(*this, 6);
     //set all voxels to a fixed health value
 }
 
@@ -244,7 +253,7 @@ E4::E4(Vec2 pos) : Enemy() {
     resetOrigin();
     //vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
-    Entity::setVoxelHealth(*this, 4);
+    Entity::setVoxelHealth(*this, 7);
     //set all voxels to a fixed health value
 }
 
@@ -262,7 +271,7 @@ Wall1::Wall1(Vec2 start, Vec2 end) {
 void Wall1::update(FrameTime ftStep) {
 }
 
-void Wall1::collideWith(EntityType et, unsigned int ivox) {
+void Wall1::collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) {
     vox[ivox].setFillColor(sf::Color::Green);
     // this is a bouncy wall for bullets
 }
@@ -270,7 +279,7 @@ void Wall1::collideWith(EntityType et, unsigned int ivox) {
 void Wall2::update(FrameTime ftStep) {
 }
 
-void Wall2::collideWith(EntityType et, unsigned int ivox) {
+void Wall2::collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) {
     vox[ivox].setFillColor(sf::Color::Red);
     *(vox[ivox].health) -= 1;
     // kill voxel elsewhere

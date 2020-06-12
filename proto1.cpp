@@ -19,7 +19,7 @@ struct Game {
     // These members are related to the control of the game.
     RenderWindow window{{G::screenWidth, G::screenHeight}, G::screenTitle};
     FrameTime lastFt{0.f}, currentSlice{0.f};
-    FrameTime ftStep{12.f}, ftSlice{12.f};
+    FrameTime ftStep{14.f}, ftSlice{14.f};
     bool gameOver{false};
     CollisionManager coll_mgr;
     int updateCounter = 0;
@@ -63,7 +63,7 @@ struct Game {
             // player shoot
             shared_ptr<Player> p_ptr = dynamic_pointer_cast<Player> (Entity::withId(0));
             if (p_ptr->mCanShoot) {
-                G::entity.push_back(make_shared<B1>(p_ptr->getPos() + Vec2(0,-25)));
+                G::entity.push_back(make_shared<B1>(p_ptr->getCenter() + Vec2(0,-25)));
                 p_ptr->mCanShoot = false;
             }
         }
@@ -71,7 +71,7 @@ struct Game {
             // player shoot 
             shared_ptr<Player> p_ptr = dynamic_pointer_cast<Player> (Entity::withId(0));
             if (p_ptr->mCanShoot) {
-                G::entity.push_back(make_shared<B2>(Entity::withId(0)->getPos()+ Vec2(0,-25)));
+                G::entity.push_back(make_shared<B2>(Entity::withId(0)->getCenter()+ Vec2(0,-25)));
                 p_ptr->mCanShoot = false;
             }
         }

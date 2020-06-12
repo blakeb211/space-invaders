@@ -13,8 +13,8 @@ namespace G {
   constexpr int screenWidth{1024}, screenHeight{768};
   const std::string screenTitle{"Shooter - Prototype #2"};
   constexpr float blockWidth{6.f}, bW{blockWidth};
-  constexpr float kPlayerSpeed{1.10f};
-  constexpr float kBulletSpeed{0.8f};
+  constexpr float kPlayerSpeed{0.90f};
+  constexpr float kBulletSpeed{0.65f};
   constexpr float countBlocksX{screenWidth / blockWidth},countBlocksY{screenHeight/blockWidth}; 
   inline std::vector<std::shared_ptr<Entity>> entity;
   inline std::vector<std::shared_ptr<Voxel>> free_voxels;

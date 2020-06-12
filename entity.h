@@ -27,7 +27,7 @@ struct Entity {
   // Set position of entity as a whole 
   // ----------------------------------------
   void setPos(Vec2 pos); 
-  virtual void collideWith(EntityType et, unsigned int ivox);
+  virtual void collideWith(EntityType et, unsigned int ivox, Vec2 voxPos);
   //-----------------------------------------
   // Erase a voxel 
   // ----------------------------------------
@@ -88,7 +88,7 @@ struct Bullet : Entity {
   Bullet(Vec2 vv);
   Vec2 vel;    
   virtual void update(FrameTime ftStep) override;  
-  virtual void collideWith(EntityType et, unsigned int ivox) override;
+  virtual void collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) override;
 };
 
 struct B1 : Bullet {
@@ -106,7 +106,7 @@ struct B3 : Bullet {
 struct Player : public Entity {
   Player(Vec2 pos); 
   virtual void update(FrameTime ftStep) override;
-  virtual void collideWith(EntityType et, unsigned int ivox) override;
+  virtual void collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) override;
   bool mCanShoot;
   float mTimer;
   const float mTimerMax; // reload timer
@@ -116,7 +116,7 @@ struct Player : public Entity {
 struct Enemy: Entity { // base
   Enemy();
   virtual void update(FrameTime ftStep) override;
-  virtual void collideWith(EntityType et, unsigned int ivox) override;
+  virtual void collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) override;
   std::vector<Vec2> path;
   unsigned int currPathPoint;
 };
@@ -144,10 +144,10 @@ struct Wall : Entity { // base
 struct Wall1 : Wall { // bouncy wall 
     Wall1(Vec2 start, Vec2 end);
     virtual void update(FrameTime ftStep) override; // test for collision 
-    virtual void collideWith(EntityType et, unsigned int ivox) override;
+    virtual void collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) override;
 };
 
 struct Wall2 : Wall { // destructible wall
     virtual void update(FrameTime ftStep) override; // test for collision 
-    virtual void collideWith(EntityType et, unsigned int ivox) override;
+    virtual void collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) override;
 };

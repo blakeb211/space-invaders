@@ -27,20 +27,16 @@ void CollisionManager::CheckCollisionsForThisFrame() {
             auto e2_vox = entRef[j]->getVox();
             int e1_vox_size = e1_vox.size();
             int e2_vox_size = e2_vox.size();
-            bool vi1_collided = false;
             for (int vi1 = 0; vi1 < e1_vox_size; vi1++) {
-                vi1_collided = false;
+                int index_vi2_that_collided = 0;
                 for (int vi2 = 0; vi2 < e2_vox_size; vi2++) {
                     collCheckCount++;
                     if(e1_vox[vi1].getGlobalBounds().intersects(e2_vox[vi2].getGlobalBounds())) {
-                        vi1_collided = true;
                         // collision occurred, so call the collideWith methods on both entities
-                        entRef[j]->collideWith(entRef[i]->o_type, vi2); 
+                        entRef[j]->collideWith(entRef[i]->o_type, vi2, e1_vox[vi1].getPosition()); 
+                        entRef[i]->collideWith(entRef[j]->o_type, vi1, e2_vox[vi2].getPosition());  
                         //cout << "collision happening for " << (int)entRef[i]->o_type << "-" << (int)entRef[j]->o_type << endl;
                     }
-                }
-                if (vi1_collided) {
-                    entRef[i]->collideWith(entRef[j]->o_type, vi1);  
                 }
             }
             entRef[j]->eraseDeadVoxel();
