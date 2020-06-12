@@ -8,7 +8,6 @@ using namespace std;
 using namespace sf;
 
 CollisionManager::CollisionManager() { cout << "Initializing Collision Manager" << endl; }
-// init
 
 // do all voxel collision checks between entities 
 void CollisionManager::CheckCollisionsForThisFrame() {
