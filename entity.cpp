@@ -11,7 +11,7 @@ using Vec2 = Vector2<float>;
 Entity::Entity() : id{entityCount++}, destroyed{false}, hasDeadVoxel{false} {}
 void Entity::update(FrameTime ftStep) { /* check for collision */ /* update pos */  }
 
-void Entity::collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) {
+void Entity::collideWith(Entity& e, unsigned int ivox, Vec2 voxPos) {
 }
 //-----------------------------------------
 // Destructor 
@@ -123,13 +123,15 @@ void Bullet::update(FrameTime ftStep){
 //-----------------------------------------
 // Handle bullet collisions 
 // ----------------------------------------
-void Bullet::collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) { 
+void Bullet::collideWith(Entity& e, unsigned int ivox, Vec2 voxPos) { 
     //float xvel =((float)(0 + rand() % 12) - 6.0f) / 10.f;
     //float yvel = +0.2f;
     //dvel = Vec2(xvel, yvel); 
     // bullet fragments lose some overall speed and bounce mostly elastically
-    switch(et) {
+    switch(e.o_type) {
         case EntityType::Wall1:
+            // need to move whole entity so other pixels don't hit it to get an even bounce
+            this->vel = this->vel + 0.1f*(vox[ivox].getPosition() - voxPos);
             // switch velocity of overall bullet
             break;
         default:
@@ -158,7 +160,7 @@ B2::B2(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
 B3::B3(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
     Builder::build_B3(vox);
     resetOrigin();
-    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
+    //vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
     // set bullet 3 voxel health
 }
@@ -170,7 +172,7 @@ Player::Player(Vec2 pos) : mTimerMax{100.f}, mTimer{0.f}, mCanShoot{false}  {
     resetOrigin();
     //vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
-    Entity::setVoxelHealth(*this, 5);
+    Entity::setVoxelHealth(*this, 50);
 }
 
 void Player::update(FrameTime ftStep) {
@@ -181,7 +183,8 @@ void Player::update(FrameTime ftStep) {
     }
 }
 
-void Player::collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) { 
+void Player::collideWith(Entity& e, unsigned int ivox, Vec2 voxPos) { 
+    cout << "Player collided with otype: " << (int)e.o_type << endl;
     vox[ivox].setFillColor(sf::Color::Red);
     *(vox[ivox].health) -= 1;
     // kill voxel elsewhere
@@ -216,7 +219,7 @@ void Enemy::update(FrameTime ftStep) {
     move(dvel*ftStep);
 }
 
-void Enemy::collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) {
+void Enemy::collideWith(Entity& e, unsigned int ivox, Vec2 voxPos) {
     vox[ivox].setFillColor(sf::Color::Red);
     *(vox[ivox].health) -= 1;
     // kill voxel elsewhere
@@ -263,7 +266,7 @@ Wall1::Wall1(Vec2 start, Vec2 end) {
     Builder::build_wall1(start, end, vox);
     resetOrigin();
     setPos(pos);
-    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
+    //vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     // This is a bouncy wall so health == nullopt
     Entity::setVoxelHealth(*this, nullopt);
 }
@@ -271,7 +274,7 @@ Wall1::Wall1(Vec2 start, Vec2 end) {
 void Wall1::update(FrameTime ftStep) {
 }
 
-void Wall1::collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) {
+void Wall1::collideWith(Entity& e, unsigned int ivox, Vec2 voxPos) {
     vox[ivox].setFillColor(sf::Color::Green);
     // this is a bouncy wall for bullets
 }
@@ -279,7 +282,7 @@ void Wall1::collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) {
 void Wall2::update(FrameTime ftStep) {
 }
 
-void Wall2::collideWith(EntityType et, unsigned int ivox, Vec2 voxPos) {
+void Wall2::collideWith(Entity& e, unsigned int ivox, Vec2 voxPos) {
     vox[ivox].setFillColor(sf::Color::Red);
     *(vox[ivox].health) -= 1;
     // kill voxel elsewhere

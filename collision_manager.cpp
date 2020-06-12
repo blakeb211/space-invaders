@@ -33,8 +33,8 @@ void CollisionManager::CheckCollisionsForThisFrame() {
                     collCheckCount++;
                     if(e1_vox[vi1].getGlobalBounds().intersects(e2_vox[vi2].getGlobalBounds())) {
                         // collision occurred, so call the collideWith methods on both entities
-                        entRef[j]->collideWith(entRef[i]->o_type, vi2, e1_vox[vi1].getPosition()); 
-                        entRef[i]->collideWith(entRef[j]->o_type, vi1, e2_vox[vi2].getPosition());  
+                        entRef[j]->collideWith(*entRef[i], vi2, e1_vox[vi1].getPosition()); 
+                        entRef[i]->collideWith(*entRef[j], vi1, e2_vox[vi2].getPosition());  
                         //cout << "collision happening for " << (int)entRef[i]->o_type << "-" << (int)entRef[j]->o_type << endl;
                     }
                 }

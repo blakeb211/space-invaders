@@ -123,9 +123,9 @@ void Builder::build_level(unsigned int & levelId) {
 }
 
 void Builder::build_player(vector<Voxel> &vox) {
-    vox.emplace_back(0.f,0.f);
-    vox.emplace_back(0.f+1.f * G::bW, 0.f);
-    vox.emplace_back(0.f+2.f * G::bW, 0.f);
+    vox.emplace_back(0.f,0.f, Color::White);
+    vox.emplace_back(0.f+1.f * G::bW, 0.f, Color::White);
+    vox.emplace_back(0.f+2.f * G::bW, 0.f, Color::White);
     vox.emplace_back(0.f+1.f * G::bW, 0.f - 1.f* G::bW, Color::Cyan);
 }
 

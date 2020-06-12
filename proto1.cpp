@@ -28,7 +28,7 @@ struct Game {
         window.setFramerateLimit(80);
         unsigned int levelId{1};
         // Create Player
-        G::entity.push_back(make_shared<Player>(Vec2(3.f*G::screenWidth / 4.f, G::screenHeight - 20.f))); 
+        G::entity.push_back(make_shared<Player>(Vec2(4.f*G::screenWidth / 5.f, G::screenHeight - 10.f))); 
         // Load level
         Builder::build_level(levelId);
     }
@@ -61,9 +61,9 @@ struct Game {
         }
         if(Keyboard::isKeyPressed(Keyboard::Key::Space)) { 
             // player shoot
-            shared_ptr<Player> p_ptr = dynamic_pointer_cast<Player> (Entity::withId(0));
+            shared_ptr<Player> p_ptr = dynamic_pointer_cast<Player>(Entity::withId(0));
             if (p_ptr->mCanShoot) {
-                G::entity.push_back(make_shared<B1>(p_ptr->getCenter() + Vec2(0,-25)));
+                G::entity.push_back(make_shared<B1>(p_ptr->getPos() + Vec2(0,-55)));
                 p_ptr->mCanShoot = false;
             }
         }
@@ -71,7 +71,7 @@ struct Game {
             // player shoot 
             shared_ptr<Player> p_ptr = dynamic_pointer_cast<Player> (Entity::withId(0));
             if (p_ptr->mCanShoot) {
-                G::entity.push_back(make_shared<B2>(Entity::withId(0)->getCenter()+ Vec2(0,-25)));
+                G::entity.push_back(make_shared<B2>(p_ptr->getPos()+ Vec2(0,-55)));
                 p_ptr->mCanShoot = false;
             }
         }
