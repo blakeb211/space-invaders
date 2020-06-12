@@ -79,7 +79,6 @@ FEATURES
 
 Entity
   pos x, y
-  list<Voxel>
   entity_id
 
 Voxel

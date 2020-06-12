@@ -23,7 +23,7 @@ struct Game {
     bool gameOver{false};
     CollisionManager coll_mgr;
     int updateCounter = 0;
-    
+
     Game() {
         window.setFramerateLimit(80);
         unsigned int levelId{1};
@@ -32,7 +32,7 @@ struct Game {
         // Load level
         Builder::build_level(levelId);
     }
-    
+
     static void removeDestroyedEntities(vector<shared_ptr<Entity>> & vec) {
         vec.erase(remove_if(begin(vec), end(vec), [] (const shared_ptr<Entity> & e) { return e->destroyed; }), end(vec));
     }
@@ -86,10 +86,10 @@ struct Game {
         // independent gameplay
         /* produce collision map*/
         for(auto & e  : G::entity) { e->update(ftStep); }
-                // check for collisions
-                coll_mgr.CheckCollisionsForThisFrame(); 
-                // remove dead entities
-                removeDestroyedEntities(G::entity);
+        // check for collisions
+        coll_mgr.CheckCollisionsForThisFrame(); 
+        // remove dead entities
+        removeDestroyedEntities(G::entity);
     }
 
     //-----------------------------------------
