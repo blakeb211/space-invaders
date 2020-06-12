@@ -18,5 +18,4 @@ namespace G {
   constexpr float countBlocksX{screenWidth / blockWidth},countBlocksY{screenHeight/blockWidth}; 
   inline std::vector<std::shared_ptr<Entity>> entity;
   inline std::vector<std::shared_ptr<Voxel>> free_voxels;
-
 } // globals namespace

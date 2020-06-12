@@ -94,14 +94,23 @@ void Builder::build_level(unsigned int & levelId) {
                 ss >> c; // read in type of wall, 'B' or 'D' 
                 assert(c=='B' || c == 'D');
                 // Convert from level editor coords to game coords
-                const float kCoordsConv = 3.f; 
                 x_start *= G::screenWidth;
                 x_end *= G::screenWidth;
+                cout << "wall x_start: " << x_start << "wall x_end:" << x_end << endl;
                 y_start *= G::screenHeight;
                 y_end *= G::screenHeight;
+                cout << "wall y_start: " << y_start << "wall y_end:" << y_end << endl;
+                float slope = (y_end - y_start) / (x_end - x_start);
                 // build the wall
                 if (c == 'B') {
-                    G::entity.push_back(make_shared<Wall1>(Vec2(x_start, y_start), Vec2(x_end, y_end)));
+                    // divide wall up into 30 pixel-wide segments
+                    float w_size = 10.f;
+                    float curr_y = y_start;
+                    for(float curr_x = x_start; curr_x < x_end; curr_x+= w_size) { 
+                        G::entity.push_back(make_shared<Wall1>(Vec2(curr_x, curr_y), Vec2(curr_x+w_size,(curr_x+w_size)*slope+y_start )));
+                        curr_y = (curr_x+w_size)*slope+y_start;
+                        if (curr_y > y_end) break;
+                    }
                     // break out of the stringstream reading loop 
                     break;
                 }
@@ -490,16 +499,5 @@ float Builder::calc_dist(const Vec2 & va,const Vec2 & vb) {
 }
 
 void Builder::build_wall1(Vec2 start, Vec2 end, vector<Voxel> & vox) {
-    // create a vector from start to end
-    Vec2 wallPath = end - start;
-    auto length = sqrt(pow(wallPath.x,2) + pow(wallPath.y,2));
-    Vec2 unitVec = Vec2(wallPath.x / length, wallPath.y / length);
-    // march from start to end placing voxels 
-    cout << "entering build_wall1 while loop" << endl;
-    while(calc_dist(start, end) > 4.0f) {
-        // place voxel
-        vox.emplace_back(start.x,start.y, Color(210,55,70,255));
-        start += unitVec * G::blockWidth;
-    }
-    cout << "exited build_wall1 while loop" << endl;
+
 }

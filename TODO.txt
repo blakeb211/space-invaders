@@ -14,7 +14,6 @@ Collision Detection
             generate list of unique entity pairs 
                 n(n-1) / 2 unique pairs 
             give each entity a typeid
-            *** fix position of entities
             *** make walls out of individual wall entities
             *** refactor
             *** update collideWith to take the position of the voxel they
