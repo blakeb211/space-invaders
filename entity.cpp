@@ -41,7 +41,7 @@ void Entity::move(Vec2 offset) {
 // the collision system
 // ----------------------------------------
 Vec2 Entity::getCenter() const {
-    return Vec2(pos.x - origin.x, pos.y - origin.y); 
+    return Vec2(pos.x - origin.x, pos.y + origin.y); 
 }
 //-----------------------------------------
 // Reset Origin: avg of min+max x and y
@@ -57,8 +57,8 @@ void Entity::resetOrigin() {
     }
     auto minmax_x = minmax_element(x_coords.begin(), x_coords.end());
     auto minmax_y = minmax_element(y_coords.begin(), y_coords.end());
-    origin.x = (*minmax_x.second + *minmax_x.first) / 2.f;
-    origin.y = (*minmax_y.first + *minmax_y.second) / 2.f;
+    origin.x = (*minmax_x.second - *minmax_x.first) / 2.f;
+    origin.y = (*minmax_y.first - *minmax_y.second) / 2.f;
 }
 //-----------------------------------------
 // Return the voxel vector  
