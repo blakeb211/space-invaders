@@ -39,7 +39,7 @@ void Entity::move(Vec2 offset) {
 // Return the pos + the origin = center 
 // ----------------------------------------
 Vec2 Entity::getCenter() const {
-    return pos + origin;
+    return Vec2(pos.x - origin.x, pos.y - 0.5*origin.y); 
 }
 //-----------------------------------------
 // Reset Origin: avg of min+max x and y
@@ -55,8 +55,8 @@ void Entity::resetOrigin() {
     }
     auto minmax_x = minmax_element(x_coords.begin(), x_coords.end());
     auto minmax_y = minmax_element(y_coords.begin(), y_coords.end());
-    origin.x = (*minmax_x.first + *minmax_x.second) / 2;
-    origin.y = (*minmax_y.first + *minmax_y.second) / 2;
+    origin.x = abs(*minmax_x.second - *minmax_x.first) / 2;
+    origin.y = abs(*minmax_y.second - *minmax_y.first) / 2;
 }
 //-----------------------------------------
 // Return the voxel vector  
@@ -132,7 +132,7 @@ void Bullet::collideWith(EntityType et, unsigned int ivox) {
 B1::B1(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
     Builder::build_B1(vox);
     resetOrigin();
-    vox.emplace_back(origin.x, origin.y, Color::Blue);
+    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
     Entity::setVoxelHealth(*this, 1);
 }
@@ -140,14 +140,14 @@ B1::B1(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
 B2::B2(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
     Builder::build_B2(vox);
     resetOrigin();
-    vox.emplace_back(origin.x, origin.y, Color::Blue);
+    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
     Entity::setVoxelHealth(*this, 1);
 }
 B3::B3(Vec2 pos) : Bullet({0.f,-G::kBulletSpeed}) {
     Builder::build_B3(vox);
     resetOrigin();
-    vox.emplace_back(origin.x, origin.y, Color::Blue);
+    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
     // set bullet 3 voxel health
 }
@@ -157,7 +157,7 @@ Player::Player(Vec2 pos) : mTimerMax{100.f}, mTimer{0.f}, mCanShoot{false}  {
     o_type = EntityType::Player;
     Builder::build_player(vox);
     resetOrigin();
-    vox.emplace_back(origin.x, origin.y, Color::Blue);
+    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
     Entity::setVoxelHealth(*this, 5);
 }
@@ -214,7 +214,7 @@ void Enemy::collideWith(EntityType et, unsigned int ivox) {
 E1::E1(Vec2 pos) : Enemy() {
     Builder::build_E1(vox);
     resetOrigin();
-    vox.emplace_back(origin.x, origin.y, Color::Blue);
+    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
     Entity::setVoxelHealth(*this, 2);
 }
@@ -222,7 +222,7 @@ E1::E1(Vec2 pos) : Enemy() {
 E2::E2(Vec2 pos) : Enemy() {
     Builder::build_E2(vox);
     resetOrigin();
-    vox.emplace_back(origin.x, origin.y, Color::Blue);
+    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
     Entity::setVoxelHealth(*this, 2);
     //set all voxels to a fixed health value
@@ -231,7 +231,7 @@ E2::E2(Vec2 pos) : Enemy() {
 E3::E3(Vec2 pos) : Enemy() {
     Builder::build_E3(vox);
     resetOrigin();
-    vox.emplace_back(origin.x, origin.y, Color::Blue);
+    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
     Entity::setVoxelHealth(*this, 4);
     //set all voxels to a fixed health value
@@ -240,7 +240,7 @@ E3::E3(Vec2 pos) : Enemy() {
 E4::E4(Vec2 pos) : Enemy() {
     Builder::build_E4(vox);
     resetOrigin();
-    vox.emplace_back(origin.x, origin.y, Color::Blue);
+    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     setPos(pos);
     Entity::setVoxelHealth(*this, 4);
     //set all voxels to a fixed health value
@@ -251,7 +251,8 @@ Wall1::Wall1(Vec2 start, Vec2 end) {
     o_type = EntityType::Wall1;
     Builder::build_wall1(start, end, vox);
     resetOrigin();
-    vox.emplace_back(origin.x, origin.y, Color::Blue);
+    setPos(pos);
+    vox.emplace_back(getCenter().x, getCenter().y, Color::Blue);
     // This is a bouncy wall so health == nullopt
     Entity::setVoxelHealth(*this, nullopt);
 }
