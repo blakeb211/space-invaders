@@ -35,7 +35,11 @@ struct Entity {
   //-----------------------------------------
   // Return position of entity as a whole
   // ----------------------------------------
-  Vec2& getPos(); 
+  Vec2 getPos() const; 
+  //-----------------------------------------
+  // Return center of entity as whole
+  // ----------------------------------------
+  Vec2 getCenter() const; 
   //-----------------------------------------
   // Move all voxels by an offset
   // ----------------------------------------
@@ -68,6 +72,7 @@ struct Entity {
   Vec2 vel;
   Vec2 dvel;
   Vec2 pos; // overall position of entity
+  Vec2 origin; // add this to pos when returning the center of the entity
   // is there a way to make this const and make a copy constructor?
   size_t id; 
   private:

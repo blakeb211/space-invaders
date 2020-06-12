@@ -26,7 +26,7 @@ void Entity::setPos(Vec2 pos) {
 //-----------------------------------------
 // Return position of entity as a whole
 // ----------------------------------------
-Vec2& Entity::getPos() { return pos; }
+Vec2 Entity::getPos() const { return pos; }
 //-----------------------------------------
 // Move all voxels by an offset
 // ----------------------------------------
@@ -34,6 +34,12 @@ void Entity::move(Vec2 offset) {
   this->pos += offset;
   for(auto &v : vox) { 
     v.move(offset); }
+}
+//-----------------------------------------
+// Return the pos + the origin = center 
+// ----------------------------------------
+Vec2 Entity::getCenter() const {
+    return pos + origin;
 }
 //-----------------------------------------
 // Return the voxel vector  
