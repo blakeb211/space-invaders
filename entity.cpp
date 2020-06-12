@@ -37,9 +37,11 @@ void Entity::move(Vec2 offset) {
 }
 //-----------------------------------------
 // Return the pos + the origin = center 
+// This fxn is only used for prefiltering
+// the collision system
 // ----------------------------------------
 Vec2 Entity::getCenter() const {
-    return Vec2(pos.x - origin.x, pos.y - 0.5*origin.y); 
+    return Vec2(pos.x - origin.x, pos.y - origin.y); 
 }
 //-----------------------------------------
 // Reset Origin: avg of min+max x and y
@@ -51,12 +53,12 @@ void Entity::resetOrigin() {
     for(auto const &v : vox) {
         pos = v.getPosition();
         x_coords.insert(pos.x);
-        y_coords.insert(pos.x);
+        y_coords.insert(pos.y);
     }
     auto minmax_x = minmax_element(x_coords.begin(), x_coords.end());
     auto minmax_y = minmax_element(y_coords.begin(), y_coords.end());
-    origin.x = abs(*minmax_x.second - *minmax_x.first) / 2;
-    origin.y = abs(*minmax_y.second - *minmax_y.first) / 2;
+    origin.x = (*minmax_x.second + *minmax_x.first) / 2.f;
+    origin.y = (*minmax_y.first + *minmax_y.second) / 2.f;
 }
 //-----------------------------------------
 // Return the voxel vector  
