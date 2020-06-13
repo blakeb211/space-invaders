@@ -1,4 +1,4 @@
-Coding Guidelines
+
   { } uniform initialization to prevent narrowing conversions 
   dont use auto with {}
   in class initialization with braces
@@ -9,14 +9,18 @@ Coding Guidelines
 Framework
   use SFML 
 
+
+TODO: maybe add more realistic explosion effects, a quadtree, and some forces
+that aren't simple vector addition and subtractions, enemies shoot together
+well, raycasting, enemy AI, smoke,
+interfaces in the code, level editor improvements
+
+
 Collision Detection
   sfml AABB
             generate list of unique entity pairs 
                 n(n-1) / 2 unique pairs 
             give each entity a typeid
-            *** refactor update collideWith to take the position of the voxel they
-            ***Want entities to get knocked back from collisions
-            *** make walls out of individual wall entities
             **fix wall builder
 
             1. use a spatial data structure
