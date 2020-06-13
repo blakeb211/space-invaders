@@ -275,7 +275,8 @@ void Wall1::update(FrameTime ftStep) {
 }
 
 void Wall1::collideWith(Entity& e, unsigned int ivox, Vec2 voxPos) {
-    vox[ivox].setFillColor(sf::Color::Green);
+    auto currColor = vox[ivox].getFillColor();
+    vox[ivox].setFillColor(currColor - Color(30,0,0,0));
     // this is a bouncy wall for bullets
 }
 

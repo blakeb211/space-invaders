@@ -44,10 +44,3 @@ void CollisionManager::CheckCollisionsForThisFrame() {
         entRef[i]->eraseDeadVoxel();
     }
 }
-
-void CollisionManager::HandleCollisionsForThisFrame() {
-    // loop over voxels
-    // check voxel-voxel collisions for each entity pair
-    // handle voxel-voxel collisions
-    // each entity can have it's own collideWith(o_type) method that gets called from here
-} 
