@@ -1,10 +1,11 @@
-#include "voxel.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 
-#include "globals.h"
 #include "stdlibs.h"
+// stdlibs must come before voxel
+#include "globals.h"
+#include "voxel.h"
 using namespace std;
 using namespace sf;
 
